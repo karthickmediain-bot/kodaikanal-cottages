@@ -26,8 +26,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=hdr3" />
   <link rel="stylesheet" href="css/hotels.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/stays.css?v=5" />
 
   <script type="application/ld+json">
   {
@@ -132,7 +135,7 @@
   }
   </script>
 </head>
-<body class="gs-page">
+<body class="gs-page st-t-group">
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <div id="site-header" data-include="partials/header.html"></div>
@@ -141,7 +144,7 @@
 
     <section class="gs-hero" id="hero" data-section-label="Hero">
       <div class="gs-hero-media">
-        <img src="images/destinations/destination-kodai-lake.webp" alt="Kodai Lake at sunrise, Kodaikanal" width="1600" height="1000" />
+        <img src="images/scenery/hero-group-stay.webp" alt="Large cottage with a garden lawn at a Kodaikanal group stay" width="1600" height="1000" />
       </div>
       <div class="container gs-hero-inner">
         <div class="gs-hero-copy" data-reveal>
@@ -174,6 +177,14 @@
             <div class="hero-search-value">
               <label for="gs-guests">Guests</label>
               <input type="number" id="gs-guests" name="guests" min="1" placeholder="25 Guests" inputmode="numeric" />
+            </div>
+          </div>
+          <div class="hero-search-divider" aria-hidden="true"></div>
+          <div class="hero-search-field">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <div class="hero-search-value">
+              <label for="gs-phone">Phone number</label>
+              <input type="tel" id="gs-phone" name="phone" placeholder="10-digit mobile" inputmode="tel" autocomplete="tel" pattern="[0-9+\s\-]{10,15}" title="Enter a valid phone number" required />
             </div>
           </div>
           <button class="hero-search-submit" type="submit">
@@ -278,27 +289,27 @@
 
         <div class="package-grid">
           <article class="package-card">
-            <img src="images/packages/package-couples-retreat.webp" alt="Simple cottage breakfast setup for the stay and breakfast group package" width="350" height="200" loading="lazy" />
+            <img src="images/group-stay/group-stay-breakfast.webp" alt="Group stay cottage in a pine forest, stay and breakfast package at ₹550 per person" width="1280" height="720" loading="lazy" />
             <div class="package-body">
-              <p class="package-price">&#8377;370 <span>/ person</span></p>
+              <p class="package-price">From &#8377;550 <span>/ person</span></p>
               <h3>Group Stay &mdash; Stay &amp; Breakfast</h3>
               <p>A comfortable cottage room and breakfast, priced per person for groups splitting costs evenly.</p>
               <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20the%20Group%20Stay%20%E2%80%94%20Stay%20%26%20Breakfast%20package%20in%20Kodaikanal" target="_blank" rel="noopener">Enquire</a>
             </div>
           </article>
           <article class="package-card">
-            <img src="images/packages/package-family-holiday.webp" alt="Group cottage dinner setup for the stay, breakfast and dinner package" width="350" height="200" loading="lazy" />
+            <img src="images/group-stay/group-stay-dinner.webp" alt="Friends sharing a dinner on a cottage balcony, stay, breakfast and dinner package at ₹850 per person" width="1280" height="720" loading="lazy" />
             <div class="package-body">
-              <p class="package-price">&#8377;555 <span>/ person</span></p>
+              <p class="package-price">From &#8377;850 <span>/ person</span></p>
               <h3>Group Stay &mdash; Stay, Breakfast &amp; Dinner</h3>
               <p>Same cottage comfort, with dinner added so the group isn't hunting for a restaurant afterward.</p>
               <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20the%20Group%20Stay%20%E2%80%94%20Stay%2C%20Breakfast%20%26%20Dinner%20package%20in%20Kodaikanal" target="_blank" rel="noopener">Enquire</a>
             </div>
           </article>
           <article class="package-card">
-            <img src="images/packages/package-corporate-offsite.webp" alt="Upgraded cottage common room for the higher-comfort group stay tier" width="350" height="200" loading="lazy" />
+            <img src="images/group-stay/group-stay-comfort.webp" alt="Group relaxing by the fireplace in a higher-comfort cottage, ₹1,450 per person" width="1280" height="720" loading="lazy" />
             <div class="package-body">
-              <p class="package-price">&#8377;777 <span>/ person</span></p>
+              <p class="package-price">From &#8377;1,450 <span>/ person</span></p>
               <h3>Group Stay &mdash; Higher-Comfort Tier</h3>
               <p>More room and better finishes, without moving into full private-villa territory.</p>
               <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20the%20Group%20Stay%20%E2%80%94%20Higher-Comfort%20Tier%20package%20in%20Kodaikanal" target="_blank" rel="noopener">Enquire</a>
@@ -350,17 +361,17 @@
         <div class="gs-tab-panels" data-reveal>
           <div class="gs-tab-panel is-active" data-tab-panel="nature">
             <div class="gs-exp-card">
-              <img src="images/destinations/destination-kodai-lake.webp" alt="Kodai Lake" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/kodai-lake-boat-house.webp" alt="Kodai Lake" width="300" height="375" loading="lazy" />
               <div class="gs-exp-name-strip"><h3>Kodai Lake</h3></div>
               <div class="gs-exp-panel"><h3>Kodai Lake</h3><p>Rent a few pedal boats together — an easy group activity right in town.</p></div>
             </div>
             <div class="gs-exp-card">
-              <img src="images/destinations/destination-coakers-walk.webp" alt="Coaker's Walk" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/coakers-walk-path.webp" alt="Coaker's Walk" width="300" height="375" loading="lazy" />
               <div class="gs-exp-name-strip"><h3>Coaker's Walk</h3></div>
               <div class="gs-exp-panel"><h3>Coaker's Walk</h3><p>Wide enough for a large group to walk together comfortably, with valley views for the group photo.</p></div>
             </div>
             <div class="gs-exp-card">
-              <img src="images/destinations/destination-bryant-park.webp" alt="Bryant Park" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/bryant-park-entrance.webp" alt="Bryant Park" width="300" height="375" loading="lazy" />
               <div class="gs-exp-name-strip"><h3>Bryant Park</h3></div>
               <div class="gs-exp-panel"><h3>Bryant Park</h3><p>A relaxed group stop that works for mixed-age groups, from grandparents to kids.</p></div>
             </div>
@@ -368,17 +379,17 @@
 
           <div class="gs-tab-panel" data-tab-panel="team">
             <div class="gs-exp-card">
-              <img src="images/properties/happy-points-cottage.webp" alt="Lawn games at a group stay cottage in Kodaikanal" width="300" height="375" loading="lazy" />
+              <img src="images/interiors/garden-play-area.webp" alt="Lawn games at a group stay cottage in Kodaikanal" width="300" height="375" loading="lazy" />
               <div class="gs-exp-name-strip"><h3>Lawn Games</h3></div>
               <div class="gs-exp-panel"><h3>Lawn Games</h3><p>Several group properties have outdoor space for cricket, badminton or simple team games.</p></div>
             </div>
             <div class="gs-exp-card">
-              <img src="images/properties/stone-crest-cottage.webp" alt="Group activity space at a Kodaikanal cottage" width="300" height="375" loading="lazy" />
+              <img src="images/interiors/indoor-game-lounge.webp" alt="Indoor game lounge at a Kodaikanal group stay" width="300" height="375" loading="lazy" />
               <div class="gs-exp-name-strip"><h3>Common Room Activities</h3></div>
               <div class="gs-exp-panel"><h3>Common Room Activities</h3><p>Board games, team-building sessions or a corporate briefing all fit in the shared common area.</p></div>
             </div>
             <div class="gs-exp-card">
-              <img src="images/properties/kodai-outdoor-valley.webp" alt="Trekking group heading out from Kodaikanal" width="300" height="375" loading="lazy" />
+              <img src="images/local/trekking-group-forest.webp" alt="Trekking group heading out from Kodaikanal" width="300" height="375" loading="lazy" />
               <div class="gs-exp-name-strip"><h3>Group Trekking</h3></div>
               <div class="gs-exp-panel"><h3>Group Trekking</h3><p>Guided treks can be arranged for the whole group through local operators — ask us to connect you.</p></div>
             </div>
@@ -386,17 +397,17 @@
 
           <div class="gs-tab-panel" data-tab-panel="evening">
             <div class="gs-exp-card">
-              <img src="images/properties/green-hill-resort.webp" alt="Bonfire evening at a group stay property in Kodaikanal" width="300" height="375" loading="lazy" />
+              <img src="images/interiors/campfire-evening.webp" alt="Bonfire evening at a group stay property in Kodaikanal" width="300" height="375" loading="lazy" />
               <div class="gs-exp-name-strip"><h3>Bonfire Nights</h3></div>
               <div class="gs-exp-panel"><h3>Bonfire Nights</h3><p>Several group properties can set up an evening bonfire on request — a college trip favorite.</p></div>
             </div>
             <div class="gs-exp-card">
-              <img src="images/properties/happy-points-cottage.webp" alt="Group dinner at a Kodaikanal cottage" width="300" height="375" loading="lazy" />
+              <img src="images/interiors/dining-table-red-chairs.webp" alt="Dining table set for a group at a Kodaikanal cottage" width="300" height="375" loading="lazy" />
               <div class="gs-exp-name-strip"><h3>Group Dinners</h3></div>
               <div class="gs-exp-panel"><h3>Group Dinners</h3><p>Shared kitchens or arranged catering make a full-group dinner easy to organize.</p></div>
             </div>
             <div class="gs-exp-card">
-              <img src="images/destinations/destination-kodai-lake.webp" alt="Evening lake walk for groups in Kodaikanal" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/kodai-lake-pedal-boat.webp" alt="Evening lake walk for groups in Kodaikanal" width="300" height="375" loading="lazy" />
               <div class="gs-exp-name-strip"><h3>Evening Lake Walk</h3></div>
               <div class="gs-exp-panel"><h3>Evening Lake Walk</h3><p>A well-lit, easy group walk after dinner, close to most listed properties.</p></div>
             </div>
@@ -404,17 +415,17 @@
 
           <div class="gs-tab-panel" data-tab-panel="food">
             <div class="gs-exp-card">
-              <img src="images/properties/pleasant-homestay.webp" alt="Local South Indian breakfast spot" width="300" height="375" loading="lazy" />
+              <img src="images/local/town-street-stalls.webp" alt="Local South Indian breakfast spot" width="300" height="375" loading="lazy" />
               <div class="gs-exp-name-strip"><h3>South Indian Breakfast</h3></div>
               <div class="gs-exp-panel"><h3>Local South Indian Breakfast</h3><p>Large-group breakfast spreads can be arranged at several nearby spots.</p></div>
             </div>
             <div class="gs-exp-card">
-              <img src="images/properties/sri-sai-cottage.webp" alt="Tibetan food stalls near the town market" width="300" height="375" loading="lazy" />
+              <img src="images/local/market-walk-crowd.webp" alt="Tibetan food stalls near the town market" width="300" height="375" loading="lazy" />
               <div class="gs-exp-name-strip"><h3>Tibetan Market Bites</h3></div>
               <div class="gs-exp-panel"><h3>Tibetan Market Bites</h3><p>A fun group food-crawl stop between sightseeing and check-in.</p></div>
             </div>
             <div class="gs-exp-card">
-              <img src="images/properties/olive-tree-cottage.webp" alt="Local jams and honey shops" width="300" height="375" loading="lazy" />
+              <img src="images/local/honey-jam-shop.webp" alt="Local jams and honey shops" width="300" height="375" loading="lazy" />
               <div class="gs-exp-name-strip"><h3>Homemade Preserves &amp; Honey</h3></div>
               <div class="gs-exp-panel"><h3>Homemade Preserves &amp; Honey</h3><p>Good group souvenir shopping before heading back.</p></div>
             </div>
@@ -444,7 +455,7 @@
                 <li>Bryant Park &amp; Pillar Rocks</li>
               </ul>
               <p>A tight loop built for groups working with just one free day between check-in and check-out.</p>
-              <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%201-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
+              <a class="btn btn-outline" href="kodaikanal-1-day-tour-package.html">Get Package Details</a>
             </div>
           </article>
 
@@ -461,7 +472,7 @@
                 <li>Group stay built into the route</li>
               </ul>
               <p>Enough time for the group to see the main trails without a long, drawn-out itinerary.</p>
-              <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%202-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
+              <a class="btn btn-outline" href="kodaikanal-2-day-tour-package.html">Get Package Details</a>
             </div>
           </article>
 
@@ -478,7 +489,7 @@
                 <li>Two nights group stay included</li>
               </ul>
               <p>The standard for college trips and reunions turning the visit into a full multi-day getaway.</p>
-              <a class="btn btn-primary" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%203-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
+              <a class="btn btn-primary" href="kodaikanal-3-day-tour-package.html">Get Package Details</a>
             </div>
           </article>
         </div>
@@ -656,6 +667,37 @@
         </div>
       </div>
     </section>
+    <section class="bg-alt" id="why-choose-us" data-section-label="Why Us">
+      <div class="container wcu wcu--group">
+        <div class="section-heading" data-reveal>
+          <h2>Why Book Your Kodaikanal Group Stay With Cottages Kodaikanal</h2>
+          <p>No vague marketing lines — just how we run group bookings from first quote to check-in.</p>
+        </div>
+        <div class="wcu-grid">
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+            <h3>One Quote, Whole Group</h3>
+            <p>No juggling five separate bookings — we quote the entire group as one, so costs and room assignments are clear upfront.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <h3>Group Coordinator on Call</h3>
+            <p>Big groups have more moving parts. One person on our end stays reachable for the whole trip, not a rotating support queue.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m20 6-11 11-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>Verified Capacity</h3>
+            <p>Room counts and guest capacity are checked in person by our team, not estimated. What you're quoted is what you'll get.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M12 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>12 Years Coordinating Groups</h3>
+            <p>We've coordinated college trips, reunions and offsites in Kodaikanal for over a decade — that experience shows up in how smoothly check-in goes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ================================================================
          FAQ — same accordion design as the homepage
          ================================================================ -->
@@ -740,62 +782,6 @@
               <p>For groups over 30 guests, 3 to 4 weeks ahead gives the most options, especially around peak season weekends. Smaller groups can often be confirmed on shorter notice.</p>
             </div>
           </details>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="bg-alt" id="why-choose-us" data-section-label="Why Us">
-      <div class="container">
-        <div class="section-heading" data-reveal>
-          <h2>Why Book Your Kodaikanal Group Stay With Cottages Kodaikanal</h2>
-          <p>Hover or tap a card to see what backs each promise.</p>
-        </div>
-        <div class="gs-flip-grid">
-          <div class="gs-flip-card" data-reveal>
-            <div class="gs-flip-inner">
-              <div class="gs-flip-face gs-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-                <span>One Quote, Whole Group</span>
-              </div>
-              <div class="gs-flip-face gs-flip-back">
-                <p>No juggling five separate bookings — we quote the entire group as one, so costs and room assignments are clear upfront.</p>
-              </div>
-            </div>
-          </div>
-          <div class="gs-flip-card" data-reveal>
-            <div class="gs-flip-inner">
-              <div class="gs-flip-face gs-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-                <span>Group Coordinator on Call</span>
-              </div>
-              <div class="gs-flip-face gs-flip-back">
-                <p>Big groups have more moving parts. One person on our end stays reachable for the whole trip, not a rotating support queue.</p>
-              </div>
-            </div>
-          </div>
-          <div class="gs-flip-card" data-reveal>
-            <div class="gs-flip-inner">
-              <div class="gs-flip-face gs-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m20 6-11 11-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Verified Capacity</span>
-              </div>
-              <div class="gs-flip-face gs-flip-back">
-                <p>Room counts and guest capacity are checked in person by our team, not estimated. What you're quoted is what you'll get.</p>
-              </div>
-            </div>
-          </div>
-          <div class="gs-flip-card" data-reveal>
-            <div class="gs-flip-inner">
-              <div class="gs-flip-face gs-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M12 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>12 Years Coordinating Groups</span>
-              </div>
-              <div class="gs-flip-face gs-flip-back">
-                <p>We've coordinated college trips, reunions and offsites in Kodaikanal for over a decade — that experience shows up in how smoothly check-in goes.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

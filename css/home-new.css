@@ -1,0 +1,1878 @@
+/* ==========================================================================
+   Home — "Popular packages" (hp-) and "Real videos" reel strip (hr-)
+   Sits directly under the hero. Uses the site tokens from styles.css.
+   ========================================================================== */
+
+.hp, .hr { --hp-ink: #0f2a33; --hp-line: #d6e6ea; position: relative; }
+
+.hp-eyebrow {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-steel);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Popular packages ---------- */
+.hp { background: linear-gradient(180deg, #f2fafc 0%, #fff 100%); padding-block: 64px 56px; }
+.hp .section-heading { margin-bottom: 40px; }
+.hp .section-heading h2 { color: var(--hp-ink); }
+
+.hp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.hp-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--hp-line);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 220ms var(--ease-premium), box-shadow 220ms var(--ease-premium);
+}
+.hp-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.hp-photo { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--color-steel); }
+.hp-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 500ms var(--ease-premium); }
+.hp-card:hover .hp-photo img { transform: scale(1.05); }
+.hp-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(8, 30, 38, 0.55)); }
+
+.hp-nights {
+  position: absolute; left: 12px; bottom: 12px; z-index: 1;
+  padding: 5px 11px; border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.94); color: var(--color-primary);
+  font-size: 0.78rem; font-weight: 600;
+}
+
+.hp-body { display: flex; flex-direction: column; flex: 1; padding: 18px 18px 20px; }
+.hp-stay { margin: 0 0 4px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary-light); }
+.hp-body h3 { margin: 0 0 12px; font-size: 1.05rem; line-height: 1.3; color: var(--hp-ink); }
+
+.hp-incl { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.hp-incl li { display: flex; align-items: center; gap: 9px; font-size: 0.88rem; color: var(--color-text); }
+.hp-incl svg { width: 18px; height: 18px; flex-shrink: 0; fill: none; stroke: var(--color-primary-light); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.hp-incl li.is-off { color: #9aa8ab; }
+.hp-incl li.is-off svg { stroke: #b9c5c8; }
+
+.hp-foot { margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--hp-line); }
+.hp-price { margin: 0 0 12px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 6px; line-height: 1.2; }
+.hp-price small { font-size: 0.75rem; color: var(--color-text-muted); width: 100%; }
+.hp-price strong { font-size: 1.55rem; font-weight: 700; color: var(--hp-ink); letter-spacing: -0.01em; }
+.hp-price span { width: 100%; font-size: 0.8rem; color: var(--color-text-muted); }
+.hp-foot .btn { width: 100%; }
+
+/* Combo card — the headline offer, so it is visibly bigger/darker */
+.hp-card.is-combo {
+  background: linear-gradient(160deg, #145066 0%, #0b3140 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 18px 40px rgba(20, 80, 102, 0.28);
+  transform: translateY(-10px);
+}
+.hp-card.is-combo:hover { transform: translateY(-14px); }
+.hp-card.is-combo .hp-stay { color: var(--color-highlight); }
+.hp-card.is-combo h3, .hp-card.is-combo .hp-price strong { color: #fff; }
+.hp-card.is-combo .hp-incl li { color: rgba(255, 255, 255, 0.92); }
+.hp-card.is-combo .hp-incl svg { stroke: var(--color-highlight); }
+.hp-card.is-combo .hp-price small, .hp-card.is-combo .hp-price span { color: rgba(255, 255, 255, 0.7); }
+.hp-card.is-combo .hp-foot { border-top-color: rgba(255, 255, 255, 0.22); }
+.hp-card.is-combo .btn-primary { background: var(--color-highlight); color: #07303d; }
+.hp-card.is-combo .btn-primary:hover { background: #fff; }
+
+.hp-ribbon {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  padding: 6px 12px; border-radius: var(--radius-pill);
+  background: var(--color-highlight); color: #07303d;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.hp-save { margin: 0 0 10px; font-size: 0.8rem; font-weight: 600; color: var(--color-highlight); }
+
+.hp-note { margin: 26px 0 0; text-align: center; font-size: 0.85rem; color: var(--color-text-muted); }
+
+/* ---------- Real videos ---------- */
+.hr { background: #0b2630; color: #fff; padding-block: 64px 60px; overflow: hidden; }
+.hr .hp-eyebrow { background: rgba(77, 217, 255, 0.16); color: var(--color-highlight); }
+.hr .section-heading { margin-bottom: 30px; }
+.hr .section-heading h2 { color: #fff; }
+.hr .section-heading p { color: rgba(255, 255, 255, 0.72); }
+
+.hr-rail-wrap { position: relative; }
+.hr-rail {
+  display: flex; gap: 16px;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: 20px;
+  padding: 4px 20px 18px;
+  scrollbar-width: none;
+}
+.hr-rail::-webkit-scrollbar { display: none; }
+
+.hr-item { flex: 0 0 min(236px, 62vw); scroll-snap-align: start; display: flex; flex-direction: column; gap: 12px; }
+
+.hr-frame {
+  position: relative; aspect-ratio: 9 / 16;
+  border-radius: 20px; overflow: hidden;
+  background: #16404f center / cover no-repeat;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+.hr-frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.hr-frame::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, transparent 28%, transparent 58%, rgba(0, 0, 0, 0.7) 100%); }
+
+.hr-tag {
+  position: absolute; z-index: 2; left: 12px; top: 12px;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px; border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.18); backdrop-filter: blur(6px);
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em;
+}
+.hr-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #ff5a4e; box-shadow: 0 0 0 0 rgba(255, 90, 78, 0.7); animation: hr-pulse 1.8s infinite; }
+@keyframes hr-pulse { 70% { box-shadow: 0 0 0 7px rgba(255, 90, 78, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 90, 78, 0); } }
+
+.hr-cap { color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.5); position: absolute; z-index: 2; left: 14px; right: 56px; bottom: 14px; margin: 0; font-size: 0.95rem; font-weight: 600; line-height: 1.3; }
+
+.hr-sound {
+  position: absolute; z-index: 3; right: 10px; bottom: 10px;
+  width: 40px; height: 40px; border: 0; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer;
+  background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(6px); color: #fff;
+  transition: background 160ms;
+}
+.hr-sound:hover, .hr-sound:focus-visible { background: rgba(0, 0, 0, 0.75); }
+.hr-sound:focus-visible { outline: 2px solid var(--color-highlight); outline-offset: 2px; }
+.hr-sound svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.hr-sound .i-on { display: none; }
+.hr-sound[aria-pressed="true"] .i-on { display: block; }
+.hr-sound[aria-pressed="true"] .i-off { display: none; }
+.hr-frame:not(.has-video) .hr-sound { display: none; }
+
+.hr-book { width: 100%; min-height: 40px; padding-inline: 14px; font-size: 0.85rem; background: var(--color-highlight); color: #07303d; border-color: transparent; }
+.hr-book:hover { background: #fff; color: #07303d; }
+
+.hr-nav { display: none; }
+@media (min-width: 900px) {
+  .hr-nav {
+    display: grid; place-items: center; position: absolute; top: 40%; z-index: 4;
+    width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer;
+    background: #fff; color: var(--color-primary); box-shadow: var(--shadow-md);
+  }
+  .hr-nav:disabled { opacity: 0; pointer-events: none; }
+  .hr-nav svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .hr-nav.prev { left: 8px; }
+  .hr-nav.next { right: 8px; }
+  .hr-rail { padding-inline: max(20px, calc((100vw - var(--max-width)) / 2 + 20px)); scroll-padding-inline: max(20px, calc((100vw - var(--max-width)) / 2 + 20px)); }
+  .hr-item { flex-basis: 240px; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .hp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hp-card.is-combo { transform: none; }
+  .hp-card.is-combo:hover { transform: translateY(-4px); }
+}
+@media (max-width: 640px) {
+  .hp { padding-block: 44px 40px; }
+  .hr { padding-block: 44px 40px; }
+  .hp-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .hp-photo { aspect-ratio: 16 / 9; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hp-card, .hp-photo img { transition: none; }
+  .hr-tag::before { animation: none; }
+}
+
+/* "Real clip" label only appears once an actual video has loaded */
+.hr-frame:not(.has-video) .hr-tag { display: none; }
+
+/* ==========================================================================
+   Hero — photo-led layout: serif headline + script tagline over the lake
+   photo, original search card (tabs + one-row fields) straddling the bottom
+   ========================================================================== */
+.hero { padding-block: 84px var(--space-7); background: #0b2630; }
+.hero::before { background: url("../images/scenery/hero-kodaikanal-lake.webp") 70% center / cover no-repeat; }
+.hero::after {
+  background:
+    linear-gradient(90deg, rgba(5, 40, 56, 0.82) 0%, rgba(8, 52, 68, 0.55) 34%, rgba(8, 52, 68, 0.08) 62%, transparent 100%),
+    linear-gradient(180deg, rgba(5, 30, 42, 0.25) 0%, transparent 25%, transparent 70%, rgba(5, 30, 42, 0.45) 100%);
+}
+.hero .container.hero-content { max-width: 1240px; text-align: left; text-shadow: none; padding-inline: var(--space-5); margin-inline: auto; }
+.hero-content > * { max-width: 620px; }
+
+.hero p.eyebrow {
+  display: flex; align-items: center; gap: 18px;
+  margin: 0 0 14px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.42em;
+  color: var(--color-highlight);
+}
+.hero p.eyebrow::after { content: ""; width: 96px; height: 1px; background: var(--color-highlight); }
+
+.hero h1 {
+  margin: 0; font-family: "Poppins", "Segoe UI", system-ui, sans-serif; font-weight: 600;
+  font-size: clamp(2.9rem, 6.4vw, 5.4rem); line-height: 1.02; letter-spacing: -0.01em;
+  color: #fff; text-shadow: 0 2px 22px rgba(0, 0, 0, 0.28);
+}
+.hero h1 .hero-h1-name { display: block; }
+.hero h1 .word-gradient { background: linear-gradient(90deg, #7fe7ff, #19b6dc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-script {
+  display: block; margin: 4px 0 0 4px;
+  font-family: "Poppins", "Segoe UI", system-ui, sans-serif; font-weight: 400;
+  font-size: clamp(2rem, 3.6vw, 3.1rem); line-height: 1.1; letter-spacing: 0.01em;
+  color: #d9a65a; text-shadow: none;
+}
+
+.hero .hero-subhead {
+  margin: 20px 0 0; max-width: 34ch; text-align: left;
+  font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.55; font-weight: 400; color: #fff;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+}
+
+.hero .hero-cta-group { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin: 28px 0 0; }
+.hero-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 14px;
+  min-height: 54px; padding: 0 32px; border-radius: var(--radius-pill);
+  font-weight: 500; font-size: 1rem; text-decoration: none;
+  transition: background 200ms var(--ease-premium), transform 200ms var(--ease-premium);
+}
+.hero-btn svg { width: 22px; height: 22px; }
+.hero-btn-primary { background: #5fdcfb; color: #06303d; }
+.hero-btn-primary:hover { background: #fff; transform: translateY(-2px); }
+.hero-watch { display: inline-flex; align-items: center; gap: 14px; color: #fff; text-decoration: none; font-weight: 500; font-size: 1rem; }
+.hero-watch-icon { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.55); background: rgba(0, 0, 0, 0.18); backdrop-filter: blur(4px); transition: background 200ms; }
+.hero-watch-icon svg { width: 22px; height: 22px; margin-left: 3px; }
+.hero-watch:hover .hero-watch-icon { background: rgba(255, 255, 255, 0.25); }
+
+.hero-feats { list-style: none; display: flex; flex-wrap: wrap; align-items: center; margin: 34px 0 0; padding: 0; max-width: none; }
+.hero-feats li { display: flex; align-items: center; gap: 12px; padding-inline: 22px; font-size: 0.88rem; line-height: 1.35; color: #fff; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4); }
+.hero-feats li:first-child { padding-left: 0; }
+.hero-feats li + li { border-left: 1px solid rgba(255, 255, 255, 0.4); }
+.hero-feats svg { width: 38px; height: 38px; color: #5fdcfb; flex-shrink: 0; }
+
+/* Phone field joins the one-row search bar */
+.hero-search-field:has(input[type="tel"]) { flex-basis: 170px; }
+
+@media (max-width: 900px) {
+  .hero { padding-block: 72px var(--space-6); }
+  .hero::before { background-position: 62% center; }
+  .hero::after { background: linear-gradient(180deg, rgba(5, 40, 56, 0.78) 0%, rgba(8, 52, 68, 0.55) 60%, rgba(5, 30, 42, 0.7) 100%); }
+  .hero-content > * { max-width: none; }
+}
+@media (max-width: 640px) {
+  .hero p.eyebrow { letter-spacing: 0.28em; font-size: 0.72rem; }
+  .hero p.eyebrow::after { width: 48px; }
+  .hero .hero-cta-group { gap: 18px; }
+  .hero-feats { margin-top: 30px; gap: 14px 0; }
+  .hero-feats li { padding-inline: 14px; font-size: 0.8rem; }
+  .hero-feats svg { width: 30px; height: 30px; }
+}
+
+/* ==========================================================================
+   Fit the hero to the viewport (below the 84px header) on every screen.
+   Type and spacing scale with viewport height; content may only grow past
+   the viewport on extremely short windows.
+   ========================================================================== */
+.hero {
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100svh - var(--header-height));
+  display: flex; flex-direction: column;
+  padding-block: clamp(20px, 4vh, 56px) clamp(16px, 3vh, 36px);
+}
+.hero .container.hero-content { flex: 1; display: flex; flex-direction: column; justify-content: center; width: 100%; }
+.hero .hero-search-wrap { margin: clamp(14px, 3vh, 32px) 0 0; transform: none; padding-bottom: 0; width: 100%; }
+.hero h1 { font-size: clamp(2.3rem, min(6.4vw, 9.5vh), 5.4rem); }
+.hero-script { font-size: clamp(1.6rem, min(3.6vw, 5.2vh), 3.1rem); }
+.hero .hero-subhead { margin-top: clamp(10px, 2vh, 20px); font-size: clamp(0.92rem, min(1.4vw, 2.3vh), 1.2rem); }
+.hero .hero-cta-group { margin-top: clamp(14px, 3vh, 28px); }
+.hero-btn { min-height: clamp(44px, 6.4vh, 54px); }
+.hero-watch-icon { width: clamp(44px, 6.4vh, 54px); height: clamp(44px, 6.4vh, 54px); }
+.hero-feats { margin-top: clamp(16px, 4.5vh, 40px); }
+.hero p.eyebrow { margin-bottom: clamp(8px, 1.6vh, 14px); }
+
+@media (max-height: 640px) { .hero-feats { display: none; } }
+@media (max-width: 640px) {
+  .hero-feats { display: none; }
+  .hero { padding-top: 18px; }
+  .hero h1 { font-size: clamp(2.1rem, min(11vw, 7.6vh), 3rem); }
+  .hero .hero-cta-group { flex-wrap: nowrap; gap: 14px; }
+  .hero-btn { padding: 0 20px; font-size: 0.92rem; }
+  .hero .hero-search-wrap { margin-top: 14px; padding-inline: 16px; }
+  .hero-category-btn { padding: 6px 10px 8px; }
+  .hero-search { padding: 8px 12px 12px; gap: 6px; }
+  .hero-search-field { flex: 1 1 calc(50% - 6px); padding-inline: 6px; }
+  .hero-search-field:has(input[type="tel"]) { flex-basis: calc(50% - 6px); }
+  .hero-search-value input { font-size: 0.85rem; }
+  .hero-search-submit { height: 42px; }
+}
+
+@media (max-height: 800px) { .hero-feats { display: none; } }
+@media (max-height: 800px) { .hero h1 { font-size: clamp(2rem, min(6.4vw, 8.4vh), 5.4rem); } }
+@media (max-height: 640px) {
+  .hero .hero-subhead { display: none; }
+  .hero h1 { font-size: clamp(1.9rem, min(6vw, 8vh), 3.6rem); }
+}
+@media (max-height: 600px) {
+  .hero p.eyebrow { display: none; }
+  .hero-script { margin-top: 0; }
+  .hero .hero-cta-group { margin-top: 10px; }
+  .hero-category-tabs { padding-top: 6px; }
+  .hero-category-btn svg { width: 18px; height: 18px; }
+}
+
+@media (max-width: 640px) {
+  .hero-btn, .hero-watch { white-space: nowrap; }
+  .hero-btn { padding: 0 16px; gap: 8px; }
+  .hero .hero-cta-group { gap: 10px; }
+  .hero-watch { gap: 8px; font-size: 0.9rem; }
+}
+
+/* ---- Round 3: keep the girl visible + Search on the same row ---- */
+.hero .hero-search-wrap { margin-inline: auto; }
+.hero .hero-booking-card { max-width: 940px; margin-inline: 0; }
+.hero .hero-search-field { flex: 1 1 140px; }
+.hero .hero-search-field:has(input[type="tel"]) { flex-basis: 140px; }
+.hero .hero-search-submit { padding-inline: 22px; }
+
+/* Desktop: photo sits in the right ~68% so the girl lands to the right of the
+   search card instead of behind it; the left edge fades into the teal base */
+@media (min-width: 901px) {
+  .hero::before {
+    inset: 0 0 0 32%;
+    background-position: left center;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 34%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 34%);
+  }
+  .hero::after {
+    background:
+      linear-gradient(90deg, rgba(5, 40, 56, 0.55) 0%, rgba(8, 52, 68, 0.2) 40%, transparent 70%),
+      linear-gradient(180deg, rgba(5, 30, 42, 0.2) 0%, transparent 25%, transparent 75%, rgba(5, 30, 42, 0.4) 100%);
+  }
+  .hero { background: linear-gradient(100deg, #082c3a 0%, #0d3c4d 45%, #1a4a5a 100%); }
+}
+
+/* Tablet / phone: photo fills the top, the girl stays above the form */
+@media (max-width: 900px) {
+  .hero::before { inset: 0; -webkit-mask-image: none; mask-image: none; background-size: auto 62%; background-position: 70% 0; background-repeat: no-repeat; }
+  .hero { background: linear-gradient(180deg, #0b2630 55%, #082c3a 100%); }
+  .hero::after { background: linear-gradient(180deg, rgba(5, 40, 56, 0.72) 0%, rgba(8, 52, 68, 0.35) 35%, rgba(11, 38, 48, 0.2) 55%, #0b2630 80%); }
+}
+
+/* Round 3b: lift the photo so the girl sits fully above the form */
+@media (min-width: 901px) {
+  .hero::before {
+    inset: -22% 0 22% 32%;
+    background-size: cover;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 34%), linear-gradient(180deg, #000 78%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 34%), linear-gradient(180deg, #000 78%, transparent 100%);
+    -webkit-mask-composite: source-in; mask-composite: intersect;
+  }
+}
+@media (max-width: 900px) {
+  .hero::before { background-position: 25% 6%; }
+}
+@media (max-width: 640px) {
+  .hero h1, .hero .hero-subhead { max-width: 64%; }
+}
+
+/* ---- Round 4: full-width photo like the mockup, form centred ---- */
+@media (min-width: 901px) {
+  .hero {
+    --hh: calc(100svh - var(--header-height));
+    --ih: max(var(--hh), 56.3vw);
+    background: #0a2733;
+  }
+  /* Photo spans the full width; it is lifted just enough that the girl sits
+     above the (centred) search card, and the bottom blends into teal */
+  .hero::before {
+    inset: 0;
+    -webkit-mask-image: none; mask-image: none;
+    background-size: auto var(--ih);
+    background-position: center min(0px, calc(var(--hh) - 215px - 0.9 * var(--ih)));
+  }
+  .hero::after {
+    background:
+      linear-gradient(180deg, transparent calc(100% - 330px), #0a2733 calc(100% - 140px)),
+      linear-gradient(90deg, rgba(4, 52, 72, 0.88) 0%, rgba(6, 60, 80, 0.62) 28%, rgba(6, 60, 80, 0.18) 52%, transparent 70%),
+      linear-gradient(180deg, rgba(4, 40, 58, 0.45) 0%, transparent 30%);
+  }
+  .hero .container.hero-content { max-width: none; padding-inline: clamp(32px, 6vw, 120px); }
+  .hero .hero-booking-card { margin-inline: auto; }
+  .hero p.eyebrow { font-weight: 400; color: #8fe6ff; letter-spacing: 0.5em; }
+  .hero p.eyebrow::after { background: #8fe6ff; opacity: 0.7; }
+  .hero h1 { font-weight: 600; font-size: clamp(2.4rem, min(7vw, 9.6vh), 6.4rem); line-height: 1; }
+  .hero-script { font-size: clamp(1.8rem, min(4.2vw, 5.6vh), 3.8rem); margin-top: 6px; }
+  .hero .hero-subhead { max-width: 30ch; }
+  .hero-feats svg { color: #6fe0fb; }
+}
+
+/* ---- Round 5: match the mockup's brighter photo + teal-green left wash ---- */
+@media (min-width: 901px) {
+  .hero::after {
+    background:
+      linear-gradient(180deg, transparent calc(100% - 330px), #0a2733 calc(100% - 140px)),
+      linear-gradient(90deg, rgba(3, 74, 92, 0.9) 0%, rgba(5, 84, 100, 0.6) 26%, rgba(6, 90, 108, 0.2) 48%, transparent 64%),
+      linear-gradient(180deg, rgba(3, 60, 84, 0.3) 0%, transparent 22%);
+  }
+  .hero::before { filter: saturate(1.12) brightness(1.08); }
+}
+
+/* ---- Round 6: search form hidden for now; hero matches the mockup ----
+   (markup + main.js hooks are untouched — delete the next rule to bring it back) */
+
+.hero { background: #0a2733; }
+.hero::before {
+  inset: 0; -webkit-mask-image: none; mask-image: none;
+  background-size: cover; background-repeat: no-repeat; background-position: 55% 60%;
+  filter: saturate(1.1) brightness(1.06);
+}
+.hero::after {
+  background:
+    linear-gradient(90deg, rgba(3, 74, 92, 0.9) 0%, rgba(5, 84, 100, 0.6) 26%, rgba(6, 90, 108, 0.18) 50%, transparent 66%),
+    linear-gradient(180deg, rgba(3, 60, 84, 0.28) 0%, transparent 22%),
+    linear-gradient(0deg, rgba(3, 40, 56, 0.45) 0%, transparent 30%);
+}
+.hero .container.hero-content { justify-content: flex-start; padding-top: clamp(24px, 9vh, 110px); padding-bottom: clamp(14px, 3vh, 40px); }
+.hero .container.hero-content > .hero-feats { margin-top: auto; }
+.hero-feats { display: flex !important; }
+.hero .hero-subhead { display: block !important; }
+@media (max-height: 560px) { .hero-feats { display: none !important; } }
+@media (max-width: 900px) {
+  .hero::before { background-size: cover; background-position: 62% center; }
+  .hero { background: #0a2733; }
+  .hero::after { background: linear-gradient(180deg, rgba(5, 40, 56, 0.7) 0%, rgba(8, 52, 68, 0.4) 50%, rgba(5, 30, 42, 0.65) 100%); }
+}
+@media (max-width: 640px) {
+  .hero h1, .hero .hero-subhead { max-width: 72%; }
+  .hero-feats { flex-wrap: nowrap; }
+}
+@media (max-width: 640px) {
+  .hero-feats { flex-wrap: wrap; row-gap: 10px; }
+  .hero-feats li { padding-inline: 10px; gap: 8px; font-size: 0.74rem; }
+  .hero-feats li:first-child { padding-left: 0; }
+  .hero-feats svg { width: 24px; height: 24px; }
+}
+
+/* ---- Round 7: text block sized to the mockup (larger type, wider column) ---- */
+@media (min-width: 901px) {
+  .hero .container.hero-content { padding-inline: 5.9vw; }
+  .hero-content > * { max-width: 62vw; }
+  .hero h1 { font-size: clamp(2.6rem, min(7.7vw, 12.6vh), 8.6rem); }
+  .hero-script { font-size: clamp(2rem, min(5vw, 8.4vh), 5.4rem); margin: 0; letter-spacing: 0.03em; }
+  .hero .hero-subhead { max-width: 32ch; margin-top: clamp(12px, 2.4vh, 26px); font-size: clamp(1rem, min(1.4vw, 2.9vh), 1.55rem); line-height: 1.5; }
+  .hero-btn { padding: 0 clamp(28px, 2.4vw, 40px); font-size: clamp(1rem, 1.15vw, 1.2rem); min-height: clamp(48px, 7vh, 66px); }
+  .hero-watch { font-size: clamp(1rem, 1.15vw, 1.2rem); }
+  .hero-watch-icon { width: clamp(48px, 7vh, 66px); height: clamp(48px, 7vh, 66px); }
+  .hero-feats li { font-size: clamp(0.88rem, 1vw, 1.05rem); }
+  .hero-feats svg { width: clamp(38px, 2.6vw, 48px); height: clamp(38px, 2.6vw, 48px); }
+}
+
+/* ---- Round 7: search form back, as a card on the right of the hero ---- */
+@media (min-width: 901px) {
+  .hero { position: relative; }
+  .hero .hero-search-wrap {
+    display: block; position: absolute; z-index: 5;
+    right: clamp(24px, 5vw, 96px); top: 50%; transform: translateY(-50%);
+    width: 400px; max-width: calc(100% - 48px); margin: 0; padding: 0;
+  }
+  .hero .hero-booking-card { max-width: none; margin: 0; border-radius: 20px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38); }
+  .hero .hero-category-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 14px 14px 4px; overflow: visible; }
+  .hero .hero-category-btn { padding: 7px 2px 6px; gap: 3px; border: 1px solid var(--color-border); border-radius: 10px; background: #f6fbfc; font-size: 0.7rem; }
+  .hero .hero-category-btn svg { width: 18px; height: 18px; }
+  .hero .hero-category-btn.is-active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+  .hero .hero-search { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px 14px 14px; border-top: 0; }
+  .hero .hero-search-divider { display: none; }
+  .hero .hero-search-field { flex: none; padding: 7px 10px; gap: 8px; border: 1px solid var(--color-border); border-radius: 10px; }
+  .hero .hero-search-field, .hero .hero-search-field:has(input[type="tel"]) { min-width: 0; }
+  .hero .hero-search-value input { font-size: 0.8rem; }
+  .hero .hero-search-submit { grid-column: 1 / -1; width: 100%; height: 44px; border-radius: 10px; }
+  /* keep the text column clear of the card */
+  .hero .container.hero-content { padding-right: calc(400px + clamp(24px, 5vw, 96px) + 24px); }
+}
+@media (min-width: 901px) and (max-height: 700px) {
+  .hero .hero-category-btn span { font-size: 0.66rem; }
+  .hero .hero-category-btn svg { display: none; }
+  .hero .hero-search-field svg { display: none; }
+}
+@media (max-width: 900px) {
+  .hero .hero-search-wrap { display: block; }
+  .hero-feats { display: none !important; }
+}
+
+/* ---- Round 8: original one-row bar restored, floating across the hero / next-section seam ---- */
+.hero { --card-h: 168px; overflow: visible; min-height: calc(100svh - var(--header-height) - var(--card-h) / 2); }
+.hero::before, .hero::after { /* keep the photo clipped to the hero box */ }
+.hero .hero-search-wrap {
+  display: block; position: absolute; z-index: 6;
+  left: 0; right: 0; bottom: 0; top: auto; width: auto; max-width: none;
+  transform: translateY(50%); margin: 0; padding: 0 var(--space-5);
+}
+.hero .hero-booking-card { max-width: 960px; margin-inline: auto; border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(5, 30, 42, 0.32); }
+.hp { padding-top: calc(var(--card-h) / 2 + 56px); }
+
+@media (min-width: 901px) {
+  .hero .container.hero-content { padding-right: clamp(32px, 6vw, 120px); padding-bottom: clamp(14px, 3vh, 40px); }
+  .hero .hero-category-tabs { display: flex; justify-content: space-between; gap: var(--space-2); padding: var(--space-3) var(--space-4) 0; overflow-x: auto; }
+  .hero .hero-category-btn { padding: var(--space-2) var(--space-3) var(--space-3); gap: var(--space-1); border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: transparent; font-size: 0.75rem; color: var(--color-text-muted); }
+  .hero .hero-category-btn svg { display: block; width: 22px; height: 22px; }
+  .hero .hero-category-btn.is-active { background: transparent; color: var(--color-accent); border-color: var(--color-accent); }
+  .hero .hero-search { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-4); border-top: 1px solid var(--color-border); }
+  .hero .hero-search-divider { display: block; }
+  .hero .hero-search-field { flex: 1 1 140px; padding: 0 var(--space-2); border: 0; border-radius: 0; gap: var(--space-2); }
+  .hero .hero-search-field svg { display: block; width: 22px; height: 22px; }
+  .hero .hero-search-value input { font-size: 0.9rem; }
+  .hero .hero-search-submit { grid-column: auto; width: auto; height: 48px; padding-inline: 22px; border-radius: var(--radius-md); }
+}
+@media (max-width: 900px) {
+  .hero { --card-h: 340px; }
+}
+@media (max-width: 640px) {
+  .hero { --card-h: 330px; }
+  .hero .hero-search-wrap { padding-inline: 16px; }
+}
+.hero .container.hero-content { padding-bottom: calc(var(--card-h) / 2 + 20px) !important; }
+@media (max-width: 900px) { .hero { --card-h: 215px; } }
+@media (max-width: 640px) { .hero { --card-h: 215px; } }
+@media (min-width: 901px) and (max-height: 720px) {
+  .hero-feats { display: none !important; }
+  .hero .container.hero-content { padding-top: 16px; }
+  .hero p.eyebrow { display: none; }
+}
+@media (min-width: 901px) and (max-height: 620px) {
+  .hero .hero-subhead { display: none !important; }
+}
+
+/* ---- Round 9: form sits INSIDE the hero, bottom-left under the buttons (reference placement) ---- */
+.hero { min-height: calc(100svh - var(--header-height)); }
+.hero .container.hero-content { padding-bottom: 0 !important; }
+.hero .hero-search-wrap {
+  position: static; transform: none; width: 100%; max-width: none; margin: clamp(14px, 3vh, 30px) 0 clamp(18px, 4vh, 44px);
+  padding-inline: clamp(32px, 6vw, 120px);
+}
+.hero .hero-booking-card { max-width: 720px; margin-inline: 0; box-shadow: 0 18px 44px rgba(5, 30, 42, 0.35); }
+.hp { padding-top: 64px; }
+@media (min-width: 901px) {
+  .hero .hero-search { gap: 6px; padding: 12px 16px; }
+  .hero .hero-search-field { flex: 1 1 100px; padding: 0 6px; gap: 6px; min-width: 0; }
+  .hero .hero-search-field svg { width: 18px; height: 18px; }
+  .hero .hero-search-value input { font-size: 0.8rem; }
+  .hero .hero-search-submit { padding-inline: 18px; height: 44px; }
+  .hero .hero-category-tabs { padding: 10px 14px 0; }
+}
+@media (max-width: 900px) {
+  .hero .hero-search-wrap { padding-inline: var(--space-5); }
+  .hero .hero-booking-card { max-width: 560px; }
+}
+@media (max-width: 640px) {
+  .hero .hero-search-wrap { padding-inline: 16px; }
+  .hp { padding-top: 44px; }
+}
+
+/* Shift the photo right so the girl clears the form column */
+@media (min-width: 901px) {
+  .hero::before {
+    inset: 0 0 0 18%; background-size: cover; background-position: 55% 55%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 30%); mask-image: linear-gradient(90deg, transparent 0, #000 30%);
+  }
+  .hero { background: linear-gradient(100deg, #064a5c 0%, #0a3a4b 40%, #0a2733 100%); }
+}
+
+/* ---- Round 10: new hero photo (hiker on the right) + brand-teal tone ---- */
+.hero::before {
+  background-image: url("../images/scenery/hero-kodaikanal-hiker.webp");
+  inset: 0; -webkit-mask-image: none; mask-image: none;
+  background-size: cover; background-repeat: no-repeat; background-position: 70% 60%;
+  filter: saturate(0.95) brightness(0.98);
+}
+.hero { background: #0a3445; }
+.hero::after {
+  background:
+    linear-gradient(90deg, rgba(4, 58, 78, 0.92) 0%, rgba(5, 70, 92, 0.72) 30%, rgba(8, 84, 106, 0.25) 56%, transparent 74%),
+    linear-gradient(180deg, rgba(4, 52, 72, 0.15) 0%, transparent 24%),
+    linear-gradient(0deg, rgba(4, 44, 60, 0.55) 0%, transparent 34%);
+}
+@media (max-width: 900px) {
+  .hero::before { background-position: 80% center; }
+  .hero::after { background: linear-gradient(180deg, rgba(4, 58, 78, 0.8) 0%, rgba(6, 72, 94, 0.5) 50%, rgba(4, 44, 60, 0.75) 100%); }
+}
+
+/* ---- Round 11: smaller H1, mockup-style white→cyan gradient, paragraph always shown ---- */
+.hero h1 { font-size: clamp(2rem, min(5.2vw, 8vh), 4.4rem) !important; line-height: 1.04; }
+.hero-script { font-size: clamp(1.5rem, min(3vw, 4.8vh), 2.7rem) !important; }
+.hero h1 .hero-h1-name {
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 42%, #7fe6ff 66%, #22c3ee 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+  text-shadow: none; filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.25)); width: fit-content;
+}
+.hero h1 .word-gradient { background: none; -webkit-text-fill-color: transparent; color: transparent; }
+.hero .hero-subhead {
+  display: block !important; max-width: 36ch; margin-top: clamp(8px, 1.6vh, 16px);
+  font-size: clamp(0.92rem, min(1.25vw, 2.3vh), 1.1rem); line-height: 1.55; color: rgba(255, 255, 255, 0.92);
+}
+
+/* ---- Round 12: original SEO H1 + paragraph restored, tighter text→form gap ---- */
+.hero { justify-content: center; }
+.hero .container.hero-content { flex: none; padding-top: clamp(8px, 2vh, 24px) !important; }
+.hero-content > * { max-width: 700px; }
+.hero h1 { font-size: clamp(1.9rem, min(4vw, 7vh), 3.4rem) !important; line-height: 1.12; font-weight: 600; }
+.hero h1 .hero-h1-line { display: block; white-space: normal; font-size: 1em; font-weight: 600; color: #fff; margin: 0; opacity: 1; letter-spacing: -0.005em; }
+.hero h1 .hero-h1-gradient {
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 38%, #7fe6ff 68%, #22c3ee 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; width: fit-content;
+}
+.hero h1 .word-gradient { background: none; -webkit-text-fill-color: transparent; color: transparent; }
+.hero .hero-subhead { max-width: 56ch; font-size: clamp(0.9rem, min(1.2vw, 2.2vh), 1.05rem); margin-top: clamp(8px, 1.6vh, 14px); }
+.hero-feats { margin-top: clamp(12px, 2.4vh, 22px) !important; }
+.hero .hero-search-wrap { margin-top: clamp(12px, 2.4vh, 22px); margin-bottom: 0; }
+.hero { padding-bottom: clamp(16px, 4vh, 44px); }
+@media (min-width: 901px) {
+  .hero-content > h1 { max-width: 940px; }
+  .hero h1 { font-size: clamp(1.9rem, min(3.3vw, 6.2vh), 3.1rem) !important; }
+}
+
+/* ---- Round 13: gold script line back (decorative, outside the H1) ---- */
+.hero p.hero-script { margin: 2px 0 0 2px; font-size: clamp(1.5rem, min(3vw, 5vh), 2.6rem) !important; line-height: 1.1; color: #d9a65a; }
+
+/* ---- Round 14: text styling matched to the mockup (wording unchanged) ---- */
+.hero p.eyebrow { font-weight: 400; font-size: clamp(0.72rem, 1vw, 0.85rem); letter-spacing: 0.55em; color: #7ae4fb; }
+.hero p.eyebrow::after { width: clamp(60px, 7vw, 100px); background: #7ae4fb; opacity: 0.75; }
+
+.hero h1 { font-weight: 700 !important; letter-spacing: -0.012em; line-height: 1.04 !important; text-shadow: 0 3px 24px rgba(0, 20, 30, 0.35); }
+.hero h1 .hero-h1-line { font-weight: 700; }
+.hero h1 .hero-h1-gradient {
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 46%, #8cecff 64%, #3fd0f2 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+  text-shadow: none; filter: drop-shadow(0 3px 14px rgba(0, 20, 30, 0.3));
+}
+
+.hero p.hero-script {
+  margin: 4px 0 0 2px;
+  font-size: clamp(1.8rem, min(3.9vw, 6.4vh), 3.3rem) !important;
+  line-height: 1.05; letter-spacing: 0.01em; color: #d4a45e; text-shadow: 0 2px 14px rgba(0, 20, 30, 0.35);
+}
+
+.hero .hero-subhead {
+  font-size: clamp(0.95rem, min(1.4vw, 2.5vh), 1.2rem) !important; line-height: 1.6; font-weight: 400; color: #fff;
+  max-width: 50ch; text-shadow: 0 1px 12px rgba(0, 20, 30, 0.45);
+}
+.hero .hero-subhead { max-width: 60ch; }
+@media (min-width: 901px) and (min-height: 560px) { .hero p.eyebrow { display: flex !important; } }
+.hero p.eyebrow { letter-spacing: 0.4em; gap: 16px; }
+
+/* ---- Round 15: short keyword H1 — "Best Cottages in Kodaikanal" ---- */
+.hero .hero-content > h1 { font-size: clamp(2.5rem, min(6vw, 10vh), 5.2rem) !important; line-height: 1.02 !important; }
+.hero h1 .hero-h1-gradient { background: linear-gradient(90deg, #ffffff 0%, #ffffff 34%, #8cecff 62%, #3fd0f2 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+@media (max-width: 640px) { .hero .hero-content > h1 { font-size: clamp(2.2rem, min(11vw, 7.6vh), 3rem) !important; } }
+
+/* H1 slightly smaller */
+.hero .hero-content > h1 { font-size: clamp(2.1rem, min(4.7vw, 8vh), 4.1rem) !important; }
+@media (max-width: 640px) { .hero .hero-content > h1 { font-size: clamp(1.9rem, min(9.4vw, 6.6vh), 2.6rem) !important; } }
+.hero p.hero-script { margin-top: clamp(8px, 1.8vh, 16px); }
+.hero h1 .hero-h1-gradient { padding-bottom: 0.14em; }
+.hero p.hero-script { margin-top: clamp(14px, 2.6vh, 26px) !important; line-height: 1.25 !important; position: relative; z-index: 0; }
+
+/* Even package cards: same-height rows, no raised combo card, one-line titles/items */
+.hp-card.is-combo { transform: none; }
+.hp-card.is-combo:hover { transform: translateY(-4px); }
+.hp-body h3 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 14px; }
+.hp-incl li { min-height: 24px; white-space: nowrap; }
+.hp-incl { margin-bottom: 18px; }
+
+/* Combo card uses the same dark teal as the "Everything Your Kodaikanal Trip Needs" band */
+.hp-card.is-combo { background: var(--color-primary-dark); box-shadow: 0 18px 40px rgba(16, 62, 78, 0.3); }
+.hp-card.is-combo .hp-stay, .hp-card.is-combo .hp-incl svg { color: var(--color-highlight); }
+.hp-card.is-combo .hp-incl svg { stroke: var(--color-highlight); }
+.hp-card.is-combo .hp-incl li { color: #fff; }
+.hp-card.is-combo .hp-price small, .hp-card.is-combo .hp-price span { color: #cfeef2; }
+.hp-card.is-combo .hp-foot { border-top-color: rgba(255, 255, 255, 0.15); }
+.hp-card.is-combo .btn-primary { background: var(--color-highlight); color: var(--color-primary-dark); }
+.hp-card.is-combo .btn-primary:hover { background: #fff; }
+.hp-card.is-combo .hp-ribbon { background: var(--color-highlight); color: var(--color-primary-dark); }
+
+/* ---- Blue→navy gradient across every dark band on the home page ---- */
+:root { --home-dark-grad: linear-gradient(160deg, #145066 0%, #0b3140 100%); }
+.services-hub, .testimonials, .final-cta, .hr, .hp-card.is-combo { background: var(--home-dark-grad); }
+.hp-card.is-combo { box-shadow: 0 18px 40px rgba(20, 80, 102, 0.28); }
+
+/* "Budget Cottages … Lowest Price?" band: smooth gradient + soft cyan glow instead of the hard two-tone split */
+.seasonal-offers {
+  background:
+    radial-gradient(ellipse 60% 70% at 88% 8%, rgba(77, 217, 255, 0.22) 0%, transparent 60%),
+    var(--home-dark-grad);
+}
+.seasonal-offers .offer-card { background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14); backdrop-filter: blur(6px); }
+
+/* Reviews + final CTA: same gradient family with a soft cyan glow, glass cards */
+.testimonials {
+  background:
+    radial-gradient(ellipse 55% 60% at 10% 0%, rgba(77, 217, 255, 0.18) 0%, transparent 62%),
+    var(--home-dark-grad);
+}
+.testimonial-slide { background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.16); backdrop-filter: blur(6px); }
+.testimonial-slide .quote-mark { color: var(--color-highlight); }
+
+.final-cta {
+  background:
+    radial-gradient(ellipse 50% 80% at 92% 100%, rgba(77, 217, 255, 0.24) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 6% 0%, rgba(77, 217, 255, 0.10) 0%, transparent 60%),
+    var(--home-dark-grad);
+}
+.testimonial-meta .stars { color: var(--color-star); letter-spacing: 2px; }
+.testimonial-meta .avatar { background: var(--color-highlight); color: var(--color-primary-dark); }
+.dot[aria-selected="true"]::before { background: var(--color-highlight); }
+.dot::before { background: rgba(255, 255, 255, 0.35); }
+.final-cta h2 { color: #fff; }
+
+/* ==========================================================================
+   Match the rest of the page to the hero: serif section headings, thin
+   spaced eyebrows, same cyan accent
+   ========================================================================== */
+.hp-eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 0; background: none; border-radius: 0;
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--color-primary-light);
+}
+.hp-eyebrow::before, .hp-eyebrow::after { content: ""; width: 38px; height: 1px; background: currentColor; opacity: 0.6; }
+.hr .hp-eyebrow { background: none; color: #7ae4fb; }
+
+/* ---- Hero search: keep the full dd-mm-yyyy date visible ---- */
+.hero .hero-search-value input[type="date"] {
+  font-size: 0.82rem;
+  letter-spacing: -0.01em;
+}
+.hero .hero-search-value input[type="date"]::-webkit-calendar-picker-indicator {
+  margin: 0 0 0 2px;
+  padding: 0;
+  width: 14px;
+}
+.hero .hero-search-field:has(input[type="date"]) { flex-basis: 165px; }
+
+/* ==========================================================================
+   Round 16: light hero matched to the new mockup — white/pale-blue canvas,
+   navy headline with blue accent line, photo on the right fading into white,
+   tabbed search card, three icon-chip features underneath
+   ========================================================================== */
+.hero {
+  --hero-blue: #1d6ae5; --hero-blue-dark: #1558c4; --hero-navy: #0b1b3a; --hero-muted: #3d4b66;
+  background: linear-gradient(120deg, #eef5ff 0%, #ffffff 55%);
+}
+.hero::before {
+  inset: 0 0 0 40%; background-size: cover; background-position: 82% 40%;
+  filter: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 30%); mask-image: linear-gradient(90deg, transparent 0, #000 30%);
+}
+.hero::after { background: linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0) 24%); }
+.hero h1, .hero h1 .hero-h1-line { font-family: inherit; font-weight: 800 !important; letter-spacing: -0.02em; }
+
+.hero p.eyebrow { color: var(--hero-blue); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.hero p.eyebrow::after { display: none; }
+.hero h1, .hero h1 .hero-h1-line { color: var(--hero-navy); text-shadow: none; }
+.hero h1 .hero-h1-gradient {
+  background: none; filter: none; -webkit-background-clip: border-box; background-clip: border-box;
+  -webkit-text-fill-color: var(--hero-blue); color: var(--hero-blue);
+}
+.hero p.hero-script { display: none; }
+.hero .hero-subhead { color: var(--hero-muted); text-shadow: none; max-width: 36ch; }
+
+/* tabs + panel */
+.hero .hero-booking-card { background: transparent; box-shadow: none; overflow: visible; border-radius: 0; }
+.hero .hero-category-tabs { padding: 0; gap: 8px; justify-content: flex-start; }
+.hero .hero-category-btn {
+  flex-direction: row; gap: 8px; padding: 12px 14px; font-size: 0.86rem; font-weight: 600; white-space: nowrap;
+  color: var(--hero-navy); background: rgba(255, 255, 255, 0.78); backdrop-filter: blur(6px);
+  border: 1px solid #e3e9f3; border-bottom: 0; border-radius: 14px 14px 0 0;
+}
+.hero .hero-category-btn svg { width: 18px; height: 18px; }
+.hero .hero-category-btn:hover { color: var(--hero-blue); }
+.hero .hero-category-btn.is-active { background: #fff; color: var(--hero-blue); border-color: #fff; }
+.hero .hero-search {
+  background: #fff; border: 0; border-radius: 0 18px 18px 18px; padding: 18px 20px; gap: 12px;
+  box-shadow: 0 18px 50px rgba(20, 50, 100, 0.16);
+}
+.hero .hero-search-divider { display: none; }
+.hero .hero-search-field {
+  flex-direction: row-reverse; justify-content: space-between; min-height: 56px; padding: 8px 14px; gap: 10px;
+  border: 1px solid #e3e9f3; border-radius: 12px; background: #fff;
+}
+.hero .hero-search-field svg { color: #5b6b88; }
+.hero .hero-search-value label { color: #6b7a96; font-size: 0.72rem; font-weight: 500; }
+.hero .hero-search-value input { color: var(--hero-navy); font-weight: 600; }
+.hero .hero-search-submit {
+  height: 56px; padding-inline: 28px; border-radius: 12px; background: var(--hero-blue); color: #fff;
+  box-shadow: 0 8px 20px rgba(29, 106, 229, 0.3);
+}
+.hero .hero-search-submit:hover { background: var(--hero-blue-dark); }
+
+/* feature chips */
+.hero-feats { gap: 12px 48px; }
+.hero-feats li, .hero-feats li:first-child { padding: 0; border: 0; color: var(--hero-navy); text-shadow: none; font-weight: 600; font-size: 0.92rem; }
+.hero-feats li + li { border-left: 0; }
+.hero-feats svg { width: 40px; height: 40px; padding: 9px; border-radius: 12px; color: #fff; background: var(--hero-blue); }
+.hero-feats li:nth-child(2) svg { background: #22a559; }
+.hero-feats li:nth-child(3) svg { background: #f5b820; }
+
+@media (min-width: 901px) {
+  /* order: text → search card → features */
+  .hero .container.hero-content { display: contents; }
+  .hero .container.hero-content > * { margin-left: 5.9vw; }
+  .hero .hero-search-wrap { order: 4; margin: clamp(18px, 3.4vh, 34px) 0 0 5.9vw; padding: 0; width: min(920px, 88vw); }
+  .hero .hero-booking-card { max-width: none; }
+  .hero .hero-search-field, .hero .hero-search-field:has(input[type="date"]), .hero .hero-search-field:has(input[type="tel"]) { flex: 1 1 150px; }
+  .hero .hero-search-submit { flex: none; }
+  .hero-feats { order: 5; margin-top: clamp(18px, 3.4vh, 34px) !important; }
+  .hero .hero-content > h1 { font-size: clamp(2.2rem, min(3.8vw, 7.4vh), 4.2rem) !important; max-width: 52vw; }
+  .hero .hero-subhead { font-size: clamp(1rem, 1.3vw, 1.2rem) !important; }
+}
+@media (max-width: 900px) {
+  .hero { background: #fff; padding-top: 0; }
+  .hero::before { inset: 0 0 auto 0; height: 300px; background-position: 80% 40%; -webkit-mask-image: none; mask-image: none; }
+  .hero::after { inset: 0 0 auto 0; height: 300px; background: linear-gradient(180deg, transparent 45%, #fff 100%); }
+  .hero .container.hero-content { padding-top: 250px !important; }
+  .hero .hero-content > h1, .hero .hero-subhead { max-width: none; }
+  .hero .hero-content > h1 { font-size: clamp(2rem, 9vw, 3rem) !important; }
+  .hero .hero-search-wrap { margin-top: 20px; }
+  .hero .hero-category-btn { padding: 10px 14px; font-size: 0.82rem; }
+  .hero .hero-search { padding: 14px; border-radius: 0 14px 14px 14px; }
+}
+
+/* ---- Round 17: proportions + fades tuned to the mockup ---- */
+@media (min-width: 901px) {
+  .hero { justify-content: flex-start; padding-block: clamp(28px, 7vh, 70px) clamp(28px, 6vh, 60px); }
+  /* photo: right ~68% of the hero, top ~86%, soft fade on the left and bottom edges */
+  .hero::before {
+    inset: 0 0 auto 32%; height: 86%; background-position: 80% 45%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,.35) 14%, #000 38%), linear-gradient(180deg, #000 78%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,.35) 14%, #000 38%), linear-gradient(180deg, #000 78%, transparent 100%);
+    -webkit-mask-composite: source-in; mask-composite: intersect;
+  }
+  .hero::after { background: none; }
+  .hero .container.hero-content > * { margin-left: 4.6vw; }
+  .hero .hero-subhead { max-width: 44ch; }
+  .hero .hero-content > h1 { font-size: clamp(2.2rem, min(4.4vw, 8vh), 4.8rem) !important; max-width: 56vw; }
+  /* card + feature row span the full content width like the mockup */
+  .hero .hero-search-wrap { margin-left: 4.6vw; width: 90.8vw; }
+  .hero-feats { display: grid !important; grid-template-columns: repeat(3, 1fr); width: 90.8vw; padding-left: 24px; margin-top: clamp(20px, 4vh, 40px) !important; }
+}
+
+/* ---- Round 18: spread the hero over the full height, white veil behind the text ---- */
+@media (min-width: 901px) {
+  .hero { padding-block: clamp(36px, 9vh, 90px) clamp(28px, 5vh, 56px); }
+  .hero::before { inset: 0 0 auto 36%; height: 80%; background-position: 78% 45%; }
+  .hero::after { background: linear-gradient(90deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.8) 34%, rgba(255,255,255,0) 58%); }
+  .hero .hero-content > h1 { font-size: clamp(2.2rem, min(4.2vw, 8vh), 4.6rem) !important; }
+  .hero .hero-search-wrap { margin-top: auto; }
+  .hero-feats { margin-top: clamp(22px, 4.5vh, 44px) !important; }
+}
+
+/* keep all hero content above the photo + white veil */
+.hero .container.hero-content > *, .hero .hero-search-wrap { position: relative; z-index: 2; }
+
+/* ---- Round 19: misty-villa hero image (already fades to white on the left); feature row removed ---- */
+.hero-feats { display: none !important; }
+.hero::before {
+  background-image: url("../images/scenery/hero-villa-misty.webp");
+  inset: 0; height: auto; background-size: cover; background-position: right center;
+  -webkit-mask-image: none; mask-image: none;
+}
+.hero::after { background: none; }
+@media (min-width: 901px) {
+  .hero { padding-bottom: clamp(36px, 7vh, 70px); }
+  .hero::before { inset: 0; height: auto; -webkit-mask-image: none; mask-image: none; }
+}
+@media (max-width: 900px) {
+  .hero::before { inset: 0 0 auto 0; height: 300px; background-position: 70% center; }
+  .hero::after { inset: 0 0 auto 0; height: 300px; background: linear-gradient(180deg, transparent 55%, #fff 100%); }
+}
+
+/* shorter search card — stays clear of the floating chat/call buttons */
+@media (min-width: 901px) {
+  .hero .hero-search-wrap { width: min(900px, calc(95.4vw - 140px)); }
+}
+
+/* white fade behind the headline + paragraph so they stay readable over the villa */
+@media (min-width: 901px) {
+  .hero::after { background: linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.88) 30%, rgba(255,255,255,.55) 48%, rgba(255,255,255,0) 64%); }
+}
+
+/* zoomed-out villa: image scaled to ~88% of the hero height, anchored bottom-right, soft top edge */
+@media (min-width: 901px) {
+  .hero::before {
+    background-size: auto 88%; background-position: right bottom;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%); mask-image: linear-gradient(180deg, transparent 0, #000 14%);
+  }
+}
+
+/* ---- Round 20: cliff-villa landscape as the hero photo (full-bleed, white veil on the left keeps the text readable) ---- */
+.hero::before {
+  background-image: url("../images/scenery/hero-cliff-villa.webp");
+  background-size: cover; background-position: 70% center;
+  -webkit-mask-image: none; mask-image: none;
+}
+@media (min-width: 901px) {
+  .hero::after { background: linear-gradient(90deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.85) 28%, rgba(255,255,255,.45) 46%, rgba(255,255,255,0) 62%); }
+}
+
+/* eyebrow removed; headline 10% smaller */
+.hero p.eyebrow { display: none !important; }
+@media (min-width: 901px) {
+  .hero .hero-content > h1 { font-size: clamp(1.98rem, min(3.78vw, 7.2vh), 4.14rem) !important; }
+}
+@media (max-width: 900px) {
+  .hero .hero-content > h1 { font-size: clamp(1.8rem, 8.1vw, 2.7rem) !important; }
+}
+
+/* extra space above the headline */
+.hero .hero-content > h1 { margin-top: clamp(24px, 6vh, 64px); }
+@media (max-width: 900px) { .hero .hero-content > h1 { margin-top: 16px; } }
+
+/* ---- Round 21: twilight retreat hero photo ---- */
+.hero::before { background-image: url("../images/scenery/hero-twilight-retreat.webp"); background-position: 75% center; }
+
+/* ---- Phone view: tabs replaced by a "Stay types" dropdown ---- */
+.hero-staytype-field { display: none; }
+@media (max-width: 900px) {
+  .hero .hero-category-tabs { display: none; }
+  .hero .hero-search { border-radius: 18px; }
+  .hero .hero-staytype-field { display: flex; flex: 1 1 100%; position: relative; }
+  .hero-staytype-field .hero-search-value { flex: 1; }
+  .hero-staytype-field select {
+    width: 100%; padding: 2px 26px 2px 0; border: 0; background: transparent; cursor: pointer;
+    font: inherit; font-size: 0.95rem; font-weight: 600; color: var(--hero-navy, #0b1b3a);
+    -webkit-appearance: none; appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d6ae5' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 0 center; background-size: 18px;
+  }
+  .hero-staytype-field select:focus { outline: none; }
+  .hero-staytype-field:focus-within { border-color: var(--hero-blue, #1d6ae5); box-shadow: 0 0 0 3px rgba(29, 106, 229, 0.15); }
+  .hero-staytype-field select option { font-size: 1rem; font-weight: 500; color: #0b1b3a; background: #fff; padding: 10px; }
+}
+
+/* ---- Phone layout: headline + text on top, photo underneath (fading in from the text), form below ---- */
+@media (max-width: 900px) {
+  .hero { padding-top: 0; }
+  .hero .container.hero-content { order: 1; padding-top: 28px !important; padding-bottom: 0 !important; flex: none; }
+  .hero::before {
+    order: 2; content: ""; position: relative; inset: auto; flex: none; width: 100%; height: 270px; margin-top: -6px;
+    background-position: 72% center; background-size: cover;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 38%, #000 100%); mask-image: linear-gradient(180deg, transparent 0, #000 38%, #000 100%);
+  }
+  .hero::after { display: none; }
+  .hero .hero-search-wrap { order: 3; margin-top: -44px; }
+}
+@media (max-width: 900px) {
+  .hero .hero-content > h1 { margin-top: 0; }
+  .hero .container.hero-content { padding-top: 22px !important; }
+}
+@media (max-width: 900px) { .hero { justify-content: flex-start; } }
+
+/* ---- Phone layout v2: text sits ON the photo (photo fades to white behind it, strongest at the bottom) ---- */
+@media (max-width: 900px) {
+  .hero { position: relative; }
+  .hero::before {
+    order: 0; position: absolute; inset: 0 0 auto 0; width: auto; height: 470px; margin: 0;
+    background-position: 72% bottom; background-size: auto 100%;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.18) 30%, #000 62%); mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.18) 30%, #000 62%);
+  }
+  .hero .container.hero-content { padding-bottom: 190px !important; }
+  .hero .hero-search-wrap { margin-top: -48px; }
+}
+
+/* phone: smaller text so the whole headline block sits inside the photo */
+@media (max-width: 900px) {
+  .hero .hero-content > h1 { font-size: clamp(1.45rem, 6.6vw, 2.1rem) !important; line-height: 1.12 !important; }
+  .hero .hero-subhead { font-size: 0.82rem !important; line-height: 1.5; max-width: 88% !important; margin-top: 8px; }
+  .hero .container.hero-content { padding-top: 18px !important; padding-bottom: 150px !important; }
+  .hero::before {
+    height: 400px; background-position: 70% bottom;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.2) 22%, #000 48%, #000 86%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.2) 22%, #000 48%, #000 86%, transparent 100%);
+  }
+  .hero { min-height: 0; padding-bottom: 28px; }
+}
+@media (max-width: 900px) {
+  .hero .container.hero-content { padding-bottom: 250px !important; }
+  .hero::before { height: 480px; }
+}
+
+/* phone: portrait dawn photo, text sits over its bright sky */
+@media (max-width: 900px) {
+  .hero::before {
+    background-image: url("../images/scenery/hero-mobile-dawn.webp");
+    background-size: cover; background-position: 50% 58%;
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.55) 0, #000 30%, #000 86%, transparent 100%);
+    mask-image: linear-gradient(180deg, rgba(0,0,0,.55) 0, #000 30%, #000 86%, transparent 100%);
+  }
+}
+@media (max-width: 900px) {
+  .hero::before {
+    background-position: 50% 8%;
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.3) 0, rgba(0,0,0,.6) 28%, #000 55%, #000 88%, transparent 100%);
+    mask-image: linear-gradient(180deg, rgba(0,0,0,.3) 0, rgba(0,0,0,.6) 28%, #000 55%, #000 88%, transparent 100%);
+  }
+}
+/* taller photo area so the cabin shows above the form */
+@media (max-width: 900px) {
+  .hero::before { height: 700px; background-position: 50% 14%; }
+  .hero .container.hero-content { padding-bottom: 480px !important; }
+}
+
+/* headline block centred vertically between the nav and the search form */
+@media (min-width: 901px) {
+  .hero .hero-content > h1 { margin-top: auto; }
+  .hero .hero-search-wrap { margin-top: auto; }
+}
+@media (max-width: 900px) {
+  .hero .container.hero-content { padding-top: 215px !important; padding-bottom: 285px !important; }
+}
+@media (min-width: 901px) {
+  .hero .hero-search-wrap { width: min(940px, calc(95.4vw - 140px)); }
+}
+@media (max-width: 900px) {
+  .hero .container.hero-content { padding-top: 175px !important; padding-bottom: 325px !important; }
+  .hero .hero-subhead { max-width: 64% !important; color: #1f2d4a; text-shadow: 0 0 8px rgba(255,255,255,.9), 0 0 16px rgba(255,255,255,.7); }
+}
+/* cropped dawn photo: text moves up onto the open sky, clear of the trees */
+@media (max-width: 900px) {
+  .hero .container.hero-content { padding-top: 100px !important; padding-bottom: 400px !important; }
+}
+
+/* phone: soft mist behind the headline block for readability */
+@media (max-width: 900px) {
+  .hero::after {
+    display: block; content: ""; position: absolute; inset: 40px 0 auto 0; height: 320px; z-index: 1; pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0, rgba(255,255,255,.62) 30%, rgba(255,255,255,.62) 62%, rgba(255,255,255,0) 100%);
+  }
+}
+
+/* hero paragraph: slightly larger + heavier */
+.hero .hero-subhead { font-weight: 500; }
+@media (min-width: 901px) {
+  .hero .hero-subhead { font-size: clamp(1.05rem, 1.45vw, 1.35rem) !important; }
+}
+@media (max-width: 900px) {
+  .hero .hero-subhead { font-size: 0.92rem !important; max-width: 72% !important; }
+}
+
+/* hero content nudged down */
+@media (min-width: 901px) {
+  .hero { padding-top: calc(clamp(36px, 9vh, 90px) + 80px); }
+}
+@media (max-width: 900px) {
+  .hero .container.hero-content { padding-top: 150px !important; padding-bottom: 350px !important; }
+  .hero::after { inset: 90px 0 auto 0; }
+}
+
+/* phone: larger headline (still one line per row at 360px+) */
+@media (max-width: 900px) {
+  .hero .hero-content > h1 { font-size: clamp(1.6rem, 7.4vw, 2.4rem) !important; }
+}
+
+/* desktop: paragraph size/weight and hero spacing restored to the earlier values */
+@media (min-width: 901px) {
+  .hero .hero-subhead { font-size: clamp(1rem, 1.3vw, 1.2rem) !important; font-weight: 400; }
+  .hero { padding-top: clamp(36px, 9vh, 90px); }
+}
+
+/* phone: fade stretched over the full text block (like the desktop veil) */
+@media (max-width: 900px) {
+  .hero::after {
+    inset: 90px 0 auto 0; height: 380px;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0, rgba(255,255,255,.78) 26%, rgba(255,255,255,.78) 66%, rgba(255,255,255,0) 100%);
+  }
+}
+
+/* phone: fade only on the left ~55%, so the villa on the right stays clear */
+@media (max-width: 900px) {
+  .hero::after {
+    -webkit-mask-image: linear-gradient(90deg, #000 0, #000 42%, transparent 62%);
+    mask-image: linear-gradient(90deg, #000 0, #000 42%, transparent 62%);
+  }
+  .hero .hero-content > h1, .hero .hero-subhead { text-shadow: 0 0 10px rgba(255,255,255,.85), 0 0 20px rgba(255,255,255,.6); }
+}
+
+/* headline accent line: teal gradient instead of blue */
+.hero h1 .hero-h1-gradient {
+  background: linear-gradient(90deg, #0b7a8c 0%, #13a5b5 50%, #2cc9d6 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  text-shadow: none; padding-bottom: 0.14em; width: fit-content;
+}
+@media (max-width: 900px) { .hero h1 .hero-h1-gradient { filter: drop-shadow(0 0 8px rgba(255,255,255,.8)); } }
+
+/* ==========================================================================
+   Round 22: desktop hero rebuilt to the "Travorra" mockup — serif headline,
+   curved photo on the right, floating guests card, watch-video disc and a
+   white pill search bar. Phone layout is untouched.
+   ========================================================================== */
+
+@media (min-width: 901px) {
+  .hero {
+    --bar-h: 78px; --art-bottom: calc(56px + var(--bar-h) / 2);
+    background: linear-gradient(120deg, #eaf7fa 0%, #f5fbfd 45%, #ffffff 100%);
+    display: flex; flex-direction: column; justify-content: flex-start;
+    min-height: min(calc(100svh - var(--header-height)), 800px);
+    padding: clamp(40px, 7vh, 72px) 0 56px; overflow: hidden;
+  }
+  .hero::before, .hero::after { display: none; }
+
+  /* curved photo */
+  .hero-art { display: block; position: absolute; z-index: 0; top: 0; right: 0; bottom: var(--art-bottom); width: 56%; pointer-events: none; }
+  .hero-art-photo {
+    position: absolute; inset: 0; display: block;
+    background: url("../images/scenery/hero-twilight-retreat.webp") 78% center / cover no-repeat;
+    border-radius: 46% 0 24% 52% / 58% 0 30% 52%;
+    box-shadow: 0 30px 70px rgba(20, 50, 100, 0.18);
+  }
+
+  /* text column */
+  .hero .container.hero-content > * { margin-left: 6vw; }
+  .hero p.eyebrow {
+    display: flex !important; align-items: center; gap: 14px; margin-bottom: 0;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em; color: #1f5fe0; text-transform: uppercase;
+  }
+  .hero p.eyebrow::after {
+    display: block; content: ""; width: 120px; height: 28px; opacity: 1; margin-left: 4px;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 28' fill='none'%3E%3Cpath d='M2 22C30 22 44 4 72 12s22 2 34-2' stroke='%231f5fe0' stroke-width='1.4' stroke-dasharray='3 4' stroke-linecap='round'/%3E%3Cpath d='m116 8-10 4 3 1 1 4 3-3 3-6Z' fill='%231f5fe0'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-size: contain;
+  }
+  .hero .hero-content > h1 {
+    margin-top: 18px; max-width: 46vw; font-family: "Poppins", "Segoe UI", system-ui, sans-serif; font-weight: 700 !important;
+    font-size: clamp(2.4rem, min(4vw, 7.4vh), 4.4rem) !important; line-height: 1.08 !important; letter-spacing: -0.01em; color: #0c1633;
+  }
+  .hero h1 .hero-h1-line { font-family: inherit; font-weight: 700 !important; letter-spacing: -0.01em; color: #0c1633; }
+  .hero h1 .hero-h1-gradient {
+    font-style: italic; font-weight: 600 !important; padding-bottom: 0.1em;
+    background: linear-gradient(90deg, #0b7a8c 0%, #13a5b5 55%, #2cc9d6 100%); -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .hero .hero-subhead { max-width: 36ch; margin-top: 18px; font-size: clamp(0.95rem, 1.15vw, 1.1rem) !important; line-height: 1.6; color: #5d667c; font-weight: 400; text-shadow: none; }
+  .hero .hero-cta-group { display: flex; margin-top: 26px; }
+  .hero .hero-btn-primary {
+    display: inline-flex; align-items: center; gap: 14px; min-height: 52px; padding: 5px 6px 5px 28px; border-radius: 999px;
+    background: #1f5fe0; color: #fff; font-size: 0.98rem; font-weight: 600; box-shadow: 0 14px 28px rgba(31, 95, 224, 0.3);
+  }
+  .hero .hero-btn-primary:hover { background: #174bb8; }
+  .hero .hero-btn-primary svg { width: 40px; height: 40px; padding: 10px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.55); }
+
+
+
+  /* pill search bar */
+  .hero .hero-search-wrap { margin: auto 0 0 0; width: 100%; padding: 0; display: flex; justify-content: center; }
+  .hero .hero-booking-card { width: min(78vw, 1180px); max-width: none; margin: 0; }
+  .hero .hero-category-tabs { display: none; }
+  .hero .hero-search {
+    flex-wrap: nowrap; align-items: center; gap: 0; min-height: var(--bar-h); padding: 10px 12px 10px 18px;
+    border-radius: 999px; background: #fff; box-shadow: 0 22px 60px rgba(20, 50, 100, 0.16);
+  }
+  .hero .hero-search-divider { display: none; }
+  .hero .hero-search-field, .hero .hero-search-field:has(input[type="date"]), .hero .hero-search-field:has(input[type="tel"]) {
+    flex: 1 1 0; min-width: 0; min-height: 54px; padding: 0 16px; gap: 12px; flex-direction: row; justify-content: flex-start;
+    border: 0; border-radius: 0; background: transparent; border-right: 1px solid #e6ebf4;
+  }
+  .hero .hero-staytype-field { display: flex; flex: 1.15 1 0; }
+  .hero .hero-search-field:nth-last-of-type(1) { border-right: 0; }
+  .hero .hero-search-field > svg { width: 38px; height: 38px; padding: 9px; border-radius: 50%; background: #eaf1ff; color: #1f5fe0; flex-shrink: 0; }
+  .hero .hero-search-value { min-width: 0; }
+  .hero .hero-search-value label { font-size: 0.86rem; font-weight: 600; color: #0c1633; }
+  .hero .hero-search-value input { font-size: 0.78rem; font-weight: 400; color: #7a859c; }
+  .hero .hero-staytype-field select {
+    padding: 0 18px 0 0; width: 100%; border: 0; background-color: transparent; font: inherit; font-size: 0.78rem; font-weight: 400; color: #7a859c;
+    -webkit-appearance: none; appearance: none; cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237a859c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right center; background-size: 14px;
+  }
+  .hero .hero-search-submit { flex: none; height: 54px; margin-left: 12px; padding: 0 26px; border-radius: 999px; background: #1f5fe0; box-shadow: 0 10px 24px rgba(31, 95, 224, 0.35); }
+  .hero .hero-search-submit:hover { background: #174bb8; }
+}
+
+/* Round 22 tuning */
+@media (min-width: 901px) {
+  .hero-art { width: 54%; }
+  .hero-art-photo { border-radius: 40% 0 22% 46% / 48% 0 28% 46%; }
+  .hero .hero-content > h1 { font-size: clamp(2.3rem, min(3.7vw, 7vh), 4.2rem) !important; }
+  .hero .hero-search-field:has(input[type="tel"]) { border-right: 0; }
+}
+@media (max-width: 900px) { }
+
+/* search pill: roomier fields, no wrapping */
+@media (min-width: 901px) {
+  .hero .hero-booking-card { width: min(84vw, 1280px); }
+  .hero .hero-search-value label { white-space: nowrap; }
+  .hero .hero-search-value input { text-overflow: ellipsis; }
+  .hero .hero-search-field { padding: 0 12px; gap: 10px; }
+  .hero .hero-search-field:has(input[type="date"]) { flex: 1.45 1 0; }
+  .hero .hero-search-field:has(input[type="tel"]) { flex: 1.5 1 0; }
+  .hero .hero-search-field:has(input[type="number"]) { flex: 1.1 1 0; }
+  .hero .hero-search-submit { margin-left: 8px; padding: 0 24px; white-space: nowrap; }
+}
+
+/* ---- Round 23: photo curve runs up behind a transparent nav ---- */
+@media (min-width: 901px) {
+  .site-header:not(.is-scrolled) { background: transparent; border-bottom-color: transparent; box-shadow: none; }
+  .site-header:not(.is-scrolled)::before { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .hero {
+    margin-top: calc(-1 * var(--header-height));
+    padding-top: calc(clamp(40px, 7vh, 72px) + var(--header-height));
+    min-height: min(100svh, 884px);
+  }
+  .hero-art-photo { border-radius: 52% 0 22% 46% / 52% 0 26% 46%; }
+}
+@media (min-width: 901px) {
+  .hero-art { width: 50%; }
+  .hero-art-photo { border-radius: 66% 0 22% 40% / 52% 0 26% 46%; }
+  .site-header:not(.is-scrolled) .primary-nav > ul > li > a,
+  .site-header:not(.is-scrolled) .primary-nav .nav-mega-toggle { text-shadow: 0 0 10px rgba(255,255,255,.95), 0 0 18px rgba(255,255,255,.7); }
+}
+
+/* ---- Round 24: mockup-style blob (flat-ish bottom, big left bulge, swooping lower-right) via SVG clip ---- */
+@media (min-width: 901px) {
+  .hero-art { width: 60%; filter: drop-shadow(0 28px 40px rgba(20, 50, 100, 0.2)); }
+  .hero-art-photo { border-radius: 0; box-shadow: none; clip-path: url(#hero-blob); }
+  .hero-art-photo::after { content: ""; position: absolute; inset: 0 0 auto 0; height: 120px; background: linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,0)); }
+}
+@media (min-width: 901px) { .hero-art { width: 55%; } }
+
+/* ---- Round 25: top curve matched to mockup — wide arc from the top edge sweeping down-left ---- */
+@media (min-width: 901px) { .hero-art { width: 63%; } }
+@media (min-width: 901px) { .hero .hero-content > h1 { font-size: clamp(2.2rem, min(3.2vw, 6.4vh), 3.8rem) !important; } }
+
+/* ---- Round 26: hero uses the site font (Poppins) and the Call Now CTA colour ---- */
+@media (min-width: 901px) {
+  .hero .hero-content > h1,
+  .hero h1 .hero-h1-line,
+  .hero h1 .hero-h1-gradient { font-family: var(--font-heading); font-style: normal; letter-spacing: -0.02em; }
+  .hero .hero-content > h1 { font-weight: 700 !important; font-size: clamp(2.1rem, min(3vw, 6vh), 3.6rem) !important; line-height: 1.15 !important; }
+  .hero h1 .hero-h1-gradient { font-weight: 700 !important; }
+  .hero .hero-search-submit,
+  .hero .hero-btn-primary { background: var(--gradient-cta); box-shadow: 0 10px 24px rgba(34, 166, 217, 0.35); }
+  .hero .hero-search-submit:hover,
+  .hero .hero-btn-primary:hover { background: var(--gradient-cta-hover); }
+  .hero .hero-search-field > svg { background: rgba(34, 166, 217, 0.12); color: var(--gradient-cta); }
+  .hero p.eyebrow { color: var(--gradient-cta); }
+}
+@media (min-width: 901px) { .hero .hero-content > h1 { font-size: clamp(1.9rem, min(2.6vw, 5.4vh), 3.2rem) !important; } }
+
+/* ---- Round 27: hero art = traced building cut-out (images/scenery/hero-building-cutout-v2.webp) on a soft blob ---- */
+@media (min-width: 901px) {
+  .hero-art { filter: none; }
+  .hero-art::before {
+    content: ""; position: absolute; inset: 0; clip-path: url(#hero-blob);
+    background: linear-gradient(160deg, #dff1fb 0%, #cfe9f7 55%, #eaf6fc 100%);
+  }
+  .hero-art-photo {
+    clip-path: none; box-shadow: none;
+    background: url("../images/scenery/hero-building-cutout-v2.webp") 62% 100% / auto 96% no-repeat;
+    filter: drop-shadow(0 24px 30px rgba(20, 50, 100, 0.28));
+  }
+  .hero-art-photo::after { display: none; }
+}
+
+/* ---- Round 28: original 5 BHK photo placed as-is in the blob (no cut-out) ---- */
+@media (min-width: 901px) {
+  .hero-art::before { display: none; }
+  .hero-art { filter: drop-shadow(0 28px 40px rgba(20, 50, 100, 0.2)); }
+  .hero-art-photo {
+    clip-path: url(#hero-blob); filter: none;
+    background: url("../images/scenery/hero-cottage-5bhk.webp") 50% 50% / cover no-repeat;
+  }
+}
+
+/* ---- Round 29: bigger h1 + lead, narrower curve, photo mirrored (shape stays put) ---- */
+@media (min-width: 901px) {
+  .hero-art { width: 50%; }
+  .hero-art-photo { background: none; }
+  .hero-art-photo::before {
+    content: ""; position: absolute; inset: 0;
+    background: url("../images/scenery/hero-cottage-5bhk.webp") 50% 50% / cover no-repeat;
+    transform: scaleX(-1);
+  }
+  .hero .hero-content > h1 { font-size: clamp(2.3rem, min(3.5vw, 6.8vh), 4.2rem) !important; }
+  .hero .hero-subhead { max-width: 40ch; font-size: clamp(1.05rem, 1.4vw, 1.3rem) !important; }
+}
+@media (min-width: 901px) { .hero-art-photo::before { background-position: 35% 50%; } }
+
+/* ---- Round 30: hero art = villa-with-stairs render (white bg) multiplied onto a soft blob ---- */
+@media (min-width: 901px) {
+  .hero-art { filter: none; }
+  .hero-art::before {
+    display: block; content: ""; position: absolute; inset: 0; clip-path: url(#hero-blob);
+    background: linear-gradient(160deg, #dff1fb 0%, #cfe9f7 55%, #eaf6fc 100%);
+  }
+  .hero-art-photo { clip-path: none; filter: none; background: url("../images/scenery/hero-villa-stairs-v2.webp") 50% 62% / contain no-repeat; mix-blend-mode: multiply; }
+  .hero-art-photo::before { display: none; }
+}
+@media (min-width: 901px) { .hero-art { z-index: auto; } }
+
+/* ---- Round 31: no blue curve behind the villa ---- */
+@media (min-width: 901px) { .hero-art::before { display: none; } }
+
+/* ---- Round 32: search bar labels/dropdown polish ---- */
+@media (min-width: 901px) {
+  .hero .hero-search-value { display: flex; flex-direction: column; justify-content: center; gap: 3px; min-width: 0; flex: 1; }
+  .hero .hero-search-value label { font-size: 0.86rem; font-weight: 600; line-height: 1.2; color: #0c1633; white-space: nowrap; }
+  .hero .hero-search-value input, .hero .hero-staytype-field select { height: 22px; line-height: 22px; padding-top: 0; padding-bottom: 0; }
+  .hero .hero-staytype-field { flex: 1.35 1 0; }
+  .hero .hero-search-field:has(input[type="number"]) { flex: 1.3 1 0; }
+  .hero .hero-search-field:has(input[type="tel"]) { flex: 1.45 1 0; }
+  .hero .hero-staytype-field select {
+    display: block; width: 100%; padding: 0 22px 0 0; border: 0; outline: 0; cursor: pointer;
+    font: inherit; font-size: 0.82rem; font-weight: 500; color: var(--gradient-cta-hover);
+    text-overflow: ellipsis; white-space: nowrap;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2322a6d9' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-size: 16px; background-position: right center;
+  }
+  .hero .hero-staytype-field select:hover, .hero .hero-staytype-field select:focus-visible { color: var(--gradient-cta); }
+  .hero .hero-staytype-field select option {
+    padding: 10px 14px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; color: #0c1633; background: #fff;
+  }
+  .hero .hero-staytype-field select option:checked { background: #e4f4fb; color: var(--gradient-cta-hover); }
+}
+
+/* ---- Round 33: "Travelling as" chips + persona-driven hero ---- */
+.hero-persona { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 10px 14px 6px; }
+.hero-persona-label { margin-right: 4px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #5d667c; }
+.hero-persona-chip {
+  appearance: none; cursor: pointer; padding: 7px 18px; border-radius: 999px;
+  border: 1.5px solid rgba(34, 166, 217, 0.45); background: #fff; color: var(--gradient-cta-hover);
+  font: inherit; font-size: 0.88rem; font-weight: 600; line-height: 1.2; transition: background 160ms, color 160ms, border-color 160ms, transform 160ms;
+}
+.hero-persona-chip:hover { border-color: var(--gradient-cta); transform: translateY(-1px); }
+.hero-persona-chip.is-active { background: var(--gradient-cta); border-color: var(--gradient-cta); color: #fff; box-shadow: 0 8px 18px rgba(34, 166, 217, 0.35); }
+.hero-persona-chip:focus-visible { outline: 2px solid var(--gradient-cta-hover); outline-offset: 2px; }
+.hero-pick { display: none; }
+
+@media (min-width: 901px) {
+  .hero .hero-persona { padding: 0 0 12px 22px; }
+  .hero .hero-persona-label { color: #3f4a63; }
+  .hero-pick {
+    display: inline-flex; align-items: center; gap: 12px; margin: 18px 0 0 6vw; padding: 9px 10px 9px 16px; max-width: max-content;
+    border-radius: 999px; background: #fff; border: 1px solid #dbe8f1; box-shadow: 0 10px 26px rgba(20, 50, 100, 0.12);
+    text-decoration: none; color: #0c1633; font-size: 0.9rem; transition: transform 160ms, box-shadow 160ms;
+  }
+  .hero-pick[hidden] { display: none; }
+  .hero-pick:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(20, 50, 100, 0.18); }
+  .hero-pick-k { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gradient-cta); }
+  .hero-pick-v { font-weight: 600; }
+  .hero-pick-go { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--gradient-cta); color: #fff; }
+
+  .hero-art-photo { transition: opacity 240ms; }
+  .hero[data-persona="couple"] .hero-art, .hero[data-persona="friends"] .hero-art { filter: drop-shadow(0 28px 40px rgba(20, 50, 100, 0.2)); }
+  .hero[data-persona="couple"] .hero-art-photo { background: url("../images/properties/cottage-showcase-2bhk.webp") 62% 50% / cover no-repeat; mix-blend-mode: normal; clip-path: url(#hero-blob); }
+  .hero[data-persona="friends"] .hero-art-photo { background: url("../images/properties/cottage-showcase-6bhk.webp") 55% 50% / cover no-repeat; mix-blend-mode: normal; clip-path: url(#hero-blob); }
+}
+@media (max-width: 900px) { .hero-pick { display: none !important; } }
+
+/* ---- Round 34: two-step hero form (stay details → WhatsApp number) ---- */
+/* animated journey strip: paper plane flies from "your stay" to the WhatsApp bubble */
+.hero-journey { --hj-w: 200px; display: flex; align-items: center; gap: 10px; padding: 10px 16px 0; font-size: 0.78rem; font-weight: 600; color: #7a859c; }
+.hj-label { transition: color 240ms; white-space: nowrap; }
+.hj-a, .hero-journey[data-step="2"] .hj-b { color: var(--gradient-cta-hover); }
+.hero-journey[data-step="2"] .hj-a { color: var(--gradient-cta); }
+.hj-node { position: relative; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 1.5px solid #c5d3e0; color: #8da0b3; transition: background 300ms, color 300ms, border-color 300ms; }
+.hj-node svg { width: 16px; height: 16px; }
+.hj-start { background: var(--gradient-cta); border-color: var(--gradient-cta); color: #fff; }
+.hero-journey[data-step="2"] .hj-end { background: #25d366; border-color: #25d366; color: #fff; animation: hj-pop 560ms 700ms cubic-bezier(.3, 1.6, .5, 1) both; }
+.hj-ping { position: absolute; inset: -2px; border-radius: 50%; border: 2px solid #25d366; opacity: 0; pointer-events: none; }
+.hero-journey[data-step="2"] .hj-ping { animation: hj-ring 1.1s 760ms ease-out 2; }
+.hj-track { position: relative; width: var(--hj-w); height: 30px; }
+.hj-dots { position: absolute; left: 0; right: 0; top: 50%; border-top: 2px dotted #b7c8d8; transform: translateY(-50%); }
+.hj-fill { position: absolute; left: 0; top: 50%; height: 2px; width: 0; background: linear-gradient(90deg, var(--gradient-cta), #25d366); border-radius: 2px; transform: translateY(-50%); transition: width 800ms cubic-bezier(.6, 0, .3, 1); }
+.hj-pin { position: absolute; left: 0; top: 50%; width: 22px; height: 22px; margin: -11px 0 0 -2px; color: var(--gradient-cta); transition: left 800ms cubic-bezier(.6, 0, .3, 1); animation: hj-bob 2.4s ease-in-out infinite; }
+.hj-pin svg { width: 100%; height: 100%; filter: drop-shadow(0 4px 6px rgba(34, 166, 217, 0.4)); transition: transform 800ms; }
+.hero-journey[data-step="2"] .hj-fill { width: 100%; }
+.hero-journey[data-step="2"] .hj-pin { left: calc(100% - 20px); animation: hj-hop 800ms cubic-bezier(.5, 0, .3, 1) both; }
+.hero-journey[data-step="2"] .hj-pin svg { transform: rotate(8deg); }
+@keyframes hj-bob { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-3px) rotate(-6deg); } }
+@keyframes hj-hop { 0% { transform: translateY(0); } 45% { transform: translateY(-14px) rotate(-12deg); } 100% { transform: translateY(0) rotate(0); } }
+@keyframes hj-pop { 0% { transform: scale(1); } 100% { transform: scale(1.12); } }
+@keyframes hj-ring { 0% { opacity: .7; transform: scale(1); } 100% { opacity: 0; transform: scale(1.9); } }
+@media (prefers-reduced-motion: reduce) { .hj-pin, .hj-fill, .hj-node, .hj-ping { animation: none !important; transition: none !important; } }
+
+/* step-2 content slides in */
+.hero-search[data-step="2"] .hero-step2-intro, .hero-search[data-step="2"] .hero-phone-field { animation: hj-slide 420ms 240ms cubic-bezier(.2, .8, .3, 1) both; }
+@keyframes hj-slide { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+
+.hero-step2-intro { display: none; align-items: center; gap: 14px; }
+.hero-step2-intro p { margin: 0; font-size: 0.92rem; line-height: 1.3; color: #3f4a63; }
+.hero-step2-intro strong { display: block; color: var(--gradient-cta-hover); font-size: 1rem; }
+.hero-step-back { appearance: none; border: 1.5px solid #d4e1ec; background: #fff; color: var(--gradient-cta-hover); border-radius: 999px; padding: 7px 14px; font: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: border-color 160ms, color 160ms; }
+.hero-step-back:hover { border-color: var(--gradient-cta); color: var(--gradient-cta); }
+
+.hero-search[data-step="1"] .hero-phone-field { display: none !important; }
+.hero-search[data-step="2"] .hero-search-field:not(.hero-phone-field),
+.hero-search[data-step="2"] .hero-search-divider,
+.hero-search[data-step="2"] .hero-category-tabs { display: none !important; }
+.hero-search[data-step="2"] .hero-step2-intro { display: flex; }
+
+@media (min-width: 901px) {
+  .hero .hero-steps { padding: 0 0 12px 22px; }
+  .hero .hero-search[data-step="2"] .hero-step2-intro { flex: 1.6 1 0; padding: 0 8px 0 4px; }
+  .hero .hero-search[data-step="2"] .hero-phone-field { display: flex !important; flex: 1.1 1 0; border-left: 1px solid #e6ebf4; border-right: 0 !important; padding-left: 20px; }
+  .hero .hero-search[data-step="1"] .hero-search-field { flex-basis: 0; }
+  .hero .hero-search[data-step="1"] .hero-search-field:has(input[type="number"]) { flex: 1.3 1 0; }
+  .hero .hero-search[data-step="1"] .hero-search-field:has(input[type="number"]) { border-right: 0; }
+  .hero .hero-search[data-step="1"] .hero-search-submit { padding: 0 26px; }
+}
+
+/* ---- Round 40: hero art = "Welcoming Host at a Hillside Villa" photo in the curved shape (desktop mockup) ---- */
+@media (min-width: 901px) {
+  .hero-art { width: 57%; filter: drop-shadow(0 28px 40px rgba(20, 50, 100, 0.2)); }
+  .hero-art::before { display: none; }
+  .hero-art-photo,
+  .hero[data-persona="couple"] .hero-art-photo,
+  .hero[data-persona="friends"] .hero-art-photo {
+    clip-path: url(#hero-blob); filter: none; mix-blend-mode: normal; box-shadow: none;
+    background: url("../images/hero/welcoming-host-villa.webp") 22% 50% / cover no-repeat;
+  }
+  .hero-art-photo::before { display: none; }
+}
+
+/* ---- Round 41: exact mockup curve — #hero-blob is traced from the Travorra mockup (box = right 70.1% of the hero, full height) ---- */
+@media (min-width: 901px) {
+  .hero-art { width: 70.1%; bottom: 0; }
+  .hero-art-photo { background-position: 20% 50%; }
+}
+
+/* Round 41b: keep the text column clear of the traced curve and frame the photo like the mockup (gate at the curve edge) */
+@media (min-width: 901px) {
+  .hero-art-photo { background-position: 0% 50%; }
+  .hero .hero-content > h1 { font-size: clamp(2rem, min(2.7vw, 5.4vh), 3.6rem) !important; }
+  .hero .hero-subhead { max-width: 32ch; }
+  .hero .hero-journey { --hj-w: 70px; }
+}
+
+/* Round 42: "Pick your stay → Get your quote" journey strip removed from the hero (markup kept so it can be restored) */
+.hero .hero-journey { display: none !important; }
+
+/* Round 43: hero headline in the mockup's serif (Playfair Display); size, weight and colours unchanged */
+@media (min-width: 901px) {
+  .hero .hero-content > h1,
+  .hero h1 .hero-h1-line,
+  .hero h1 .hero-h1-gradient { font-family: "Poppins", "Segoe UI", system-ui, sans-serif; font-style: normal; }
+}
+
+/* Round 43b: hero paragraph uses the page body font treatment (Poppins 500) */
+@media (min-width: 901px) {
+  .hero .hero-subhead { font-family: var(--font-body); font-weight: 500; }
+}
+
+/* Round 43c: smaller hero paragraph */
+@media (min-width: 901px) {
+  .hero .hero-subhead { font-size: clamp(0.88rem, 1.05vw, 1rem) !important; line-height: 1.65; max-width: 38ch; }
+}
+
+/* Round 44: eyebrow ("Kodaikanal, Tamil Nadu" + dashed plane) removed from the hero (markup kept) */
+.hero p.eyebrow { display: none !important; }
+
+/* Round 45: hero text block vertically centred between the header and the search bar */
+@media (min-width: 901px) {
+  .hero .container.hero-content { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; width: 100%; }
+}
+@media (min-width: 901px) {
+  .hero .container.hero-content { margin-top: calc(-1 * clamp(40px, 7vh, 72px)); padding-bottom: 30px !important; }
+  .hero .container.hero-content > * { margin-left: 0; }
+}
+
+/* ---- Round 46: phone hero = "Welcoming Cottage Retreat in the Hills" portrait photo; headline/paragraph go white over its blue sky ---- */
+@media (max-width: 900px) {
+  .hero::before {
+    background-image: url("../images/hero/welcoming-cottage-retreat.webp");
+    background-size: cover; background-position: 50% 0;
+    -webkit-mask-image: linear-gradient(180deg, #000 0, #000 80%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0, #000 80%, transparent 100%);
+  }
+  .hero .hero-content > h1, .hero h1 .hero-h1-line { color: #fff; text-shadow: 0 2px 14px rgba(8, 50, 110, 0.45); }
+  .hero h1 .hero-h1-gradient { background: none; -webkit-text-fill-color: #fff; color: #fff; filter: none; text-shadow: 0 2px 14px rgba(8, 50, 110, 0.45); }
+  .hero .hero-subhead { color: #fff; text-shadow: 0 1px 10px rgba(8, 50, 110, 0.5); }
+}
+@media (max-width: 900px) {
+  .hero { padding-top: 22px !important; }
+  .hero .hero-content > h1 { font-size: clamp(1.55rem, 7.2vw, 2.4rem) !important; max-width: 94%; margin-top: 0; }
+  .hero .hero-subhead { max-width: 88%; font-size: 0.9rem !important; line-height: 1.5; }
+}
+@media (max-width: 900px) {
+  /* text up in the sky; extra bottom padding keeps the booking card where it was so the host stays visible */
+  .hero .container.hero-content { padding-top: 18px !important; padding-bottom: 382px !important; }
+}
+@media (max-width: 900px) {
+  .hero .hero-content > h1, .hero h1 .hero-h1-line, .hero h1 .hero-h1-gradient { text-shadow: 0 1px 2px rgba(10, 60, 130, 0.5), 0 3px 18px rgba(10, 60, 130, 0.6); }
+  .hero .hero-subhead { text-shadow: 0 1px 2px rgba(10, 60, 130, 0.7), 0 2px 14px rgba(10, 60, 130, 0.7); }
+}
+
+/* ---- Round 47: phone hero — no fade over the photo, rating badge under the paragraph ---- */
+.hero-rating { display: none; }
+@media (max-width: 900px) {
+  .hero::after { display: none !important; }
+  .hero::before { -webkit-mask-image: none !important; mask-image: none !important; }
+  .hero .hero-rating { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 8px; margin: 14px 0 0; font-size: 0.82rem; font-weight: 500; color: #fff; text-shadow: 0 1px 2px rgba(10, 60, 130, 0.7), 0 2px 12px rgba(10, 60, 130, 0.6); }
+  .hero .hero-rating-stars { color: #ffc83d; letter-spacing: 2px; font-size: 0.95rem; }
+  .hero .hero-rating strong { font-weight: 700; font-size: 0.95rem; }
+}
+@media (max-width: 900px) {
+  .hero .hero-content > h1 { font-size: clamp(1.3rem, 6.1vw, 2.2rem) !important; max-width: 100%; }
+}
+
+/* ---- Round 48: phone hero rebuilt to the mockup — serif headline, Start Exploring pill, borderless booking card ---- */
+.hero-explore { display: none; }
+@media (max-width: 900px) {
+  .hero .container.hero-content { position: relative; min-height: 500px; padding-bottom: 0 !important; box-sizing: border-box; }
+  .hero { padding-top: 16px !important; }
+  .hero .hero-rating { display: none !important; }
+
+  /* headline: serif, left column so the card has room on the right */
+  .hero .hero-content > h1, .hero h1 .hero-h1-line, .hero h1 .hero-h1-gradient { font-family: "Poppins", "Segoe UI", system-ui, sans-serif; font-style: normal; font-weight: 700 !important; }
+  .hero .hero-content > h1 { font-size: clamp(1.45rem, 7vw, 2.1rem) !important; line-height: 1.1 !important; max-width: 64%; letter-spacing: -0.01em; }
+  .hero .hero-subhead { max-width: 64%; font-size: 0.8rem !important; line-height: 1.5; margin-top: 10px; }
+
+  .hero .hero-explore {
+    display: inline-flex; align-items: center; gap: 14px; margin-top: 14px; padding: 5px 5px 5px 20px; border-radius: 999px;
+    background: var(--gradient-cta, #22a6d9); color: #fff; font-size: 0.88rem; font-weight: 500; text-decoration: none;
+    box-shadow: 0 10px 22px rgba(31, 95, 224, 0.32);
+  }
+  .hero .hero-explore-go { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #fff; color: var(--gradient-cta, #22a6d9); }
+  .hero .hero-explore-go svg { width: 16px; height: 16px; }
+
+}
+@media (max-width: 900px) {
+  .hero .container.hero-content > .hero-explore { align-self: flex-start; width: fit-content; }
+  .hero .hero-content > h1 { text-wrap: balance; font-size: clamp(1.5rem, 7.4vw, 2.2rem) !important; max-width: 62%; }
+}
+@media (max-width: 900px) {
+  .hero .hero-content > h1 { font-size: clamp(1.4rem, 6.8vw, 2rem) !important; }
+  .hero .hero-subhead { font-size: 0.78rem !important; margin-top: 8px; }
+  .hero .container.hero-content > .hero-explore { margin-top: 12px; }
+
+  /* booking card: borderless rows, icon circle on the left, check-in/out side by side */
+  .hero .hero-booking-card { padding: 8px 14px 14px; border-radius: 26px; }
+  .hero .hero-search { gap: 0; padding: 0; }
+  .hero .hero-search-field {
+    flex: 1 1 100%; min-width: 0; box-sizing: border-box; flex-direction: row; align-items: center; gap: 12px;
+    padding: 12px 4px; border: 0; border-bottom: 1px solid #e8edf5; border-radius: 0; background: none; box-shadow: none; min-height: 0;
+  }
+  .hero .hero-search-field > svg {
+    order: -1; flex: none; width: 40px; height: 40px; margin: 0; padding: 10px; border-radius: 50%; box-sizing: border-box;
+    background: #eaf3fb; color: var(--gradient-cta, #22a6d9);
+  }
+  .hero .hero-search-field:has(#hero-checkin), .hero .hero-search-field:has(#hero-checkout) { flex: 1 1 50%; max-width: 50%; gap: 8px; }
+  .hero .hero-search-field:has(#hero-checkout) { border-left: 1px solid #e8edf5; padding-left: 12px; }
+  .hero .hero-search-field:has(#hero-checkin) > svg, .hero .hero-search-field:has(#hero-checkout) > svg { width: 34px; height: 34px; padding: 8px; }
+  .hero .hero-search-field:has(#hero-checkin) input, .hero .hero-search-field:has(#hero-checkout) input { font-size: 0.8rem; min-width: 0; width: 100%; }
+  .hero .hero-search-field:last-of-type { border-bottom: 0; }
+  .hero .hero-search-submit { flex: 1 1 100%; justify-content: center; height: 52px; margin: 12px 0 0; border-radius: 999px; }
+}
+@media (max-width: 900px) {
+  /* compact rows like the mockup so the whole card sits inside the photo */
+  .hero .container.hero-content { min-height: 480px; }
+  .hero::before { height: 725px; }
+  .hero .hero-booking-card { height: auto !important; min-height: 0 !important; padding: 6px 14px 12px; }
+  .hero .hero-search { height: auto; }
+  .hero .hero-search-field { padding: 6px 4px; }
+  .hero .hero-search-field > svg { width: 36px; height: 36px; padding: 9px; }
+  .hero .hero-search-field:has(#hero-checkin) > svg, .hero .hero-search-field:has(#hero-checkout) > svg { width: 30px; height: 30px; padding: 7px; }
+  .hero .hero-search-value { margin: 0; text-align: left; align-items: flex-start; flex: 1; min-width: 0; gap: 1px; }
+  .hero .hero-search-value label { font-size: 0.68rem; line-height: 1.2; }
+  .hero .hero-search-value input, .hero .hero-staytype-field select { font-size: 0.88rem; height: 22px; line-height: 22px; text-align: left; }
+  .hero .hero-search-submit { height: 44px; margin-top: 8px; }
+}
+@media (max-width: 900px) {
+  .hero .hero-booking-card { background: #fff; border-radius: 26px; box-shadow: 0 18px 40px rgba(10, 40, 100, 0.22); overflow: hidden; }
+  .hero .hero-search { background: none !important; box-shadow: none !important; border: 0 !important; border-radius: 0 !important; }
+}
+
+/* ---- Round 49: phone hero — review card removed; soft blue fade behind the text; gradient Start Exploring link ---- */
+@media (max-width: 900px) {
+  .hero::after {
+    content: ""; display: block !important; position: absolute; left: 0; right: 0; top: 0; bottom: auto; height: 360px; z-index: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(8, 45, 110, 0.6) 0%, rgba(8, 45, 110, 0.34) 50%, rgba(8, 45, 110, 0) 100%);
+  }
+  .hero .container.hero-content { z-index: 1; }
+  .hero .hero-content > h1, .hero .hero-subhead { max-width: 100%; }
+  .hero .hero-content > h1 { text-wrap: balance; }
+  .hero .container.hero-content > .hero-explore { background: linear-gradient(90deg, #1f5fe0 0%, #22a6d9 60%, #2cc9d6 100%); }
+}
+
+/* ---- Round 50: phone hero — white header fades smoothly into the photo down to the headline; headline gets a navy → blue → teal gradient ---- */
+@media (max-width: 900px) {
+  .hero::after {
+    height: 120px;
+    background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.94) 22%, rgba(255, 255, 255, 0.62) 55%, rgba(255, 255, 255, 0.22) 80%, rgba(255, 255, 255, 0) 100%);
+  }
+  .hero .hero-content > h1 {
+    background: linear-gradient(90deg, #0b1d4d 0%, #1f5fe0 55%, #12a8b8 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent; text-shadow: none; filter: none;
+  }
+  .hero .hero-content > h1 .hero-h1-line, .hero .hero-content > h1 .hero-h1-gradient {
+    background: none; -webkit-text-fill-color: transparent; color: transparent; text-shadow: none; filter: none;
+  }
+}
+@media (max-width: 900px) {
+  .hero::after {
+    height: 100px;
+    background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.92) 25%, rgba(255, 255, 255, 0.6) 60%, rgba(255, 255, 255, 0.14) 88%, rgba(255, 255, 255, 0) 100%);
+  }
+  .hero .hero-content > h1 { background-image: linear-gradient(90deg, #0b1d4d 0%, #1b4fc4 55%, #0b7a8c 100%); }
+  .hero .hero-subhead { text-shadow: 0 1px 2px rgba(8, 45, 110, 0.85), 0 2px 14px rgba(8, 45, 110, 0.8); }
+}
+
+/* ---- Round 51: phone headline uses the desktop style — serif, navy first line, teal gradient second line ---- */
+@media (max-width: 900px) {
+  .hero .hero-content > h1 { background: none !important; -webkit-text-fill-color: initial; color: #0c1633; text-shadow: none; }
+  .hero .hero-content > h1 .hero-h1-line { background: none; -webkit-text-fill-color: #0c1633; color: #0c1633; text-shadow: none; }
+  .hero .hero-content > h1 .hero-h1-gradient {
+    background: linear-gradient(90deg, #0b7a8c 0%, #13a5b5 100%); -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent; text-shadow: none; padding-bottom: 0.1em;
+  }
+}
+
+/* ---- Round 52: phone hero photo = "Misty Hilltop Villa Welcome" ---- */
+@media (max-width: 900px) {
+  .hero::before { background-image: url("../images/hero/misty-hilltop-villa.webp"); }
+}
+
+/* ---- Round 53: phone text matches desktop (navy/teal headline, grey Poppins paragraph); the white fade now runs behind the whole text block ---- */
+@media (max-width: 900px) {
+  .hero::after {
+    height: 230px;
+    background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.96) 45%, rgba(255, 255, 255, 0.82) 68%, rgba(255, 255, 255, 0.36) 88%, rgba(255, 255, 255, 0) 100%);
+  }
+  .hero .hero-subhead { color: #5d667c; text-shadow: none; font-weight: 500; }
+}
+
+/* ---- Round 54: styled "What kind of stay?" dropdown (js/stay-dropdown.js) ---- */
+.hero .sd-native { position: absolute !important; width: 1px; height: 1px; padding: 0 !important; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); opacity: 0; pointer-events: none; }
+.hero .sd { position: relative; width: 100%; }
+.hero .sd-btn {
+  display: block; width: 100%; padding: 0 22px 0 0; border: 0; background: transparent; cursor: pointer; text-align: left;
+  font: inherit; font-size: 0.82rem; font-weight: 500; line-height: 22px; color: var(--gradient-cta-hover, #1a8fc2);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2322a6d9' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right center; background-size: 16px; transition: background-position 160ms;
+}
+.hero .sd-btn[aria-expanded="true"] { color: var(--gradient-cta, #22a6d9); }
+.hero .sd-btn:focus-visible { outline: 2px solid var(--gradient-cta, #22a6d9); outline-offset: 4px; border-radius: 6px; }
+.hero .sd-list {
+  position: absolute; z-index: 30; left: -8px; bottom: calc(100% + 22px); min-width: 230px; max-height: min(340px, 60vh); overflow-y: auto;
+  margin: 0; padding: 8px; list-style: none; border-radius: 18px; background: #fff; border: 1px solid #e3edf5;
+  box-shadow: 0 24px 50px rgba(10, 40, 100, 0.22), 0 4px 14px rgba(10, 40, 100, 0.08);
+  animation: sd-in 160ms cubic-bezier(.2, .8, .3, 1) both; transform-origin: 20% 100%;
+}
+.hero .sd-list[hidden] { display: none; }
+.hero .sd-list::after {
+  content: ""; position: absolute; left: 26px; bottom: -7px; width: 12px; height: 12px; background: #fff;
+  border-right: 1px solid #e3edf5; border-bottom: 1px solid #e3edf5; transform: rotate(45deg);
+}
+.hero .sd-opt {
+  position: relative; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 14px; border-radius: 12px; cursor: pointer;
+  font-family: var(--font-body); font-size: 0.92rem; font-weight: 500; line-height: 1.3; color: #0c1633; transition: background 120ms, color 120ms;
+}
+.hero .sd-opt.is-active { background: #eaf5fb; }
+.hero .sd-opt[aria-selected="true"] { color: #0b7a8c; font-weight: 600; background: linear-gradient(90deg, #e1f4f8, #eaf5fb); }
+.hero .sd-opt[aria-selected="true"]::after {
+  content: ""; flex: none; width: 16px; height: 16px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b7a8c' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5 9-10'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+@keyframes sd-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .hero .sd-list { animation: none; } }
+
+/* Round 54b: dropdown list shows all options without a scrollbar */
+.hero .sd-list { max-height: min(440px, 72vh); }
+.hero .sd-list::after { display: none; }
+
+/* Round 55: bigger desktop headline — wraps to three lines so it stays clear of the curve */
+@media (min-width: 901px) {
+  .hero .hero-content > h1 { font-size: clamp(2.2rem, min(3.3vw, 6.2vh), 4.2rem) !important; max-width: 29.5vw; line-height: 1.1 !important; }
+}
+@media (max-width: 900px) {
+  .hero .hero-booking-card { overflow: visible; }
+  .hero .sd-btn { font-size: 0.88rem; }
+  .hero .sd-list { left: -52px; min-width: 250px; max-height: min(400px, 52vh); }
+}
+
+/* Round 56: phone "Check availability" uses the same sky-blue as desktop */
+@media (max-width: 900px) {
+  .hero .hero-search-submit { background: #22a6d9 !important; box-shadow: 0 10px 24px rgba(34, 166, 217, 0.35) !important; }
+  .hero .hero-search-submit:hover, .hero .hero-search-submit:active { background: #1a8fc2 !important; }
+}
+
+/* ---- Round 57: phone booking form in a 2 × 2 grid ---- */
+@media (max-width: 900px) {
+  .hero .hero-search-field.hero-staytype-field, .hero .hero-search-field:has(#hero-checkin), .hero .hero-search-field:has(#hero-checkout), .hero .hero-search-field:has(#hero-guests) {
+    flex: 0 0 50%; max-width: 50%; gap: 8px; padding: 10px 8px; border: 0; border-radius: 0;
+  }
+  .hero .hero-staytype-field, .hero .hero-search-field:has(#hero-checkin) { border-bottom: 1px solid #e8edf5 !important; }
+  .hero .hero-search-field:has(#hero-checkin), .hero .hero-search-field:has(#hero-guests) { border-left: 1px solid #e8edf5 !important; padding-left: 12px; }
+  .hero .hero-search-field:has(#hero-checkout) { border-left: 0 !important; padding-left: 8px; }
+  .hero .hero-search-field > svg, .hero .hero-search-field:has(#hero-checkin) > svg, .hero .hero-search-field:has(#hero-checkout) > svg { width: 30px !important; height: 30px !important; padding: 7px !important; }
+  .hero .hero-search-value label { font-size: 0.64rem; white-space: nowrap; }
+  .hero .hero-search-value input, .hero .sd-btn { font-size: 0.8rem; }
+  .hero .hero-search-field:has(#hero-checkin) input, .hero .hero-search-field:has(#hero-checkout) input { font-size: 0.74rem; }
+  .hero .hero-search-field input[type="date"]::-webkit-calendar-picker-indicator { padding: 0; margin: 0 0 0 2px; width: 14px; }
+  .hero .sd-btn { padding-right: 16px; background-size: 14px; }
+  .hero .hero-search-field input#hero-guests { width: 100%; }
+}
+
+/* ---- Round 58: phone form — check-in / check-out share a row; frosted card that blends into the photo ---- */
+@media (max-width: 900px) {
+  .hero .hero-search-field.hero-staytype-field { order: 1; }
+  .hero .hero-search-field:has(#hero-guests) { order: 2; }
+  .hero .hero-search-field:has(#hero-checkin) { order: 3; }
+  .hero .hero-search-field:has(#hero-checkout) { order: 4; }
+  .hero .hero-search-submit { order: 9; }
+  /* row 1: stay | guests — row 2: check-in | check-out */
+  .hero .hero-staytype-field, .hero .hero-search-field:has(#hero-guests) { border-bottom: 1px solid rgba(12, 22, 51, 0.1) !important; }
+  .hero .hero-search-field:has(#hero-checkin) { border-bottom: 0 !important; border-left: 0 !important; padding-left: 8px; }
+  .hero .hero-search-field:has(#hero-checkout) { border-bottom: 0 !important; border-left: 1px solid rgba(12, 22, 51, 0.1) !important; padding-left: 12px; }
+  .hero .hero-search-field:has(#hero-guests) { border-left: 1px solid rgba(12, 22, 51, 0.1) !important; }
+
+  .hero .hero-booking-card {
+    background: rgba(255, 255, 255, 0.78); border: 1px solid rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(16px) saturate(1.25); backdrop-filter: blur(16px) saturate(1.25);
+    box-shadow: 0 16px 40px rgba(16, 62, 78, 0.18);
+  }
+  .hero .hero-search-field > svg { background: rgba(34, 166, 217, 0.14); }
+  /* photo fades out at the bottom so the card and the page below blend in */
+  .hero::before {
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 82%, rgba(0, 0, 0, 0) 100%) !important;
+    mask-image: linear-gradient(180deg, #000 0%, #000 82%, rgba(0, 0, 0, 0) 100%) !important;
+  }
+}
+@media (max-width: 900px) {
+  /* photo layer = exactly the hero height so the bottom fade is visible and melts into the page below */
+  .hero::before { inset: 0 !important; height: auto !important; background-size: 100% auto !important; background-position: 50% 0 !important; }
+  .hero::before {
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 78%, rgba(0, 0, 0, 0.55) 90%, rgba(0, 0, 0, 0) 100%) !important;
+    mask-image: linear-gradient(180deg, #000 0%, #000 78%, rgba(0, 0, 0, 0.55) 90%, rgba(0, 0, 0, 0) 100%) !important;
+  }
+  .hero { background: #f4f9fc; }
+  .hero .hero-booking-card { background: rgba(255, 255, 255, 0.9); box-shadow: 0 14px 36px rgba(16, 62, 78, 0.14); }
+}
+
+/* Round 59: phone form — between solid white and fully blended */
+@media (max-width: 900px) {
+  .hero .hero-booking-card {
+    background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    box-shadow: 0 18px 42px rgba(16, 62, 78, 0.22), 0 2px 8px rgba(16, 62, 78, 0.08);
+  }
+  .hero::before {
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 88%, rgba(0, 0, 0, 0.5) 95%, rgba(0, 0, 0, 0.25) 100%) !important;
+    mask-image: linear-gradient(180deg, #000 0%, #000 88%, rgba(0, 0, 0, 0.5) 95%, rgba(0, 0, 0, 0.25) 100%) !important;
+  }
+}
+
+/* Round 60: one section rhythm down the page — white / pale-teal (#eaf7fa) alternating, with the dark teal bands */
+.featured-cottages { background: var(--color-bg-alt); }
+.property-compare { background: #fff; }
+@media (max-width: 900px) { .hero { background: #f2fafc; } }
+
+/* Round 61: one brand typeface — Poppins everywhere (crisp weights 600-700 for headings, 400-500 for body), same as the Tour Packages page */
+main section h2, .section-heading h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.hero-script { font-weight: 600; letter-spacing: 0; font-style: normal; }
+
+/* Round 62: crisper lead paragraphs — darker ink, medium weight (dark bands keep their white text) */
+.section-heading p { color: #2b3a3f; font-weight: 500; }
+.hr .section-heading p, .services-hub .section-heading p, .seasonal-offers .section-heading p, .testimonials .section-heading p, .final-cta .section-heading p { color: rgba(255, 255, 255, 0.88); }
+
+/* Round 63: desktop hero split 40 / 60 (text / photo) instead of 30 / 70 — the traced curve scales with the box */
+@media (min-width: 901px) {
+  .hero-art { width: 60%; }
+}
+
+/* Round 64: hero h1 = exactly two lines ("Wake Up to the Best" / "Cottages in Kodaikanal") */
+.hero .hero-content > h1 { max-width: none !important; }
+.hero .hero-content > h1 .hero-h1-line { display: block; white-space: nowrap; }
+@media (min-width: 901px) {
+  .hero .hero-content > h1 { font-size: clamp(1.9rem, min(2.6vw, 5.2vh), 3.4rem) !important; }
+}
+@media (max-width: 900px) {
+  .hero .hero-content > h1 { font-size: clamp(1.4rem, 6.2vw, 2.4rem) !important; }
+}
+
+/* Round 65: bigger headline + lead paragraph */
+@media (min-width: 901px) {
+  .hero .hero-content > h1 { font-size: clamp(2.2rem, min(3.2vw, 6.2vh), 4.2rem) !important; }
+  .hero .hero-subhead { font-size: clamp(1rem, 1.2vw, 1.15rem) !important; max-width: 36ch; line-height: 1.55; }
+}
+@media (max-width: 900px) {
+  .hero .hero-content > h1 { font-size: clamp(1.55rem, 6.9vw, 2.6rem) !important; }
+  .hero .hero-subhead { font-size: clamp(0.95rem, 3.6vw, 1rem) !important; }
+}
+
+/* Round 66: hero paragraph uses the same dark ink + medium weight as the other lead paragraphs */
+.hero .hero-subhead { color: #2b3a3f !important; font-weight: 500 !important; text-shadow: none !important; }
+
+/* Round 67: complete the closing CTA — eyebrow, visible headline, benefit chips, two actions, labelled socials */
+.final-cta .container { padding-block: clamp(56px, 8vw, 88px); }
+.final-cta .fc-eyebrow { justify-content: center; color: #7ae4fb; margin: 0 0 14px; }
+.final-cta .fc-title { color: #fff; font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.15; margin: 0 auto 14px; max-width: 22ch; }
+.final-cta .fc-lead { color: rgba(255, 255, 255, 0.88); font-weight: 500; font-size: 1.05rem; max-width: 60ch; margin: 0 auto 22px; }
+.final-cta .fc-points { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 0; margin: 0 0 22px; }
+.final-cta .fc-points li { padding: 7px 16px; border-radius: 999px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.22); color: #fff; font-size: 0.86rem; font-weight: 500; }
+.final-cta .fc-points li::before { content: "\2713"; color: #4dd9ff; font-weight: 700; margin-right: 8px; }
+.final-cta .phone-link { margin-block: 0 20px; }
+.final-cta .fc-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.final-cta .fc-btn-wa { background: #25d366; color: #fff; border: 1px solid #25d366; }
+.final-cta .fc-btn-wa:hover { background: #1fb957; border-color: #1fb957; }
+.final-cta .fc-follow { margin: 34px 0 0; color: rgba(255, 255, 255, 0.7); font-size: 0.78rem; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 500; }
+.final-cta .social-row { margin-top: 14px; }
+
+/* Round 68: tighter closing CTA — fits one screen */
+.final-cta .container { padding-block: clamp(36px, 5vw, 52px); }
+.final-cta .fc-eyebrow { margin-bottom: 8px; }
+.final-cta .fc-title { font-size: clamp(1.6rem, 2.7vw, 2.2rem); max-width: none; margin-bottom: 10px; }
+.final-cta .fc-lead { font-size: 0.98rem; margin-bottom: 16px; }
+.final-cta .fc-points { margin-bottom: 20px; gap: 8px; }
+.final-cta .fc-points li { padding: 5px 13px; font-size: 0.8rem; }
+.final-cta .fc-actions { align-items: center; gap: 14px 18px; }
+.final-cta .phone-link { margin: 0 6px 0 0; font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
+.final-cta .fc-actions .btn { padding: 11px 24px; }
+.final-cta .fc-follow-row { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.14); }
+.final-cta .fc-follow { margin: 0; }
+.final-cta .social-row { margin-top: 0; gap: 10px; }
+.final-cta .social-row a { width: 38px; height: 38px; }
+
+/* Round 69: phone number + Call Now merged into one button */
+.final-cta .fc-btn-call { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1.05rem; padding: 13px 28px; }
+.final-cta .fc-btn-call svg { width: 20px; height: 20px; }
+.final-cta .fc-actions .fc-btn-wa { padding: 13px 28px; font-size: 1.05rem; }
+
+/* Round 70: brighter "Why choose" number badges — sky-blue gradient from the palette, soft glow ring */
+.why-flow-num {
+  background: #22a6d9;
+  color: #fff;
+  box-shadow: 0 0 0 4px rgba(77, 217, 255, 0.28), 0 6px 14px rgba(34, 166, 217, 0.35);
+}
+
+/* Round 71: same bright sky-blue accent for the booking-step numbers and the active property tab */
+.step-number {
+  background: #22a6d9;
+  box-shadow: 0 0 0 5px rgba(77, 217, 255, 0.28), 0 8px 18px rgba(34, 166, 217, 0.35);
+}
+.tab-btn[aria-selected="true"] {
+  background: #22a6d9;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(34, 166, 217, 0.38);
+}
+
+/* Round 72: subtle premium gradient on section headings (ink → teal, like the hero headline). Light sections only; dark bands stay white. */
+main section:not(.hero):not(.hr):not(.services-hub):not(.seasonal-offers):not(.testimonials):not(.final-cta) h2 {
+  width: fit-content;
+  max-width: 100%;
+  padding-bottom: 0.1em;
+  background: linear-gradient(90deg, #0f2a33 0%, #145066 58%, #1c86a6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+main section:not(.hero):not(.hr):not(.services-hub):not(.seasonal-offers):not(.testimonials):not(.final-cta) .section-heading h2 { margin-inline: auto; }

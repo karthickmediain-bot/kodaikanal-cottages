@@ -28,8 +28,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=hdr3" />
   <link rel="stylesheet" href="css/hotels.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/stays.css?v=5" />
 
   <!-- Flags JS as available before first paint so the scroll-reveal system
        (hotels.css) only hides [data-reveal] content when it can guarantee
@@ -164,7 +167,7 @@
   }
   </script>
 </head>
-<body class="ht-page">
+<body class="ht-page st-t-hotels">
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <div id="site-header" data-include="partials/header.html"></div>
@@ -176,7 +179,7 @@
          ================================================================ -->
     <section class="ht-hero" id="hero" data-section-label="Hero">
       <div class="ht-hero-media">
-        <img src="images/destinations/destination-kodai-lake.webp" alt="Kodai Lake at sunrise, Kodaikanal" width="1600" height="1000" />
+        <img src="images/scenery/hero-kodaikanal-lake.webp" alt="Kodai Lake at sunrise, Kodaikanal" width="1600" height="1000" />
       </div>
       <div class="container ht-hero-inner">
         <div class="ht-hero-copy" data-reveal>
@@ -212,6 +215,14 @@
             <div class="hero-search-value">
               <label for="ht-guests">Guests</label>
               <input type="number" id="ht-guests" name="guests" min="1" placeholder="2 Guests" inputmode="numeric" />
+            </div>
+          </div>
+          <div class="hero-search-divider" aria-hidden="true"></div>
+          <div class="hero-search-field">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <div class="hero-search-value">
+              <label for="ht-phone">Phone number</label>
+              <input type="tel" id="ht-phone" name="phone" placeholder="10-digit mobile" inputmode="tel" autocomplete="tel" pattern="[0-9+\s\-]{10,15}" title="Enter a valid phone number" required />
             </div>
           </div>
           <button class="hero-search-submit" type="submit">
@@ -295,7 +306,7 @@
           </div>
 
           <div class="ht-benefit-tile" data-reveal>
-            <img src="images/properties/hotel-staff-reception.webp" alt="Front desk staff welcoming guests at a Kodaikanal hotel property" width="500" height="200" loading="lazy" />
+            <img src="images/interiors/reception-desk.webp" alt="Reception desk at a Kodaikanal hotel property" width="500" height="200" loading="lazy" />
             <div class="ht-benefit-tile-body">
               <span class="ht-benefit-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 20c1.6-3.6 4.4-5.5 7.5-5.5s5.9 1.9 7.5 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
               <h3>Staff On Call</h3>
@@ -329,12 +340,12 @@
           <!-- Standard -->
           <article class="ht-hotel-card" data-reveal role="listitem">
             <div class="ht-hotel-media">
-              <img src="images/properties/hotel-mount-view.webp" alt="Standard hotel exterior in Kodaikanal" width="600" height="375" loading="lazy" />
+              <img src="images/properties/hotel-standard-stay.webp" alt="Standard hotel exterior in Kodaikanal" width="600" height="375" loading="lazy" />
               <span class="ht-hotel-badge">Standard</span>
             </div>
             <div class="ht-hotel-body">
               <h3>Standard Stay</h3>
-              <p class="ht-hotel-price">From <strong>&#8377;1,000</strong> to <strong>&#8377;2,000</strong><span>/night</span></p>
+              <p class="ht-hotel-price">From <strong>&#8377;1,000</strong> to <strong>From &#8377;2,000</strong><span>/night</span></p>
               <p class="ht-hotel-meta">Sleeps up to 72 guests across 23 rooms</p>
               <p class="ht-hotel-teaser">One of our cheapest hotels in Kodaikanal below 1000 at the entry rate, with rooms for every group size near the town center.</p>
 
@@ -355,12 +366,12 @@
           <!-- Premium -->
           <article class="ht-hotel-card" data-reveal role="listitem">
             <div class="ht-hotel-media">
-              <img src="images/properties/green-hill-resort.webp" alt="Premium resort exterior in Kodaikanal" width="400" height="300" loading="lazy" />
+              <img src="images/properties/hotel-premium-stay.webp" alt="Premium hotel exterior in Kodaikanal" width="400" height="300" loading="lazy" />
               <span class="ht-hotel-badge">Premium</span>
             </div>
             <div class="ht-hotel-body">
               <h3>Premium Stay</h3>
-              <p class="ht-hotel-price">From <strong>&#8377;2,000</strong> to <strong>&#8377;3,000</strong><span>/night</span></p>
+              <p class="ht-hotel-price">From <strong>&#8377;2,000</strong> to <strong>From &#8377;3,000</strong><span>/night</span></p>
               <p class="ht-hotel-meta">6 to 8 BHK units, scales up to 100 guests</p>
               <p class="ht-hotel-teaser">One of the best hotels in Kodaikanal for family groups, with open lawns and multi-room units.</p>
               <details class="ht-hotel-details">
@@ -379,12 +390,12 @@
           <!-- Luxury -->
           <article class="ht-hotel-card" data-reveal role="listitem">
             <div class="ht-hotel-media">
-              <img src="images/properties/kalpana-villa.webp" alt="Luxury villa exterior in Kodaikanal" width="400" height="300" loading="lazy" />
+              <img src="images/properties/hotel-luxury-villa.webp" alt="Luxury villa exterior in Kodaikanal" width="400" height="300" loading="lazy" />
               <span class="ht-hotel-badge">Luxury</span>
             </div>
             <div class="ht-hotel-body">
               <h3>Luxury Stay</h3>
-              <p class="ht-hotel-price">From <strong>&#8377;3,000</strong> to <strong>&#8377;4,000</strong><span>/night</span></p>
+              <p class="ht-hotel-price">From <strong>&#8377;3,000</strong> to <strong>From &#8377;4,000</strong><span>/night</span></p>
               <p class="ht-hotel-meta">5 BHK villa, private for groups of 10 to 15</p>
               <p class="ht-hotel-teaser">A private villa alternative for groups who want a full house to themselves.</p>
               <details class="ht-hotel-details">
@@ -456,12 +467,12 @@
               <div class="ht-exp-panel"><h3>Kodai Lake</h3><p>Star-shaped lake in town, best by pedal boat at sunrise.</p></div>
             </div>
             <div class="ht-exp-card">
-              <img src="images/destinations/destination-coakers-walk.webp" alt="Coaker's Walk" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/coakers-walk-path.webp" alt="Coaker's Walk" width="300" height="375" loading="lazy" />
               <div class="ht-exp-name-strip"><h3>Coaker's Walk</h3></div>
               <div class="ht-exp-panel"><h3>Coaker's Walk</h3><p>Paved ridge path with valley views, minutes from most hotels.</p></div>
             </div>
             <div class="ht-exp-card">
-              <img src="images/destinations/destination-bryant-park.webp" alt="Bryant Park" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/bryant-park-entrance.webp" alt="Bryant Park entrance" width="300" height="375" loading="lazy" />
               <div class="ht-exp-name-strip"><h3>Bryant Park</h3></div>
               <div class="ht-exp-panel"><h3>Bryant Park</h3><p>Tidy botanical garden with seasonal flower shows.</p></div>
             </div>
@@ -474,12 +485,12 @@
               <div class="ht-exp-panel"><h3>Pillar Rocks</h3><p>Granite pillars in the pine forest — a short trek, big payoff.</p></div>
             </div>
             <div class="ht-exp-card">
-              <img src="images/destinations/destination-vattakanal.webp" alt="Dolphin's Nose viewpoint near Vattakanal" width="300" height="375" loading="lazy" />
+              <img src="images/scenery/scenery-misty-cliffs-viewpoint.webp" alt="Dolphin's Nose viewpoint near Vattakanal" width="300" height="375" loading="lazy" />
               <div class="ht-exp-name-strip"><h3>Dolphin's Nose</h3></div>
               <div class="ht-exp-panel"><h3>Dolphin's Nose</h3><p>Cliff-edge viewpoint over the plains, popular at morning mist.</p></div>
             </div>
             <div class="ht-exp-card">
-              <img src="images/properties/kodai-outdoor-valley.webp" alt="Guna Caves area" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/destination-guna-caves.webp" alt="Guna Caves, Kodaikanal" width="300" height="375" loading="lazy" />
               <div class="ht-exp-name-strip"><h3>Guna Caves</h3></div>
               <div class="ht-exp-panel"><h3>Guna Caves</h3><p>Rock formations wrapped in local legend, best visited with a guide.</p></div>
             </div>
@@ -487,17 +498,17 @@
 
           <div class="ht-tab-panel" data-tab-panel="family">
             <div class="ht-exp-card">
-              <img src="images/destinations/destination-kodai-lake.webp" alt="Boating at Kodai Lake" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/kodai-lake-boat-jetty.webp" alt="Boating at Kodai Lake" width="300" height="375" loading="lazy" />
               <div class="ht-exp-name-strip"><h3>Boat Club, Kodai Lake</h3></div>
               <div class="ht-exp-panel"><h3>Boat Club, Kodai Lake</h3><p>Pedal boats and a lakeside walk that keeps kids entertained.</p></div>
             </div>
             <div class="ht-exp-card">
-              <img src="images/destinations/destination-bryant-park.webp" alt="Bear Shola Falls area" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/silver-cascade-falls.webp" alt="Waterfall near Kodaikanal" width="300" height="375" loading="lazy" />
               <div class="ht-exp-name-strip"><h3>Bear Shola Falls</h3></div>
               <div class="ht-exp-panel"><h3>Bear Shola Falls</h3><p>Short, easy walk to a small waterfall, manageable with young children.</p></div>
             </div>
             <div class="ht-exp-card">
-              <img src="images/properties/welcome-holidays.webp" alt="Kodaikanal town center chocolate shops" width="300" height="375" loading="lazy" />
+              <img src="images/local/chocolate-shop-interior.webp" alt="Kodaikanal town center chocolate shops" width="300" height="375" loading="lazy" />
               <div class="ht-exp-name-strip"><h3>Chocolate Shopping</h3></div>
               <div class="ht-exp-panel"><h3>Chocolate Shopping, Town Center</h3><p>Homemade chocolate stalls make for a fun family outing.</p></div>
             </div>
@@ -505,17 +516,17 @@
 
           <div class="ht-tab-panel" data-tab-panel="food">
             <div class="ht-exp-card">
-              <img src="images/properties/pleasant-homestay.webp" alt="Local South Indian breakfast spot" width="300" height="375" loading="lazy" />
+              <img src="images/local/town-street-stalls.webp" alt="Local South Indian breakfast spot" width="300" height="375" loading="lazy" />
               <div class="ht-exp-name-strip"><h3>South Indian Breakfast</h3></div>
               <div class="ht-exp-panel"><h3>Local South Indian Breakfast</h3><p>Filter coffee and a proper tiffin spread nearby.</p></div>
             </div>
             <div class="ht-exp-card">
-              <img src="images/properties/sri-sai-cottage.webp" alt="Tibetan food stalls near the town market" width="300" height="375" loading="lazy" />
+              <img src="images/local/market-walk-crowd.webp" alt="Tibetan food stalls near the town market" width="300" height="375" loading="lazy" />
               <div class="ht-exp-name-strip"><h3>Tibetan Market Bites</h3></div>
               <div class="ht-exp-panel"><h3>Tibetan Market Bites</h3><p>Momos and thukpa from the town's small Tibetan food stalls.</p></div>
             </div>
             <div class="ht-exp-card">
-              <img src="images/properties/olive-tree-cottage.webp" alt="Local jams and honey shops" width="300" height="375" loading="lazy" />
+              <img src="images/local/honey-jam-shop.webp" alt="Local jams and honey shops" width="300" height="375" loading="lazy" />
               <div class="ht-exp-name-strip"><h3>Homemade Preserves &amp; Honey</h3></div>
               <div class="ht-exp-panel"><h3>Homemade Preserves &amp; Honey</h3><p>Small local shops sell jams and honey, a good last stop.</p></div>
             </div>
@@ -548,8 +559,8 @@
                 <li>Bryant Park &amp; Pillar Rocks</li>
               </ul>
               <p>A tight loop through the must-see stops, built for travelers with just one free day.</p>
-              <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%201-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
-              <a class="ht-hotel-call-link" href="kodaikanal-1-day-tour-package.html">View full 1-day itinerary</a>
+              <a class="btn btn-outline" href="kodaikanal-1-day-tour-package.html">View Full Itinerary</a>
+              <a class="ht-hotel-call-link" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%201-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Enquire on WhatsApp</a>
             </div>
           </article>
 
@@ -566,8 +577,8 @@
                 <li>Hotel stay built into the route</li>
               </ul>
               <p>Enough time to add the trails a one-day trip skips, without stretching to three full days.</p>
-              <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%202-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
-              <a class="ht-hotel-call-link" href="kodaikanal-2-day-tour-package.html">View full 2-day itinerary</a>
+              <a class="btn btn-outline" href="kodaikanal-2-day-tour-package.html">View Full Itinerary</a>
+              <a class="ht-hotel-call-link" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%202-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Enquire on WhatsApp</a>
             </div>
           </article>
 
@@ -584,8 +595,8 @@
                 <li>Two nights' hotel stay included</li>
               </ul>
               <p>Three unhurried days through the hills, built for travelers who want to slow down and explore.</p>
-              <a class="btn btn-primary" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%203-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
-              <a class="ht-hotel-call-link" href="kodaikanal-3-day-tour-package.html">View full 3-day itinerary</a>
+              <a class="btn btn-primary" href="kodaikanal-3-day-tour-package.html">View Full Itinerary</a>
+              <a class="ht-hotel-call-link" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%203-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Enquire on WhatsApp</a>
             </div>
           </article>
         </div>
@@ -778,6 +789,40 @@
       </div>
     </section>
     <!-- ================================================================
+         6. Why Choose Us — Flip cards (#7)
+         ================================================================ -->
+    <section class="bg-alt" id="why-choose-us" data-section-label="Why Us">
+      <div class="container wcu wcu--hotels">
+        <div class="section-heading" data-reveal>
+          <h2>Why Book Your Kodaikanal Hotel With Cottages Kodaikanal</h2>
+          <p>No vague marketing lines — just how we run hotel bookings, and what backs each promise.</p>
+        </div>
+        <div class="wcu-grid">
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+            <h3>Free, No-Obligation Quotes</h3>
+            <p>We quote before you commit. Share your dates and group size and we'll come back with real options — no pressure to book.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <h3>24/7 Guest Support</h3>
+            <p>Questions don't stick to office hours, so neither do we. Call or message any time and a real person will respond.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m20 6-11 11-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>Verified Properties Only</h3>
+            <p>All 30+ properties on this page have been walked through and photographed in person by our local team before listing. What you see is what you'll find at check-in.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M12 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>12 Years Local Experience</h3>
+            <p>We've run hotel and kodaikanal cottage booking services since day one, as a family business, not a marketplace — that gets you a straight answer, fast.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
          FAQ — same accordion design as the homepage
          ================================================================ -->
     <section class="faq" id="faq" aria-labelledby="faq-heading" data-section-label="FAQ">
@@ -861,65 +906,6 @@
               <p>Sometimes — it depends on the property. Some hotels include breakfast by default, others offer it as an add-on, and we'll confirm what's included in your quote.</p>
             </div>
           </details>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ================================================================
-         6. Why Choose Us — Flip cards (#7)
-         ================================================================ -->
-    <section class="bg-alt" id="why-choose-us" data-section-label="Why Us">
-      <div class="container">
-        <div class="section-heading" data-reveal>
-          <h2>Why Book Your Kodaikanal Hotel With Cottages Kodaikanal</h2>
-          <p>Hover or tap a card to see what actually backs each promise — no vague marketing lines, just how we run bookings.</p>
-        </div>
-        <div class="ht-flip-grid">
-          <div class="ht-flip-card" data-reveal>
-            <div class="ht-flip-inner">
-              <div class="ht-flip-face ht-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-                <span>Free, No-Obligation Quotes</span>
-              </div>
-              <div class="ht-flip-face ht-flip-back">
-                <p>We quote before you commit. Share your dates and group size and we'll come back with real options — no pressure to book.</p>
-              </div>
-            </div>
-          </div>
-          <div class="ht-flip-card" data-reveal>
-            <div class="ht-flip-inner">
-              <div class="ht-flip-face ht-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-                <span>24/7 Guest Support</span>
-              </div>
-              <div class="ht-flip-face ht-flip-back">
-                <p>Questions don't stick to office hours, so neither do we. Call or message any time and a real person will respond.</p>
-              </div>
-            </div>
-          </div>
-          <div class="ht-flip-card" data-reveal>
-            <div class="ht-flip-inner">
-              <div class="ht-flip-face ht-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m20 6-11 11-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Verified Properties Only</span>
-              </div>
-              <div class="ht-flip-face ht-flip-back">
-                <p>All 30+ properties on this page have been walked through and photographed in person by our local team before listing. What you see is what you'll find at check-in.</p>
-              </div>
-            </div>
-          </div>
-          <div class="ht-flip-card" data-reveal>
-            <div class="ht-flip-inner">
-              <div class="ht-flip-face ht-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M12 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>12 Years Local Experience</span>
-              </div>
-              <div class="ht-flip-face ht-flip-back">
-                <p>We've run hotel and kodaikanal cottage booking services since day one, as a family business, not a marketplace — that gets you a straight answer, fast.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

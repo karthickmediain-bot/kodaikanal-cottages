@@ -28,8 +28,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=hdr3" />
   <link rel="stylesheet" href="css/hotels.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/stays.css?v=5" />
 
   <!-- Schema: LodgingBusiness -->
   <script type="application/ld+json">
@@ -165,7 +168,7 @@
   }
   </script>
 </head>
-<body class="rs-page">
+<body class="rs-page st-t-resorts">
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <div id="site-header" data-include="partials/header.html"></div>
@@ -174,13 +177,13 @@
 
     <section class="rs-hero" id="hero" data-section-label="Hero">
       <div class="rs-hero-media">
-        <img src="images/destinations/destination-kodai-lake.webp" alt="Kodai Lake at sunrise, Kodaikanal" width="1600" height="1000" />
+        <img src="images/scenery/kodaikanal-hills-sunrise.webp" alt="Kodai Lake at sunrise, Kodaikanal" width="1600" height="1000" />
       </div>
       <div class="container rs-hero-inner">
         <div class="rs-hero-copy" data-reveal>
           <p class="eyebrow">Kodaikanal, Tamil Nadu</p>
-          <h1>Resorts in Kodaikanal Built for Family Stays and Big Events</h1>
-          <p class="rs-hero-subhead">A resort in Kodaikanal is a multi-room stay pairing open lawns and a dining hall with your room — in short, built for <strong>families, wedding couples, and reunion or offsite groups of 20 to 200 guests</strong>, with free WhatsApp quotes from Cottages Kodaikanal.</p>
+          <h1>Resorts in Kodaikanal for Family Stays and Big Events</h1>
+          <p class="rs-hero-subhead">Open lawns, a dining hall and comfortable rooms on one property — built for <strong>families, weddings and groups of 20 to 200 guests</strong>. Free WhatsApp quote within the hour.</p>
         </div>
 
         <div class="hero-search-wrap">
@@ -207,6 +210,14 @@
             <div class="hero-search-value">
               <label for="rs-guests">Guests</label>
               <input type="number" id="rs-guests" name="guests" min="1" placeholder="20 Guests" inputmode="numeric" />
+            </div>
+          </div>
+          <div class="hero-search-divider" aria-hidden="true"></div>
+          <div class="hero-search-field">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <div class="hero-search-value">
+              <label for="rs-phone">Phone number</label>
+              <input type="tel" id="rs-phone" name="phone" placeholder="10-digit mobile" inputmode="tel" autocomplete="tel" pattern="[0-9+\s\-]{10,15}" title="Enter a valid phone number" required />
             </div>
           </div>
           <button class="hero-search-submit" type="submit">
@@ -470,17 +481,17 @@
         <div class="rs-tab-panels" data-reveal>
           <div class="rs-tab-panel is-active" data-tab-panel="nature">
             <div class="rs-exp-card">
-              <img src="images/destinations/destination-kodai-lake.webp" alt="Kodai Lake" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/kodai-lake-misty-shore.webp" alt="Kodai Lake" width="300" height="375" loading="lazy" />
               <div class="rs-exp-name-strip"><h3>Kodai Lake</h3></div>
               <div class="rs-exp-panel"><h3>Kodai Lake</h3><p>A star-shaped lake in town, good for a group photo stop before or after your resort function.</p></div>
             </div>
             <div class="rs-exp-card">
-              <img src="images/destinations/destination-coakers-walk.webp" alt="Coaker's Walk" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/coakers-walk-path.webp" alt="Coaker's Walk" width="300" height="375" loading="lazy" />
               <div class="rs-exp-name-strip"><h3>Coaker's Walk</h3></div>
               <div class="rs-exp-panel"><h3>Coaker's Walk</h3><p>A paved ridge walk with valley views, an easy add-on for guests staying an extra day after the event.</p></div>
             </div>
             <div class="rs-exp-card">
-              <img src="images/destinations/destination-bryant-park.webp" alt="Bryant Park" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/bryant-park-entrance.webp" alt="Bryant Park" width="300" height="375" loading="lazy" />
               <div class="rs-exp-name-strip"><h3>Bryant Park</h3></div>
               <div class="rs-exp-panel"><h3>Bryant Park</h3><p>A tidy botanical garden, a relaxed stop for older guests while the rest of the group sightsees further out.</p></div>
             </div>
@@ -488,17 +499,17 @@
 
           <div class="rs-tab-panel" data-tab-panel="events">
             <div class="rs-exp-card">
-              <img src="images/properties/green-hill-resort.webp" alt="Bonfire lawn setup at a Kodaikanal resort" width="300" height="375" loading="lazy" />
+              <img src="images/interiors/campfire-evening.webp" alt="Evening campfire on a Kodaikanal resort lawn" width="300" height="375" loading="lazy" />
               <div class="rs-exp-name-strip"><h3>Bonfire &amp; Lawn Games</h3></div>
               <div class="rs-exp-panel"><h3>Bonfire &amp; Lawn Games</h3><p>Most resort lawns are set up for an evening bonfire and outdoor games — a favorite for reunions and college trips.</p></div>
             </div>
             <div class="rs-exp-card">
-              <img src="images/properties/olive-garden-resort.webp" alt="Dining hall setup for group event at a Kodaikanal resort" width="300" height="375" loading="lazy" />
+              <img src="images/interiors/dining-table-window.webp" alt="Dining hall with long tables and large windows at a Kodaikanal resort" width="300" height="375" loading="lazy" />
               <div class="rs-exp-name-strip"><h3>Dining Hall Functions</h3></div>
               <div class="rs-exp-panel"><h3>Dining Hall Functions</h3><p>Birthday functions, sangeet nights and farewell dinners fit comfortably in most resorts' indoor dining halls — a popular pick as a resort wedding venue in Kodaikanal too.</p></div>
             </div>
             <div class="rs-exp-card">
-              <img src="images/properties/lazo-eucy-paradise-resort.webp" alt="Outdoor wedding lawn at a Kodaikanal resort" width="300" height="375" loading="lazy" />
+              <img src="images/properties/resort-open-lawn-events.webp" alt="Outdoor wedding mandap on a Kodaikanal resort lawn" width="300" height="375" loading="lazy" />
               <div class="rs-exp-name-strip"><h3>Outdoor Wedding Setups</h3></div>
               <div class="rs-exp-panel"><h3>Outdoor Wedding Setups</h3><p>Open lawns at our larger resorts can hold a mandap and seating for up to 150 to 200 guests.</p></div>
             </div>
@@ -506,17 +517,17 @@
 
           <div class="rs-tab-panel" data-tab-panel="family">
             <div class="rs-exp-card">
-              <img src="images/destinations/destination-kodai-lake.webp" alt="Boating at Kodai Lake" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/kodai-lake-rowboats.webp" alt="Boating at Kodai Lake" width="300" height="375" loading="lazy" />
               <div class="rs-exp-name-strip"><h3>Boat Club, Kodai Lake</h3></div>
               <div class="rs-exp-panel"><h3>Boat Club, Kodai Lake</h3><p>Pedal boats and a lakeside walk, an easy half-day out for kids while the resort hosts the adults' function.</p></div>
             </div>
             <div class="rs-exp-card">
-              <img src="images/destinations/destination-bryant-park.webp" alt="Bear Shola Falls area" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/silver-cascade-falls.webp" alt="Waterfall near Kodaikanal" width="300" height="375" loading="lazy" />
               <div class="rs-exp-name-strip"><h3>Bear Shola Falls</h3></div>
               <div class="rs-exp-panel"><h3>Bear Shola Falls</h3><p>A short, easy walk to a small waterfall — manageable for grandparents and young kids alike.</p></div>
             </div>
             <div class="rs-exp-card">
-              <img src="images/properties/welcome-holidays.webp" alt="Kodaikanal town center chocolate shops" width="300" height="375" loading="lazy" />
+              <img src="images/local/chocolate-shop-interior.webp" alt="Kodaikanal town center chocolate shops" width="300" height="375" loading="lazy" />
               <div class="rs-exp-name-strip"><h3>Chocolate Shopping</h3></div>
               <div class="rs-exp-panel"><h3>Chocolate Shopping, Town Center</h3><p>A fun, low-effort family outing between resort meal slots.</p></div>
             </div>
@@ -524,17 +535,17 @@
 
           <div class="rs-tab-panel" data-tab-panel="food">
             <div class="rs-exp-card">
-              <img src="images/properties/olive-garden-resort.webp" alt="Multi-cuisine buffet at a Kodaikanal resort" width="300" height="375" loading="lazy" />
+              <img src="images/properties/resort-onsite-dining-hall.webp" alt="Multi-cuisine buffet at a Kodaikanal resort" width="300" height="375" loading="lazy" />
               <div class="rs-exp-name-strip"><h3>Multi-Cuisine Buffets</h3></div>
               <div class="rs-exp-panel"><h3>Multi-Cuisine Buffets</h3><p>Most resort dining halls run buffet-style service built for groups, from South Indian breakfast spreads to North Indian dinners.</p></div>
             </div>
             <div class="rs-exp-card">
-              <img src="images/properties/sri-sai-cottage.webp" alt="Tibetan food stalls near the town market" width="300" height="375" loading="lazy" />
+              <img src="images/local/market-walk-crowd.webp" alt="Tibetan food stalls near the town market" width="300" height="375" loading="lazy" />
               <div class="rs-exp-name-strip"><h3>Tibetan Market Bites</h3></div>
               <div class="rs-exp-panel"><h3>Tibetan Market Bites</h3><p>Momos and thukpa from the town's small Tibetan food stalls, a change of pace from resort dining.</p></div>
             </div>
             <div class="rs-exp-card">
-              <img src="images/properties/olive-tree-cottage.webp" alt="Local jams and honey shops" width="300" height="375" loading="lazy" />
+              <img src="images/local/honey-jam-shop.webp" alt="Local jams and honey shops" width="300" height="375" loading="lazy" />
               <div class="rs-exp-name-strip"><h3>Homemade Preserves &amp; Honey</h3></div>
               <div class="rs-exp-panel"><h3>Homemade Preserves &amp; Honey</h3><p>Small local shops sell jams and honey made nearby — a good gift stop for out-of-town guests.</p></div>
             </div>
@@ -564,7 +575,7 @@
                 <li>Bryant Park &amp; Pillar Rocks</li>
               </ul>
               <p>A single tight loop for guests with just one free day before or after the event.</p>
-              <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%201-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
+              <a class="btn btn-outline" href="kodaikanal-1-day-tour-package.html">Get Package Details</a>
             </div>
           </article>
 
@@ -581,7 +592,7 @@
                 <li>Resort stay built into the route</li>
               </ul>
               <p>Enough time to add trails and viewpoints without stretching the whole trip past a weekend.</p>
-              <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%202-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
+              <a class="btn btn-outline" href="kodaikanal-2-day-tour-package.html">Get Package Details</a>
             </div>
           </article>
 
@@ -598,7 +609,7 @@
                 <li>Two nights resort stay included</li>
               </ul>
               <p>The pick for wedding or reunion groups turning the trip into a proper multi-day getaway.</p>
-              <a class="btn btn-primary" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%203-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
+              <a class="btn btn-primary" href="kodaikanal-3-day-tour-package.html">Get Package Details</a>
             </div>
           </article>
         </div>
@@ -777,6 +788,37 @@
         </div>
       </div>
     </section>
+    <section class="bg-alt" id="why-choose-us" data-section-label="Why Us">
+      <div class="container wcu wcu--resorts">
+        <div class="section-heading" data-reveal>
+          <h2>Why Book Your Kodaikanal Resort With Cottages Kodaikanal</h2>
+          <p>No vague marketing lines — just how we run resort and event bookings.</p>
+        </div>
+        <div class="wcu-grid">
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+            <h3>Free, No-Obligation Quotes</h3>
+            <p>We quote before you commit to anything. Share your guest count and date and we'll come back with real availability, no pressure to book on the spot.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <h3>Event-Day Support</h3>
+            <p>Weddings and offsites don't run on office hours. Our team stays reachable before and during your event so setup issues get sorted fast.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m20 6-11 11-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>Verified Grounds &amp; Capacity</h3>
+            <p>We've personally checked lawn size and room count at every one of the best resorts in Kodaikanal on our list. What you're quoted for capacity is what you'll actually get.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M12 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>12 Years Hosting Events Here</h3>
+            <p>We've coordinated resort weddings and group stays in Kodaikanal for over a decade as a family business — that local relationship gets you a straight answer, fast.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ================================================================
          FAQ — same accordion design as the homepage
          ================================================================ -->
@@ -871,62 +913,6 @@
               <p>For weddings or groups over 50 guests, 4 to 6 weeks ahead gives the most options, especially around peak season. Smaller group bookings can often be confirmed on shorter notice.</p>
             </div>
           </details>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="bg-alt" id="why-choose-us" data-section-label="Why Us">
-      <div class="container">
-        <div class="section-heading" data-reveal>
-          <h2>Why Book Your Kodaikanal Resort With Cottages Kodaikanal</h2>
-          <p>Hover or tap a card to see what backs each promise — no vague marketing lines, just how we run resort bookings.</p>
-        </div>
-        <div class="rs-flip-grid">
-          <div class="rs-flip-card" data-reveal>
-            <div class="rs-flip-inner">
-              <div class="rs-flip-face rs-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-                <span>Free, No-Obligation Quotes</span>
-              </div>
-              <div class="rs-flip-face rs-flip-back">
-                <p>We quote before you commit to anything. Share your guest count and date and we'll come back with real availability, no pressure to book on the spot.</p>
-              </div>
-            </div>
-          </div>
-          <div class="rs-flip-card" data-reveal>
-            <div class="rs-flip-inner">
-              <div class="rs-flip-face rs-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-                <span>Event-Day Support</span>
-              </div>
-              <div class="rs-flip-face rs-flip-back">
-                <p>Weddings and offsites don't run on office hours. Our team stays reachable before and during your event so setup issues get sorted fast.</p>
-              </div>
-            </div>
-          </div>
-          <div class="rs-flip-card" data-reveal>
-            <div class="rs-flip-inner">
-              <div class="rs-flip-face rs-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m20 6-11 11-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Verified Grounds &amp; Capacity</span>
-              </div>
-              <div class="rs-flip-face rs-flip-back">
-                <p>We've personally checked lawn size and room count at every one of the best resorts in Kodaikanal on our list. What you're quoted for capacity is what you'll actually get.</p>
-              </div>
-            </div>
-          </div>
-          <div class="rs-flip-card" data-reveal>
-            <div class="rs-flip-inner">
-              <div class="rs-flip-face rs-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M12 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>12 Years Hosting Events Here</span>
-              </div>
-              <div class="rs-flip-face rs-flip-back">
-                <p>We've coordinated resort weddings and group stays in Kodaikanal for over a decade as a family business — that local relationship gets you a straight answer, fast.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

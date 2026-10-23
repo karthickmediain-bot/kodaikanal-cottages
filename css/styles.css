@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    Cottages Kodaikanal — Design Tokens (v7: deep cyan/teal travel-booking
    system, swapped in from the earlier forest-green palette)
    ========================================================================== */
@@ -34,7 +34,7 @@
   --color-bg-alt: #eaf7fa;
   --color-surface: #ffffff;
   --color-text: #1c1f24;
-  --color-text-muted: #5c6a6d;
+  --color-text-muted: #3f4f54;
   --color-border: #dfeaec;
   --color-success: #2f7a4d;
   --color-warning: #f5a623;
@@ -234,7 +234,8 @@ section {
 }
 
 .section-heading p {
-  color: var(--color-text-muted);
+  color: #2b3a3f;
+  font-weight: 500;
   font-size: 1.05rem;
   max-width: 65ch;
   margin-inline: auto;
@@ -2052,6 +2053,11 @@ section {
   height: auto;
 }
 
+/* Group stay photos carry their price/label on the right edge: crop from the left instead. */
+.package-card img[src*="group-stay/"] {
+  object-position: right center;
+}
+
 .package-card .package-body {
   padding: var(--space-5);
   display: flex;
@@ -3580,4 +3586,34 @@ section {
     letter-spacing: 0.03em;
     color: var(--color-text-muted);
   }
+}
+
+/* ==========================================================================
+   Round 73: desktop header — roomier, aligned three-part bar (logo | nav | call)
+   ========================================================================== */
+@media (min-width: 900px) {
+  :root { --header-height: 92px; }
+  .site-header .container {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: clamp(24px, 3vw, 56px);
+  }
+  .logo-mark img { height: 64px; }
+  .primary-nav { justify-self: center; }
+  .primary-nav > ul { gap: clamp(22px, 2.6vw, 44px); font-size: 0.98rem; font-weight: 500; letter-spacing: 0.005em; }
+  .primary-nav > ul > li > a, .nav-mega-toggle { padding-block: 10px; font-weight: 500; color: var(--color-text); transition: color 160ms ease; }
+  .primary-nav > ul > li > a:hover, .nav-mega-toggle:hover, .has-mega.is-open .nav-mega-toggle { color: var(--color-primary); }
+  .primary-nav > ul > li > a::after, .nav-mega-toggle::after { bottom: 2px; height: 2px; background: var(--color-highlight); }
+  .nav-mega-toggle { gap: 8px; }
+  .nav-caret { width: 13px; height: 13px; opacity: 0.7; }
+  .header-actions { justify-self: end; }
+  .call-chip { gap: 10px; padding: 0 24px; min-height: 48px; border-radius: 999px; font-size: 0.95rem; letter-spacing: 0.01em; box-shadow: 0 8px 20px rgba(20, 80, 102, 0.22); }
+  .call-chip:hover { border-radius: 999px; transform: translateY(-1px); }
+}
+
+/* Round 74: tighter spacing between nav items, more air around the nav (logo <-> nav <-> call) */
+@media (min-width: 900px) {
+  .site-header .container { column-gap: clamp(40px, 5vw, 96px); }
+  .primary-nav > ul { gap: clamp(14px, 1.6vw, 26px); }
 }

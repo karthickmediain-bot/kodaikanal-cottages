@@ -401,6 +401,8 @@
       tab.setAttribute("aria-pressed", String(active));
     });
     if (heroCategoryInput) heroCategoryInput.value = category;
+    const staySelect = document.getElementById("hero-staytype");
+    if (staySelect) staySelect.value = category;
 
     propertiesFilter?.querySelectorAll(".properties-filter-btn").forEach((chip) => {
       const active = chip.dataset.propertyCategory === category;
@@ -420,6 +422,58 @@
     propertiesTrack.scrollTo({ left: 0 });
     propertiesTrack.dispatchEvent(new Event("scroll"));
   }
+
+  document.getElementById("hero-staytype")?.addEventListener("change", (event) => {
+    setActiveCategory(event.target.value);
+  });
+
+
+  /* ------------------------------------------------------------------ */
+  /* Hero "Travelling as" chips — swap photo, headline and suggested     */
+  /* cottage per traveller type; the type also rides along with the lead */
+  /* ------------------------------------------------------------------ */
+  const heroEl = document.querySelector(".hero");
+  const personaChips = document.querySelectorAll(".hero-persona-chip");
+  const heroH1 = heroEl?.querySelector("h1");
+  const heroPick = document.getElementById("hero-pick");
+  const guestsInput = document.getElementById("hero-guests");
+  const defaultH1 = heroH1?.innerHTML;
+  const defaultGuestsHint = guestsInput?.placeholder;
+  const PERSONAS = {
+    family: { lines: ["Space for kids to run.", "Kitchen for tea at 5."], pick: "4 Bedroom Cottage · 8–14 guests", href: "#cottage-4bhk", hint: "4 Guests" },
+    couple: { lines: ["Quiet balconies.", "No itinerary."], pick: "2 Bedroom Cottage · cosy for two", href: "#cottage-2bhk", hint: "2 Guests" },
+    friends: { lines: ["Big terraces.", "Late-night plans."], pick: "6 Bedroom Cottage · 12–24 guests", href: "#cottage-6bhk", hint: "8 Guests" },
+  };
+  let activePersona = "";
+
+  function setPersona(key) {
+    const data = PERSONAS[key];
+    activePersona = data ? key : "";
+    personaChips.forEach((chip) => {
+      const on = chip.dataset.persona === activePersona;
+      chip.classList.toggle("is-active", on);
+      chip.setAttribute("aria-pressed", String(on));
+    });
+    if (!heroEl) return;
+    if (activePersona) heroEl.dataset.persona = activePersona; else delete heroEl.dataset.persona;
+    if (heroH1) {
+      heroH1.innerHTML = data
+        ? `<span class="hero-h1-line">${data.lines[0]}</span> <span class="hero-h1-line hero-h1-gradient">${data.lines[1]}</span>`
+        : defaultH1;
+    }
+    if (heroPick) {
+      heroPick.hidden = !data;
+      if (data) {
+        heroPick.querySelector(".hero-pick-v").textContent = data.pick;
+        heroPick.setAttribute("href", data.href);
+      }
+    }
+    if (guestsInput) guestsInput.placeholder = data ? data.hint : defaultGuestsHint;
+  }
+
+  personaChips.forEach((chip) => {
+    chip.addEventListener("click", () => setPersona(chip.dataset.persona === activePersona ? "" : chip.dataset.persona));
+  });
 
   heroCategoryTabs?.addEventListener("click", (event) => {
     const btn = event.target.closest(".hero-category-btn");
@@ -482,11 +536,85 @@
   const heroSearch = document.getElementById("hero-search");
   const allPropertiesSection = document.getElementById("all-properties");
 
+  // Phone field accepts digits only (max 10) — strips anything else as you type/paste
+  document.getElementById("hero-phone")?.addEventListener("input", (event) => {
+    event.target.value = event.target.value.replace(/\D/g, "").slice(0, 10);
+  });
+
+  /* Two-step hero form: step 1 = stay details, step 2 = WhatsApp number */
+  const heroPhone = document.getElementById("hero-phone");
+  function goHeroStep(n) {
+    if (!heroSearch) return;
+    heroSearch.dataset.step = String(n);
+    document.querySelector(".hero-journey")?.setAttribute("data-step", String(n));
+    const btnLabel = heroSearch.querySelector(".hero-search-submit span");
+    if (btnLabel) btnLabel.textContent = n === 2 ? "Book Now" : "Check availability";
+    if (heroPhone) {
+      heroPhone.required = n === 2;
+      if (n === 2) setTimeout(() => heroPhone.focus(), 60);
+    }
+  }
+  heroSearch?.querySelector(".hero-step-back")?.addEventListener("click", () => goHeroStep(1));
+
   if (heroSearch && allPropertiesSection) {
     heroSearch.addEventListener("submit", (event) => {
       event.preventDefault();
       revealProperties(heroCategoryInput?.value || "Hotels");
       allPropertiesSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  } else if (heroSearch) {
+    // All-properties section is commented out — the hero button is "Book Now".
+    // It POSTs the enquiry to /api/book.php (saved to MySQL + emailed via SMTP);
+    // if that fails, it falls back to a pre-filled WhatsApp message.
+    heroSearch.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (heroSearch.dataset.step !== "2") { goHeroStep(2); return; }
+      const val = (id) => document.getElementById(id)?.value.trim();
+      const submitBtn = heroSearch.querySelector(".hero-search-submit");
+      const label = submitBtn?.querySelector("span");
+      const original = label?.textContent;
+      const setLabel = (text) => { if (label) label.textContent = text; };
+
+      if (submitBtn) submitBtn.disabled = true;
+      setLabel("Sending…");
+      try {
+        const res = await fetch("/api/book.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            category: heroCategoryInput?.value || "Hotels",
+            traveller_type: activePersona,
+            check_in: val("hero-checkin"),
+            check_out: val("hero-checkout"),
+            guests: val("hero-guests"),
+            phone: val("hero-phone"),
+            source_url: location.href,
+            website: "",
+          }),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        setLabel("Request sent ✓");
+        heroSearch.reset();
+        if (heroCategoryInput) heroCategoryInput.value = "Hotels";
+        setActiveCategory("Hotels");
+        setPersona("");
+        setTimeout(() => { goHeroStep(1); if (submitBtn) submitBtn.disabled = false; }, 4000);
+        return;
+      } catch (err) {
+        setLabel(original);
+        if (submitBtn) submitBtn.disabled = false;
+      }
+
+      const lines = [
+        `Hi, I'd like to book a ${heroCategoryInput?.value || "stay"} in Kodaikanal.`,
+        activePersona && `Travelling as: ${activePersona}`,
+        val("hero-checkin") && `Check-in: ${val("hero-checkin")}`,
+        val("hero-checkout") && `Check-out: ${val("hero-checkout")}`,
+        val("hero-guests") && `Guests: ${val("hero-guests")}`,
+        val("hero-phone") && `My phone: ${val("hero-phone")}`,
+        "Could you share availability and pricing?",
+      ].filter(Boolean);
+      window.open(`https://wa.me/917502345777?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener");
     });
   }
 

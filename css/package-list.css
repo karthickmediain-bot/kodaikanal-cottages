@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Package list — the "1 Day / 2 Days / 3 Days Tour Packages" card list on the
+   three tour package pages. Colours come from each page's own tokens so the
+   block matches whichever page it sits on.
+   ========================================================================== */
+
+.od-page .pl { --pl-ink: var(--od-ink); --pl-text: var(--od-text); --pl-muted: var(--od-muted); --pl-line: var(--od-line); --pl-accent: var(--od-coral); --pl-accent-ink: var(--od-coral-ink); --pl-soft: var(--od-sand); --pl-wa: var(--od-wa); }
+.d2-page .pl { --pl-ink: var(--d2-ink); --pl-text: var(--d2-text); --pl-muted: var(--d2-muted); --pl-line: var(--d2-line); --pl-accent: var(--d2-gold); --pl-accent-ink: var(--d2-gold-ink); --pl-soft: var(--d2-sand); --pl-wa: var(--d2-wa); }
+.d3-page .pl { --pl-ink: var(--d3-ink); --pl-text: var(--d3-text); --pl-muted: var(--d3-muted); --pl-line: var(--d3-line); --pl-accent: var(--d3-coral); --pl-accent-ink: var(--d3-coral-ink); --pl-soft: var(--d3-lav); --pl-wa: var(--d3-wa); }
+
+.pl { padding: clamp(3.5rem, 7vw, 6rem) 0; background: #fff; color: var(--pl-text); }
+.pl .pl-wrap { max-width: var(--max-width, 1200px); margin-inline: auto; padding-inline: clamp(var(--space-6, 40px), 7vw, var(--space-10, 96px)); }
+.pl .pl-head { max-width: 40rem; margin: 0 auto 2.6rem; text-align: center; }
+.pl .pl-eyebrow { display: inline-block; margin: 0 0 0.7rem; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pl-accent); }
+.pl .pl-head h2 { margin: 0 0 0.8rem; color: var(--pl-ink); font-size: clamp(1.7rem, 3.2vw, 2.4rem); line-height: 1.15; }
+.pl .pl-head p { margin: 0; color: var(--pl-muted); line-height: 1.7; }
+
+.pl .pl-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(var(--pl-cols, 3), minmax(0, 1fr)); justify-content: center; }
+.pl .pl-card { position: relative; display: flex; flex-direction: column; padding: 1.7rem 1.6rem 1.5rem; background: #fff; border: 1px solid var(--pl-line); border-radius: 18px; box-shadow: 0 10px 26px rgba(16, 40, 50, 0.06); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.pl .pl-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(16, 40, 50, 0.12); }
+.pl .pl-card.is-priced { border-color: var(--pl-accent); }
+.pl .pl-tag { align-self: flex-start; margin-bottom: 1rem; padding: 0.25rem 0.8rem; border-radius: 999px; background: var(--pl-soft); color: var(--pl-ink); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.pl .pl-card h3 { margin: 0; font-size: 1.35rem; line-height: 1.2; color: var(--pl-ink); }
+.pl .pl-card h3 small { display: block; margin-top: 0.3rem; font-size: 0.92rem; font-weight: 500; color: var(--pl-muted); }
+.pl .pl-price { margin: 1.3rem 0 1.4rem; padding-top: 1.1rem; border-top: 1px dashed var(--pl-line); display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; }
+.pl .pl-price small { font-size: 0.82rem; color: var(--pl-muted); }
+.pl .pl-price strong { font-size: 1.7rem; line-height: 1; color: var(--pl-ink); }
+.pl .pl-price span { font-size: 0.85rem; color: var(--pl-muted); }
+.pl .pl-price em { font-style: normal; font-weight: 600; color: var(--pl-muted); }
+.pl .pl-btn { margin-top: auto; display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: 0.92rem; text-decoration: none; background: var(--pl-accent); color: var(--pl-accent-ink); border: 2px solid var(--pl-accent); transition: filter 0.2s ease; }
+.pl .pl-btn:hover { filter: brightness(0.93); }
+.pl .pl-card:not(.is-priced) .pl-btn { background: transparent; color: var(--pl-ink); border-color: var(--pl-ink); }
+.pl .pl-card:not(.is-priced) .pl-btn:hover { background: var(--pl-soft); filter: none; }
+
+@media (max-width: 900px) { .pl .pl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .pl .pl-grid { grid-template-columns: minmax(0, 1fr); } .pl .pl-wrap { padding-inline: 20px; } }

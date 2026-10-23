@@ -103,6 +103,46 @@
     });
   }
 
+  // The page-level tab bar ([data-page-tabs]): deep links (#reviews, #location,
+  // #faqs, or any section id inside a hidden panel) open the right tab first.
+  function initPageTabs() {
+    var bar = document.querySelector("[data-page-tabs]");
+    if (!bar) return;
+    var tabs = all('[role="tab"]', bar);
+    function panelOf(el) { return el && el.closest ? el.closest(".rd-panel") : null; }
+    function open(el) {
+      var p = panelOf(el);
+      if (!p || !p.hidden) return false;
+      var tab = tabs.filter(function (t) { return t.getAttribute("aria-controls") === p.id; })[0];
+      if (tab) tab.click();
+      return true;
+    }
+    function tabFromHash(h) {
+      return tabs.filter(function (t) { return t.id === "tab-" + h; })[0];
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () {
+        var top = bar.getBoundingClientRect().top;
+        if (top < 0 || top > 200) window.scrollTo({ top: top + window.scrollY - 100, behavior: reduce ? "auto" : "smooth" });
+        try { history.replaceState(null, "", "#" + t.id.replace("tab-", "")); } catch (e) {}
+      });
+    });
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a || a.getAttribute("href").length < 2) return;
+      var target = document.getElementById(a.getAttribute("href").slice(1));
+      if (open(target)) {
+        e.preventDefault();
+        setTimeout(function () { target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); }, 60);
+      }
+    });
+    var h = location.hash.replace("#", "");
+    if (!h) return;
+    var t = tabFromHash(h);
+    if (t) t.click();
+    else open(document.getElementById(h));
+  }
+
   function initFaq() {
     all(".rd-faq-item").forEach(function (item) {
       var q = item.querySelector(".rd-faq-q");
@@ -127,28 +167,8 @@
     });
   }
 
-  function initJump() {
-    var links = all(".rd-jump a");
-    if (!links.length || !("IntersectionObserver" in window)) return;
-    var map = {};
-    links.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        links.forEach(function (a) { a.classList.remove("is-on"); });
-        var a = map[e.target.id];
-        if (a) {
-          a.classList.add("is-on");
-          var bar = a.parentNode;
-          bar.scrollTo({ left: a.offsetLeft - bar.clientWidth / 2 + a.clientWidth / 2, behavior: reduce ? "auto" : "smooth" });
-        }
-      });
-    }, { rootMargin: "-40% 0px -55% 0px" });
-    Object.keys(map).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
-  }
-
   function initReveal() {
-    var els = all(".rd-lead, .rd-jump, .rd-sec, .rd-book, .qf-card, .rd-final, [data-stagger] > *");
+    var els = all(".rd-lead, .rd-tabbar, .rd-sec, .qf-card, .rd-final, [data-stagger] > *");
     if (reduce || !("IntersectionObserver" in window)) return;
     els.forEach(function (el) {
       el.classList.add("rd-rv");
@@ -193,9 +213,9 @@
   function init() {
     initPickers();
     initTabs();
+    initPageTabs();
     initFaq();
     initWaForms();
-    initJump();
     initReveal();
     initChrome();
   }

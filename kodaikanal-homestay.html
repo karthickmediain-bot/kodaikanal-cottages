@@ -28,8 +28,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=hdr3" />
   <link rel="stylesheet" href="css/hotels.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/stays.css?v=5" />
 
   <!-- Flags JS as available before first paint so the scroll-reveal system
        (hotels.css) only hides [data-reveal] content when it can guarantee
@@ -154,7 +157,7 @@
   }
   </script>
 </head>
-<body class="hs-page">
+<body class="hs-page st-t-homestay">
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <div id="site-header" data-include="partials/header.html"></div>
@@ -166,12 +169,12 @@
          ================================================================ -->
     <section class="hs-hero" id="hero" data-section-label="Hero">
       <div class="hs-hero-media">
-        <img src="images/destinations/destination-kodai-lake.webp" alt="Kodai Lake at sunrise, Kodaikanal" width="1600" height="1000" />
+        <img src="images/scenery/scenery-misty-cliffs-viewpoint.webp" alt="Kodai Lake at sunrise, Kodaikanal" width="1600" height="1000" />
       </div>
       <div class="container hs-hero-inner">
         <div class="hs-hero-copy" data-reveal>
           <p class="eyebrow">Kodaikanal, Tamil Nadu</p>
-          <h1>A Kodaikanal Homestay, Run by a Family<br />That Actually Lives There</h1>
+          <h1>A Kodaikanal Homestay, Run by a Family That Lives There</h1>
           <p class="hs-hero-subhead">Cottages Kodaikanal runs a real homestay in Kodaikanal — home-cooked meals, a host family on-site, free quotes within the hour.</p>
         </div>
 
@@ -202,6 +205,14 @@
             <div class="hero-search-value">
               <label for="hs-guests">Guests</label>
               <input type="number" id="hs-guests" name="guests" min="1" placeholder="2 Guests" inputmode="numeric" />
+            </div>
+          </div>
+          <div class="hero-search-divider" aria-hidden="true"></div>
+          <div class="hero-search-field">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <div class="hero-search-value">
+              <label for="hs-phone">Phone number</label>
+              <input type="tel" id="hs-phone" name="phone" placeholder="10-digit mobile" inputmode="tel" autocomplete="tel" pattern="[0-9+\s\-]{10,15}" title="Enter a valid phone number" required />
             </div>
           </div>
           <button class="hero-search-submit" type="submit">
@@ -320,7 +331,7 @@
             <h3>2 Bedroom Homestay</h3>
             <p class="hs-property-meta">2 BHK &middot; Ideal for couples &amp; small families &middot; 4&ndash;6 guests</p>
             <div class="hs-property-card-actions">
-              <a class="btn btn-primary hs-property-book-btn" href="https://wa.me/917502345777" target="_blank" rel="noopener">Book Now</a>
+              <a class="btn btn-primary hs-property-book-btn" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20the%202%20Bedroom%20Homestay%20in%20Kodaikanal" target="_blank" rel="noopener">Book Now</a>
               <a class="hs-property-call-btn" href="tel:+917502345777" aria-label="Call to book this property"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
             </div>
           </div>
@@ -331,7 +342,7 @@
             <h3>3 Bedroom Homestay</h3>
             <p class="hs-property-meta">3 BHK &middot; Roomy pick for two families &middot; 6&ndash;10 guests</p>
             <div class="hs-property-card-actions">
-              <a class="btn btn-primary hs-property-book-btn" href="https://wa.me/917502345777" target="_blank" rel="noopener">Book Now</a>
+              <a class="btn btn-primary hs-property-book-btn" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20the%203%20Bedroom%20Homestay%20in%20Kodaikanal" target="_blank" rel="noopener">Book Now</a>
               <a class="hs-property-call-btn" href="tel:+917502345777" aria-label="Call to book this property"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
             </div>
           </div>
@@ -342,7 +353,7 @@
             <h3>4 Bedroom Homestay</h3>
             <p class="hs-property-meta">4 BHK &middot; Great for extended family trips &middot; 8&ndash;14 guests</p>
             <div class="hs-property-card-actions">
-              <a class="btn btn-primary hs-property-book-btn" href="https://wa.me/917502345777" target="_blank" rel="noopener">Book Now</a>
+              <a class="btn btn-primary hs-property-book-btn" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20the%204%20Bedroom%20Homestay%20in%20Kodaikanal" target="_blank" rel="noopener">Book Now</a>
               <a class="hs-property-call-btn" href="tel:+917502345777" aria-label="Call to book this property"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
             </div>
           </div>
@@ -353,7 +364,7 @@
             <h3>5 Bedroom Homestay</h3>
             <p class="hs-property-meta">5 BHK &middot; Suited to reunions &amp; group getaways &middot; 10&ndash;18 guests</p>
             <div class="hs-property-card-actions">
-              <a class="btn btn-primary hs-property-book-btn" href="https://wa.me/917502345777" target="_blank" rel="noopener">Book Now</a>
+              <a class="btn btn-primary hs-property-book-btn" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20the%205%20Bedroom%20Homestay%20in%20Kodaikanal" target="_blank" rel="noopener">Book Now</a>
               <a class="hs-property-call-btn" href="tel:+917502345777" aria-label="Call to book this property"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
             </div>
           </div>
@@ -364,7 +375,7 @@
             <h3>6 Bedroom Homestay</h3>
             <p class="hs-property-meta">6 BHK &middot; Full-property buyout for big groups &middot; 12&ndash;24 guests</p>
             <div class="hs-property-card-actions">
-              <a class="btn btn-primary hs-property-book-btn" href="https://wa.me/917502345777" target="_blank" rel="noopener">Book Now</a>
+              <a class="btn btn-primary hs-property-book-btn" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20the%206%20Bedroom%20Homestay%20in%20Kodaikanal" target="_blank" rel="noopener">Book Now</a>
               <a class="hs-property-call-btn" href="tel:+917502345777" aria-label="Call to book this property"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
             </div>
           </div>
@@ -375,7 +386,7 @@
             <h3>7 Bedroom Homestay</h3>
             <p class="hs-property-meta">7 BHK &middot; Our largest homestay, for big group stays &middot; 14&ndash;28 guests</p>
             <div class="hs-property-card-actions">
-              <a class="btn btn-primary hs-property-book-btn" href="https://wa.me/917502345777" target="_blank" rel="noopener">Book Now</a>
+              <a class="btn btn-primary hs-property-book-btn" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20the%207%20Bedroom%20Homestay%20in%20Kodaikanal" target="_blank" rel="noopener">Book Now</a>
               <a class="hs-property-call-btn" href="tel:+917502345777" aria-label="Call to book this property"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
             </div>
           </div>
@@ -395,7 +406,7 @@
           <div class="hs-step" data-reveal>
             <span class="hs-step-icon">1</span>
             <h3>Search &amp; Compare</h3>
-            <p>Browse a <a href="hotels-in-kodaikanal.html">kodaikanal house stay</a> by room size or budget. Every listing shows real occupancy and meal inclusions, not vague descriptions.</p>
+            <p>Browse a <a href="#featured-homestays">kodaikanal house stay</a> by room size or budget. Every listing shows real occupancy and meal inclusions, not vague descriptions.</p>
           </div>
           <div class="hs-step" data-reveal>
             <span class="hs-step-icon">2</span>
@@ -431,12 +442,12 @@
         <div class="hs-tab-panels" data-reveal>
           <div class="hs-tab-panel is-active" data-tab-panel="nature">
             <div class="hs-exp-card">
-              <img src="images/destinations/destination-kodai-lake.webp" alt="Kodai Lake" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/kodai-lake-boat-jetty.webp" alt="Kodai Lake" width="300" height="375" loading="lazy" />
               <div class="hs-exp-name-strip"><h3>Kodai Lake</h3></div>
               <div class="hs-exp-panel"><h3>Kodai Lake</h3><p>A star-shaped lake in town, best by pedal boat at sunrise before crowds arrive.</p></div>
             </div>
             <div class="hs-exp-card">
-              <img src="images/destinations/destination-coakers-walk.webp" alt="Coaker's Walk" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/coakers-walk-path.webp" alt="Coaker's Walk" width="300" height="375" loading="lazy" />
               <div class="hs-exp-name-strip"><h3>Coaker's Walk</h3></div>
               <div class="hs-exp-panel"><h3>Coaker's Walk</h3><p>A ridge path with valley views on a clear morning, minutes from most homestays.</p></div>
             </div>
@@ -454,12 +465,12 @@
               <div class="hs-exp-panel"><h3>Pillar Rocks</h3><p>Three granite pillars in the pine forest — a short trek, a big payoff.</p></div>
             </div>
             <div class="hs-exp-card">
-              <img src="images/destinations/destination-vattakanal.webp" alt="Dolphin's Nose viewpoint near Vattakanal" width="300" height="375" loading="lazy" />
+              <img src="images/scenery/scenery-misty-cliffs-viewpoint.webp" alt="Dolphin's Nose viewpoint near Vattakanal" width="300" height="375" loading="lazy" />
               <div class="hs-exp-name-strip"><h3>Dolphin's Nose</h3></div>
               <div class="hs-exp-panel"><h3>Dolphin's Nose</h3><p>A cliff-edge viewpoint over the plains — your host can point you here before the mist clears.</p></div>
             </div>
             <div class="hs-exp-card">
-              <img src="images/properties/kodai-outdoor-valley.webp" alt="Guna Caves area" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/destination-guna-caves.webp" alt="Guna Caves, Kodaikanal" width="300" height="375" loading="lazy" />
               <div class="hs-exp-name-strip"><h3>Guna Caves</h3></div>
               <div class="hs-exp-panel"><h3>Guna Caves</h3><p>Rock formations wrapped in local legend, best visited with a guide.</p></div>
             </div>
@@ -467,17 +478,17 @@
 
           <div class="hs-tab-panel" data-tab-panel="family">
             <div class="hs-exp-card">
-              <img src="images/destinations/destination-kodai-lake.webp" alt="Boating at Kodai Lake" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/kodai-lake-boat-house.webp" alt="Boating at Kodai Lake" width="300" height="375" loading="lazy" />
               <div class="hs-exp-name-strip"><h3>Boat Club, Kodai Lake</h3></div>
               <div class="hs-exp-panel"><h3>Boat Club, Kodai Lake</h3><p>Pedal boats and a lakeside walk that keeps kids entertained, no long drive needed.</p></div>
             </div>
             <div class="hs-exp-card">
-              <img src="images/destinations/destination-bryant-park.webp" alt="Bear Shola Falls area" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/silver-cascade-falls.webp" alt="Waterfall near Kodaikanal" width="300" height="375" loading="lazy" />
               <div class="hs-exp-name-strip"><h3>Bear Shola Falls</h3></div>
               <div class="hs-exp-panel"><h3>Bear Shola Falls</h3><p>A short, easy walk to a small waterfall — manageable with kids or grandparents.</p></div>
             </div>
             <div class="hs-exp-card">
-              <img src="images/properties/welcome-holidays.webp" alt="Kodaikanal town center chocolate shops" width="300" height="375" loading="lazy" />
+              <img src="images/local/chocolate-shop-interior.webp" alt="Kodaikanal town center chocolate shops" width="300" height="375" loading="lazy" />
               <div class="hs-exp-name-strip"><h3>Chocolate Shopping</h3></div>
               <div class="hs-exp-panel"><h3>Chocolate Shopping, Town Center</h3><p>Homemade chocolate stalls make for a fun, low-effort family outing.</p></div>
             </div>
@@ -485,17 +496,17 @@
 
           <div class="hs-tab-panel" data-tab-panel="food">
             <div class="hs-exp-card">
-              <img src="images/properties/pleasant-homestay.webp" alt="Home-cooked South Indian breakfast at a Kodaikanal homestay" width="300" height="375" loading="lazy" />
+              <img src="images/properties/homestay-cooked-meals.webp" alt="Home-cooked South Indian breakfast at a Kodaikanal homestay" width="300" height="375" loading="lazy" />
               <div class="hs-exp-name-strip"><h3>Home-Cooked Breakfast</h3></div>
               <div class="hs-exp-panel"><h3>Home-Cooked Breakfast</h3><p>Filter coffee and a proper tiffin spread, cooked in-house — no restaurant hours to work around.</p></div>
             </div>
             <div class="hs-exp-card">
-              <img src="images/properties/sri-sai-cottage.webp" alt="Tibetan food stalls near the town market" width="300" height="375" loading="lazy" />
+              <img src="images/local/market-walk-crowd.webp" alt="Tibetan food stalls near the town market" width="300" height="375" loading="lazy" />
               <div class="hs-exp-name-strip"><h3>Tibetan Market Bites</h3></div>
               <div class="hs-exp-panel"><h3>Tibetan Market Bites</h3><p>Momos and thukpa from small Tibetan food stalls — a change of pace.</p></div>
             </div>
             <div class="hs-exp-card">
-              <img src="images/properties/olive-tree-cottage.webp" alt="Local jams and honey shops" width="300" height="375" loading="lazy" />
+              <img src="images/local/honey-jam-shop.webp" alt="Local jams and honey shops" width="300" height="375" loading="lazy" />
               <div class="hs-exp-name-strip"><h3>Homemade Preserves &amp; Honey</h3></div>
               <div class="hs-exp-panel"><h3>Homemade Preserves &amp; Honey</h3><p>Local shops sell jams and honey made nearby — a good last stop.</p></div>
             </div>
@@ -528,7 +539,7 @@
                 <li>Bryant Park &amp; Pillar Rocks</li>
               </ul>
               <p>A tight loop through the must-see stops for travelers with just one free day. Pairs well with a one-night homestay near the lake.</p>
-              <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%201-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
+              <a class="btn btn-outline" href="kodaikanal-1-day-tour-package.html">Get Package Details</a>
             </div>
           </article>
 
@@ -545,7 +556,7 @@
                 <li>Homestay meals built into the route</li>
               </ul>
               <p>Enough time for trails a one-day trip skips — a good pick among the best resorts in Kodaikanal for family stays.</p>
-              <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%202-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
+              <a class="btn btn-outline" href="kodaikanal-2-day-tour-package.html">Get Package Details</a>
             </div>
           </article>
 
@@ -562,7 +573,7 @@
                 <li>Two nights homestay, all meals included</li>
               </ul>
               <p>Three unhurried days of lakes and quiet spots most first-timers miss, home-cooked meals nightly.</p>
-              <a class="btn btn-primary" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%203-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
+              <a class="btn btn-primary" href="kodaikanal-3-day-tour-package.html">Get Package Details</a>
             </div>
           </article>
         </div>
@@ -751,6 +762,40 @@
       </div>
     </section>
     <!-- ================================================================
+         6. Why Choose Us — Flip cards (#7)
+         ================================================================ -->
+    <section class="bg-alt" id="why-choose-us" data-section-label="Why Us">
+      <div class="container wcu wcu--homestay">
+        <div class="section-heading" data-reveal>
+          <h2>Why Book Your Kodaikanal Homestay With Cottages Kodaikanal</h2>
+          <p>Family-run since 2013, we've hosted 3,000+ guests across 10+ verified homestays, rated 4.9★ by past guests.</p>
+        </div>
+        <div class="wcu-grid">
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+            <h3>Free, No-Obligation Quotes</h3>
+            <p>We quote before you commit to anything — real availability, no pressure to book.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m20 6-11 11-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>Verified Host Families</h3>
+            <p>Every homestay is visited by our team before it's listed — photos match check-in.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <h3>24/7 Guest Support</h3>
+            <p>A homestay or a <a href="resorts-in-kodaikanal.html">kodaikanal resort stay</a> — call or message any time, a real person responds.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M12 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>12 Years Local Experience</h3>
+            <p>We've matched travelers with a cottage stay in Kodaikanal since day one — a family business.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
          FAQ — same accordion design as the homepage
          ================================================================ -->
     <section class="faq" id="faq" aria-labelledby="faq-heading" data-section-label="FAQ">
@@ -814,64 +859,6 @@
               <p>Yes — this is one of the real advantages of staying with a family. Host families often share local tips and less-crowded viewpoints you won't find written up in any guidebook.</p>
             </div>
           </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================================
-         6. Why Choose Us — Flip cards (#7)
-         ================================================================ -->
-    <section class="bg-alt" id="why-choose-us" data-section-label="Why Us">
-      <div class="container">
-        <div class="section-heading" data-reveal>
-          <h2>Why Book Your Kodaikanal Homestay With Cottages Kodaikanal</h2>
-          <p>Family-run since 2013, we've hosted 3,000+ guests across 10+ verified homestays, rated 4.9★ by past guests. Hover or tap a card to see what backs each promise.</p>
-        </div>
-        <div class="hs-flip-grid">
-          <div class="hs-flip-card" data-reveal>
-            <div class="hs-flip-inner">
-              <div class="hs-flip-face hs-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-                <span>Free, No-Obligation Quotes</span>
-              </div>
-              <div class="hs-flip-face hs-flip-back">
-                <p>We quote before you commit to anything — real availability, no pressure to book.</p>
-              </div>
-            </div>
-          </div>
-          <div class="hs-flip-card" data-reveal>
-            <div class="hs-flip-inner">
-              <div class="hs-flip-face hs-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m20 6-11 11-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Verified Host Families</span>
-              </div>
-              <div class="hs-flip-face hs-flip-back">
-                <p>Every homestay is visited by our team before it's listed — photos match check-in.</p>
-              </div>
-            </div>
-          </div>
-          <div class="hs-flip-card" data-reveal>
-            <div class="hs-flip-inner">
-              <div class="hs-flip-face hs-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-                <span>24/7 Guest Support</span>
-              </div>
-              <div class="hs-flip-face hs-flip-back">
-                <p>A homestay or a <a href="resorts-in-kodaikanal.html">kodaikanal resort stay</a> — call or message any time, a real person responds.</p>
-              </div>
-            </div>
-          </div>
-          <div class="hs-flip-card" data-reveal>
-            <div class="hs-flip-inner">
-              <div class="hs-flip-face hs-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M12 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>12 Years Local Experience</span>
-              </div>
-              <div class="hs-flip-face hs-flip-back">
-                <p>We've matched travelers with a cottage stay in Kodaikanal since day one — a family business.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

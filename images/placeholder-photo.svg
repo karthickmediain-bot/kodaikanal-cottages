@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" role="img" aria-label="Photo coming soon">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e9efec"/>
+      <stop offset="1" stop-color="#cfdad5"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#g)"/>
+  <g fill="none" stroke="#7f948c" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" transform="translate(300 330)">
+    <rect x="-90" y="-62" width="180" height="124" rx="18"/>
+    <circle cx="0" cy="0" r="34"/>
+    <path d="M-40 -62l12-20h56l12 20"/>
+  </g>
+  <text x="300" y="470" text-anchor="middle" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="26" font-weight="600" fill="#6b8077">Photo coming soon</text>
+</svg>

@@ -1,3 +1,5 @@
 .claude/
 .playwright-mcp/
 *.zip
+
+api/config.php

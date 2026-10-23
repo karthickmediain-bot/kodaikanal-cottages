@@ -23,7 +23,7 @@ body.tk-page {
   --tk-shadow: 0 20px 48px rgba(20, 26, 30, 0.1);
   --tk-shadow-sm: 0 6px 18px rgba(20, 26, 30, 0.08);
   --tk-radius: 4px;
-  --tk-serif: "Playfair Display", "Georgia", serif;
+  --tk-serif: "Poppins", "Segoe UI", system-ui, sans-serif;
   --tk-sans: "Poppins", "Segoe UI", system-ui, sans-serif;
   background: var(--tk-bg);
   color: var(--tk-text);

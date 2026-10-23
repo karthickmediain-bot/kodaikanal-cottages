@@ -26,8 +26,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=hdr3" />
   <link rel="stylesheet" href="css/hotels.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/stays.css?v=5" />
 
   <script type="application/ld+json">
   {
@@ -132,7 +135,7 @@
   }
   </script>
 </head>
-<body class="dm-page">
+<body class="dm-page st-t-dorm">
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <div id="site-header" data-include="partials/header.html"></div>
@@ -141,12 +144,12 @@
 
     <section class="dm-hero" id="hero" data-section-label="Hero">
       <div class="dm-hero-media">
-        <img src="images/destinations/destination-kodai-lake.webp" alt="Kodai Lake at sunrise, Kodaikanal" width="1600" height="1000" />
+        <img src="images/scenery/hero-image-2.webp" alt="Kodai Lake at sunrise, Kodaikanal" width="1600" height="1000" />
       </div>
       <div class="container dm-hero-inner">
         <div class="dm-hero-copy" data-reveal>
           <p class="eyebrow">Kodaikanal, Tamil Nadu</p>
-          <h1>Dormitory Stay in Kodaikanal, Without the Backpacker-Hostel Guesswork</h1>
+          <h1>Dormitory Stay in Kodaikanal, Minus the Hostel Guesswork</h1>
           <p class="dm-hero-subhead">Verified dormitory beds — a locker, a bed, and our lowest price. Free quote within the hour.</p>
         </div>
 
@@ -174,6 +177,14 @@
             <div class="hero-search-value">
               <label for="dm-guests">Beds</label>
               <input type="number" id="dm-guests" name="guests" min="1" placeholder="1 Bed" inputmode="numeric" />
+            </div>
+          </div>
+          <div class="hero-search-divider" aria-hidden="true"></div>
+          <div class="hero-search-field">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <div class="hero-search-value">
+              <label for="dm-phone">Phone number</label>
+              <input type="tel" id="dm-phone" name="phone" placeholder="10-digit mobile" inputmode="tel" autocomplete="tel" pattern="[0-9+\s\-]{10,15}" title="Enter a valid phone number" required />
             </div>
           </div>
           <button class="hero-search-submit" type="submit">
@@ -394,12 +405,12 @@
         <div class="dm-tab-panels" data-reveal>
           <div class="dm-tab-panel is-active" data-tab-panel="nature">
             <div class="dm-exp-card">
-              <img src="images/destinations/destination-kodai-lake.webp" alt="Kodai Lake" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/kodai-lake-pedal-boat.webp" alt="Kodai Lake" width="300" height="375" loading="lazy" />
               <div class="dm-exp-name-strip"><h3>Kodai Lake</h3></div>
               <div class="dm-exp-panel"><h3>Kodai Lake</h3><p>Walkable from most dormitory listings — a good early-morning solo walk before the crowds show up.</p></div>
             </div>
             <div class="dm-exp-card">
-              <img src="images/destinations/destination-coakers-walk.webp" alt="Coaker's Walk" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/coakers-walk-path.webp" alt="Coaker's Walk" width="300" height="375" loading="lazy" />
               <div class="dm-exp-name-strip"><h3>Coaker's Walk</h3></div>
               <div class="dm-exp-panel"><h3>Coaker's Walk</h3><p>Free to walk, no entry fee, with valley views that make it a favorite solo-traveler stop.</p></div>
             </div>
@@ -417,12 +428,12 @@
               <div class="dm-exp-panel"><h3>Pillar Rocks</h3><p>A short trek that's easy to do solo or team up with other dorm guests heading the same way.</p></div>
             </div>
             <div class="dm-exp-card">
-              <img src="images/destinations/destination-vattakanal.webp" alt="Dolphin's Nose viewpoint near Vattakanal" width="300" height="375" loading="lazy" />
+              <img src="images/scenery/scenery-misty-cliffs-viewpoint.webp" alt="Dolphin's Nose viewpoint near Vattakanal" width="300" height="375" loading="lazy" />
               <div class="dm-exp-name-strip"><h3>Dolphin's Nose</h3></div>
               <div class="dm-exp-panel"><h3>Dolphin's Nose</h3><p>Popular with the backpacker crowd for its early-morning mist views.</p></div>
             </div>
             <div class="dm-exp-card">
-              <img src="images/properties/kodai-outdoor-valley.webp" alt="Guna Caves area" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/destination-guna-caves.webp" alt="Guna Caves, Kodaikanal" width="300" height="375" loading="lazy" />
               <div class="dm-exp-name-strip"><h3>Guna Caves</h3></div>
               <div class="dm-exp-panel"><h3>Guna Caves</h3><p>Best visited with a guide — ask at the front desk for a group heading over the same day.</p></div>
             </div>
@@ -430,17 +441,17 @@
 
           <div class="dm-tab-panel" data-tab-panel="social">
             <div class="dm-exp-card">
-              <img src="images/properties/hillside-retreat.webp" alt="Shared common area for dormitory guests in Kodaikanal" width="300" height="375" loading="lazy" />
+              <img src="images/interiors/dining-table-window.webp" alt="Shared common area for dormitory guests in Kodaikanal" width="300" height="375" loading="lazy" />
               <div class="dm-exp-name-strip"><h3>Common Dining Area</h3></div>
               <div class="dm-exp-panel"><h3>Common Dining Area</h3><p>Where most dorm guests end up trading trip notes over breakfast.</p></div>
             </div>
             <div class="dm-exp-card">
-              <img src="images/properties/kodai-outdoor-valley.webp" alt="Group trek meetup point near Kodaikanal" width="300" height="375" loading="lazy" />
+              <img src="images/local/trekking-group-forest.webp" alt="Group trek meetup point near Kodaikanal" width="300" height="375" loading="lazy" />
               <div class="dm-exp-name-strip"><h3>Front-Desk Trek Groups</h3></div>
               <div class="dm-exp-panel"><h3>Front-Desk Trek Groups</h3><p>Ask the front desk — they often know who else is heading to the same viewpoint that day.</p></div>
             </div>
             <div class="dm-exp-card">
-              <img src="images/destinations/destination-kodai-lake.webp" alt="Evening walk near Kodai Lake" width="300" height="375" loading="lazy" />
+              <img src="images/destinations/kodai-lake-misty-shore.webp" alt="Evening walk near Kodai Lake" width="300" height="375" loading="lazy" />
               <div class="dm-exp-name-strip"><h3>Evening Lake Walk</h3></div>
               <div class="dm-exp-panel"><h3>Evening Lake Walk</h3><p>A safe, well-lit route most solo travelers do after dinner.</p></div>
             </div>
@@ -448,17 +459,17 @@
 
           <div class="dm-tab-panel" data-tab-panel="food">
             <div class="dm-exp-card">
-              <img src="images/properties/pleasant-homestay.webp" alt="Local South Indian breakfast spot" width="300" height="375" loading="lazy" />
+              <img src="images/local/town-street-stalls.webp" alt="Local South Indian breakfast spot" width="300" height="375" loading="lazy" />
               <div class="dm-exp-name-strip"><h3>South Indian Breakfast</h3></div>
               <div class="dm-exp-panel"><h3>Local South Indian Breakfast</h3><p>Filter coffee and a full tiffin for well under &#8377;150 — ask your host for the nearest spot.</p></div>
             </div>
             <div class="dm-exp-card">
-              <img src="images/properties/sri-sai-cottage.webp" alt="Tibetan food stalls near the town market" width="300" height="375" loading="lazy" />
+              <img src="images/local/market-walk-crowd.webp" alt="Tibetan food stalls near the town market" width="300" height="375" loading="lazy" />
               <div class="dm-exp-name-strip"><h3>Tibetan Market Bites</h3></div>
               <div class="dm-exp-panel"><h3>Tibetan Market Bites</h3><p>Momos and thukpa for a low-cost dinner, a short walk from most dorm listings.</p></div>
             </div>
             <div class="dm-exp-card">
-              <img src="images/properties/olive-tree-cottage.webp" alt="Local jams and honey shops" width="300" height="375" loading="lazy" />
+              <img src="images/local/honey-jam-shop.webp" alt="Local jams and honey shops" width="300" height="375" loading="lazy" />
               <div class="dm-exp-name-strip"><h3>Homemade Preserves &amp; Honey</h3></div>
               <div class="dm-exp-panel"><h3>Homemade Preserves &amp; Honey</h3><p>Small, affordable souvenirs worth picking up before you leave.</p></div>
             </div>
@@ -488,7 +499,7 @@
                 <li>Bryant Park &amp; Pillar Rocks</li>
               </ul>
               <p>A tight, budget-friendly loop through the must-see stops for solo travelers with just one day free.</p>
-              <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%201-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
+              <a class="btn btn-outline" href="kodaikanal-1-day-tour-package.html">Get Package Details</a>
             </div>
           </article>
 
@@ -505,7 +516,7 @@
                 <li>Dormitory stay built into the route</li>
               </ul>
               <p>Enough time to cover the trails a one-day trip skips, without the cost of a private room.</p>
-              <a class="btn btn-outline" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%202-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
+              <a class="btn btn-outline" href="kodaikanal-2-day-tour-package.html">Get Package Details</a>
             </div>
           </article>
 
@@ -522,7 +533,7 @@
                 <li>Two nights dormitory stay included</li>
               </ul>
               <p>The lowest-cost way to see Kodaikanal properly over three unhurried days.</p>
-              <a class="btn btn-primary" href="https://wa.me/917502345777?text=Hi%2C%20I%27d%20like%20details%20on%20the%203-Day%20Kodaikanal%20Tour%20Package" target="_blank" rel="noopener">Get Package Details</a>
+              <a class="btn btn-primary" href="kodaikanal-3-day-tour-package.html">Get Package Details</a>
             </div>
           </article>
         </div>
@@ -700,6 +711,37 @@
         </div>
       </div>
     </section>
+    <section class="bg-alt" id="why-choose-us" data-section-label="Why Us">
+      <div class="container wcu wcu--dorm">
+        <div class="section-heading" data-reveal>
+          <h2>Why Book Your Kodaikanal Dormitory Stay With Cottages Kodaikanal</h2>
+          <p>No vague marketing lines — just how we run dormitory bookings for solo travelers.</p>
+        </div>
+        <div class="wcu-grid">
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+            <h3>Free, No-Obligation Quotes</h3>
+            <p>We quote before you commit to anything. Share your dates and we'll confirm the current bed rate honestly, no hidden charges.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <h3>24/7 Guest Support</h3>
+            <p>Solo travelers arrive at odd hours sometimes. Call or message any time before, during or after your stay and a real person will respond.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m20 6-11 11-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>Verified, Not Just Listed</h3>
+            <p>Every dormitory property has been visited by our team before it's listed. Locker security and bathroom access are checked, not assumed.</p>
+          </article>
+          <article class="wcu-item" data-reveal>
+            <span class="wcu-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M12 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>12 Years Local Experience</h3>
+            <p>We've hosted solo travelers and backpackers in Kodaikanal since day one, as a family business, not a marketplace.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ================================================================
          FAQ — same accordion design as the homepage
          ================================================================ -->
@@ -784,62 +826,6 @@
               <p>A bed, bedding, locker access and shared bathroom facilities as standard. Meals and extras vary by property and are confirmed at the time of quote.</p>
             </div>
           </details>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="bg-alt" id="why-choose-us" data-section-label="Why Us">
-      <div class="container">
-        <div class="section-heading" data-reveal>
-          <h2>Why Book Your Kodaikanal Dormitory Stay With Cottages Kodaikanal</h2>
-          <p>Hover or tap a card to see what backs each promise.</p>
-        </div>
-        <div class="dm-flip-grid">
-          <div class="dm-flip-card" data-reveal>
-            <div class="dm-flip-inner">
-              <div class="dm-flip-face dm-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-                <span>Free, No-Obligation Quotes</span>
-              </div>
-              <div class="dm-flip-face dm-flip-back">
-                <p>We quote before you commit to anything. Share your dates and we'll confirm the current bed rate honestly, no hidden charges.</p>
-              </div>
-            </div>
-          </div>
-          <div class="dm-flip-card" data-reveal>
-            <div class="dm-flip-inner">
-              <div class="dm-flip-face dm-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-                <span>24/7 Guest Support</span>
-              </div>
-              <div class="dm-flip-face dm-flip-back">
-                <p>Solo travelers arrive at odd hours sometimes. Call or message any time before, during or after your stay and a real person will respond.</p>
-              </div>
-            </div>
-          </div>
-          <div class="dm-flip-card" data-reveal>
-            <div class="dm-flip-inner">
-              <div class="dm-flip-face dm-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m20 6-11 11-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Verified, Not Just Listed</span>
-              </div>
-              <div class="dm-flip-face dm-flip-back">
-                <p>Every dormitory property has been visited by our team before it's listed. Locker security and bathroom access are checked, not assumed.</p>
-              </div>
-            </div>
-          </div>
-          <div class="dm-flip-card" data-reveal>
-            <div class="dm-flip-inner">
-              <div class="dm-flip-face dm-flip-front">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M12 20v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM16 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>12 Years Local Experience</span>
-              </div>
-              <div class="dm-flip-face dm-flip-back">
-                <p>We've hosted solo travelers and backpackers in Kodaikanal since day one, as a family business, not a marketplace.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

@@ -11,7 +11,7 @@
   --qf-text: #211d1a;
   --qf-muted: #6c635b;
   --qf-border: #e8e1d6;
-  --qf-serif: "Playfair Display", "Georgia", serif;
+  --qf-serif: "Poppins", "Segoe UI", system-ui, sans-serif;
   --qf-sans: "Poppins", "Segoe UI", system-ui, sans-serif;
   background: #fff;
   border: 1px solid var(--qf-border);

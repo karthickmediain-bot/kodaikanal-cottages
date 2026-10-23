@@ -1,0 +1,390 @@
+/* ==========================================================================
+   Stay-type pages (8) — one shared system, eight distinct looks.
+   Loaded after hotels.css. Each page sets <body class="… st-t-NAME">, which
+   swaps the palette, display font and hero layout. Markup is untouched
+   apart from the hero photo, so every selector keys off the section ids
+   (#hero, #trust, #final-cta) and the "-hero-*" class suffixes.
+   ========================================================================== */
+
+body[class*="st-t-"] {
+  --st-p: #14315c; --st-pd: #0b1f3d; --st-soft: #eef2f8; --st-a: #c9a24b; --st-on-a: #1b1405;
+  --st-ink: #0f2a33; --st-font: "Poppins", "Segoe UI", system-ui, sans-serif;
+  /* re-point the site tokens so every existing component re-colours */
+  --color-primary: var(--st-p); --color-primary-dark: var(--st-pd); --color-primary-light: var(--st-a);
+  --color-accent: var(--st-p); --color-accent-dark: var(--st-pd);
+  --color-steel: var(--st-soft); --color-bg-alt: var(--st-soft);
+  --color-highlight: var(--st-a); --gradient-cta: var(--st-p); --gradient-cta-hover: var(--st-pd);
+  --font-heading: var(--st-font);
+}
+body[class*="st-t-"] h1, body[class*="st-t-"] h2, body[class*="st-t-"] h3 { font-family: var(--st-font); }
+body[class*="st-t-"] .btn-primary { background: var(--st-p); color: #fff; }
+body[class*="st-t-"] .btn-primary:hover { background: var(--st-pd); }
+body[class*="st-t-"] .bg-alt { background: var(--st-soft); }
+
+/* ---------- Themes ---------- */
+body.st-t-hotels { --st-p: #17376b; --st-pd: #0b1f3f; --st-soft: #eef2f9; --st-a: #d0a84f; --st-on-a: #1d1606; --st-font: "Poppins", "Segoe UI", system-ui, sans-serif; }
+body.st-t-resorts { --st-p: #0f5a47; --st-pd: #093a2d; --st-soft: #eef6f2; --st-a: #e0b861; --st-on-a: #2a1f06; --st-font: "Poppins", "Segoe UI", system-ui, sans-serif; }
+body.st-t-homestay { --st-p: #a64b2e; --st-pd: #6f2d18; --st-soft: #fbf1e6; --st-a: #1f7a78; --st-on-a: #fff; --st-ink: #3a2418; --st-font: "Poppins", "Segoe UI", system-ui, sans-serif; }
+body.st-t-dorm { --st-p: #3b36b8; --st-pd: #25217f; --st-soft: #eeeefb; --st-a: #ff7a1a; --st-on-a: #1d0d00; --st-font: "Poppins", "Segoe UI", system-ui, sans-serif; }
+body.st-t-tent { --st-p: #1c3a2e; --st-pd: #0c1a22; --st-soft: #edf3ee; --st-a: #f59e0b; --st-on-a: #1e1300; --st-font: "Poppins", "Segoe UI", system-ui, sans-serif; }
+body.st-t-group { --st-p: #5b2a86; --st-pd: #3a1a58; --st-soft: #f4eefa; --st-a: #ff6b57; --st-on-a: #fff; --st-font: "Poppins", "Segoe UI", system-ui, sans-serif; }
+body.st-t-lodge { --st-p: #5a3a22; --st-pd: #36210f; --st-soft: #f6efe6; --st-a: #c58b3a; --st-on-a: #20130a; --st-font: "Poppins", "Segoe UI", system-ui, sans-serif; }
+body.st-t-villas { --st-p: #1f4d3a; --st-pd: #12301f; --st-soft: #f6f2ea; --st-a: #b8896b; --st-on-a: #fff; --st-font: "Poppins", "Segoe UI", system-ui, sans-serif; }
+
+/* ---------- Shared hero base ---------- */
+body[class*="st-t-"] #hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; align-items: center; min-height: 0;
+  padding: 64px 0 48px; background: var(--st-pd); color: #fff;
+}
+body[class*="st-t-"] #hero [class*="-hero-media"] { position: absolute; inset: 0; z-index: -2; }
+body[class*="st-t-"] #hero [class*="-hero-media"] img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+body[class*="st-t-"] #hero::before { background: linear-gradient(180deg, color-mix(in srgb, var(--st-pd) 55%, transparent), color-mix(in srgb, var(--st-pd) 80%, transparent)); z-index: -1; }
+body[class*="st-t-"] #hero [class*="-hero-inner"] { width: 100%; display: grid; gap: 28px; position: relative; }
+body[class*="st-t-"] #hero [class*="-hero-copy"] { max-width: 680px; margin: 0; text-align: left; color: #fff; }
+body[class*="st-t-"] #hero .eyebrow {
+  display: inline-flex; align-items: center; gap: 12px; margin: 0 0 16px; text-align: left;
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--st-a);
+}
+body[class*="st-t-"] #hero .eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; }
+body[class*="st-t-"] #hero h1 { color: #fff; font-weight: 700; font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 16px; }
+body[class*="st-t-"] #hero [class*="-hero-subhead"] { margin: 0; max-width: 52ch; font-size: clamp(0.98rem, 1.3vw, 1.1rem); line-height: 1.65; font-weight: 400; color: rgba(255, 255, 255, 0.9); }
+body[class*="st-t-"] #hero .hero-search-wrap { margin: 0; padding: 0; }
+body[class*="st-t-"] #hero .hero-booking-card { max-width: 860px; margin: 0; background: #fff; border-radius: 16px; box-shadow: 0 22px 54px rgba(0, 0, 0, 0.32); overflow: hidden; }
+body[class*="st-t-"] #hero .hero-search-submit { background: var(--st-a); color: var(--st-on-a); }
+body[class*="st-t-"] #hero .hero-search-submit:hover { filter: brightness(0.92); background: var(--st-a); }
+body[class*="st-t-"] #hero .hero-search-field svg { color: var(--st-p); }
+
+/* ---------- Trust strip / final CTA / headings ---------- */
+body[class*="st-t-"] #trust { background: var(--st-pd); }
+body[class*="st-t-"] #trust [class*="-stat-num"] { color: var(--st-a); }
+body[class*="st-t-"] #final-cta { background: linear-gradient(135deg, var(--st-pd), var(--st-p)); color: #fff; }
+body[class*="st-t-"] #final-cta .btn-white { background: var(--st-a); color: var(--st-on-a); }
+body[class*="st-t-"] .section-heading h2 { color: var(--st-pd); }
+body[class*="st-t-"] .section-heading h2::after { content: ""; display: block; height: 3px; width: 56px; margin: 14px auto 0; background: var(--st-a); border-radius: 3px; }
+
+/* ==========================================================================
+   Desktop hero layouts — one per page
+   ========================================================================== */
+@media (min-width: 901px) {
+
+  /* 1 · HOTELS — full-bleed photo, copy bottom-left, wide search bar underneath */
+  body.st-t-hotels #hero { min-height: clamp(560px, 80vh, 720px); align-items: flex-end; padding-bottom: 56px; }
+  body.st-t-hotels #hero::before { background: linear-gradient(90deg, rgba(11, 31, 63, 0.92) 0%, rgba(11, 31, 63, 0.6) 42%, rgba(11, 31, 63, 0.05) 80%), linear-gradient(0deg, rgba(11, 31, 63, 0.7), transparent 45%); }
+  body.st-t-hotels #hero [class*="-hero-inner"] { gap: 30px; }
+  body.st-t-hotels #hero .hero-booking-card { max-width: 780px; border-radius: 14px; border-top: 4px solid var(--st-a); }
+
+  /* 2 · RESORTS — centred, rounded "postcard" frame, glass search card */
+  body.st-t-resorts #hero { margin: 16px 16px 0; border-radius: 36px; min-height: clamp(560px, 78vh, 700px); text-align: center; }
+  body.st-t-resorts #hero::before { background: radial-gradient(ellipse at 50% 100%, rgba(9, 58, 45, 0.85), rgba(9, 58, 45, 0.35) 70%), rgba(9, 58, 45, 0.25); }
+  body.st-t-resorts #hero [class*="-hero-copy"] { margin-inline: auto; text-align: center; }
+  body.st-t-resorts #hero .eyebrow { justify-content: center; }
+  body.st-t-resorts #hero .eyebrow::after { content: ""; width: 28px; height: 2px; background: currentColor; }
+  body.st-t-resorts #hero [class*="-hero-subhead"] { margin-inline: auto; }
+  body.st-t-resorts #hero .hero-booking-card { margin-inline: auto; border-radius: 999px; padding-inline: 10px; }
+  body.st-t-resorts #hero .hero-search { padding-block: 10px; }
+  body.st-t-resorts #hero .hero-search-submit { border-radius: 999px; }
+
+  /* 3 · HOMESTAY — warm cream split, arch-shaped photo on the right */
+  body.st-t-homestay #hero { background: var(--st-soft); color: var(--st-ink); min-height: clamp(540px, 76vh, 680px); padding-block: 56px; }
+  body.st-t-homestay #hero::before { display: none; }
+  body.st-t-homestay #hero [class*="-hero-media"] { inset: 40px 6% 40px auto; width: 40%; border-radius: 999px 999px 28px 28px; overflow: hidden; z-index: 0; box-shadow: 0 30px 60px rgba(111, 45, 24, 0.25); }
+  body.st-t-homestay #hero [class*="-hero-inner"] { grid-template-columns: minmax(0, 1fr) 40%; }
+  body.st-t-homestay #hero [class*="-hero-copy"], .st-t-homestay #hero .hero-search-wrap { grid-column: 1; position: relative; z-index: 1; }
+  body.st-t-homestay #hero h1 { color: var(--st-pd); }
+  body.st-t-homestay #hero [class*="-hero-subhead"] { color: var(--st-ink); opacity: 0.85; }
+  body.st-t-homestay #hero .eyebrow { color: var(--st-p); }
+  body.st-t-homestay #hero .hero-booking-card { border: 1px solid #ecd9c5; box-shadow: 0 14px 34px rgba(111, 45, 24, 0.14); }
+  body.st-t-homestay #hero .hero-search-submit { background: var(--st-p); color: #fff; }
+
+  /* 4 · DORMITORY — bold duotone, angled bottom edge, copy + stacked card side by side */
+  body.st-t-dorm #hero { min-height: clamp(560px, 80vh, 700px); clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); padding-bottom: 88px; margin-bottom: -2px; }
+  body.st-t-dorm #hero::before { background: linear-gradient(110deg, rgba(37, 33, 127, 0.95) 0%, rgba(59, 54, 184, 0.82) 55%, rgba(255, 122, 26, 0.35) 100%); mix-blend-mode: normal; }
+  body.st-t-dorm #hero [class*="-hero-inner"] { grid-template-columns: minmax(0, 1.2fr) minmax(300px, 400px); align-items: center; gap: 48px; }
+  body.st-t-dorm #hero h1 { font-weight: 700; text-transform: none; letter-spacing: -0.03em; }
+  body.st-t-dorm #hero .hero-booking-card { border-radius: 20px; border: 3px solid var(--st-a); }
+  body.st-t-dorm #hero .hero-search { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 16px; }
+  body.st-t-dorm #hero .hero-search-divider { display: none; }
+  body.st-t-dorm #hero .hero-search-field { border: 1px solid #dcdcf2; border-radius: 12px; padding: 8px 12px; flex: none; }
+
+  /* 5 · TENT — night sky, centred, campfire glow and a pill search */
+  body.st-t-tent #hero { min-height: clamp(580px, 84vh, 740px); text-align: center; background: #0c1a22; }
+  body.st-t-tent #hero::before { background: radial-gradient(ellipse 60% 55% at 50% 105%, rgba(245, 158, 11, 0.55), transparent 70%), linear-gradient(180deg, rgba(8, 16, 24, 0.88), rgba(12, 26, 34, 0.7) 60%, rgba(12, 26, 34, 0.92)); }
+  body.st-t-tent #hero [class*="-hero-media"] img { filter: saturate(0.85) brightness(0.8); }
+  body.st-t-tent #hero [class*="-hero-copy"] { margin-inline: auto; text-align: center; max-width: 760px; }
+  body.st-t-tent #hero .eyebrow { justify-content: center; }
+  body.st-t-tent #hero .eyebrow::before { display: none; }
+  body.st-t-tent #hero [class*="-hero-subhead"] { margin-inline: auto; }
+  body.st-t-tent #hero .hero-booking-card { margin-inline: auto; border-radius: 999px; background: rgba(255, 255, 255, 0.96); }
+  body.st-t-tent #hero .hero-search-submit { border-radius: 999px; }
+
+  /* 6 · GROUP — mirrored split: photo on the left, copy + form on the right */
+  body.st-t-group #hero { background: var(--st-pd); min-height: clamp(540px, 76vh, 680px); padding-block: 56px; }
+  body.st-t-group #hero::before { display: none; }
+  body.st-t-group #hero [class*="-hero-media"] { inset: 0 auto 0 0; width: 46%; z-index: 0; }
+  body.st-t-group #hero [class*="-hero-media"]::after { content: ""; position: absolute; right: -1px; top: 0; bottom: 0; width: 90px; background: linear-gradient(90deg, transparent, var(--st-pd)); }
+  body.st-t-group #hero [class*="-hero-inner"] { grid-template-columns: 46% minmax(0, 1fr); gap: 0; }
+  body.st-t-group #hero [class*="-hero-copy"], .st-t-group #hero .hero-search-wrap { grid-column: 2; padding-left: 40px; }
+  body.st-t-group #hero .hero-booking-card { max-width: none; border-radius: 18px; }
+  body.st-t-group #hero .hero-search { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 16px; }
+  body.st-t-group #hero .hero-search-divider { display: none; }
+  body.st-t-group #hero .hero-search-field { border: 1px solid #e4d9f0; border-radius: 12px; padding: 8px 12px; flex: none; }
+  body.st-t-group #hero .hero-search-submit { color: #fff; }
+
+  /* 7 · LODGE — rustic framed hero: thick timber border, square corners, cream card */
+  body.st-t-lodge #hero { margin: 18px 18px 0; border: 6px solid var(--st-a); border-radius: 6px; min-height: clamp(540px, 76vh, 680px); align-items: flex-end; padding-bottom: 44px; }
+  body.st-t-lodge #hero::before { background: linear-gradient(0deg, rgba(54, 33, 15, 0.92) 0%, rgba(54, 33, 15, 0.45) 55%, rgba(54, 33, 15, 0.2) 100%); }
+  body.st-t-lodge #hero [class*="-hero-media"] img { filter: sepia(0.25) saturate(0.95); }
+  body.st-t-lodge #hero [class*="-hero-inner"] { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; gap: 40px; }
+  body.st-t-lodge #hero .hero-booking-card { max-width: none; border-radius: 4px; background: #fbf6ee; border: 2px solid var(--st-a); }
+  body.st-t-lodge #hero .hero-search-submit { background: var(--st-p); color: #fff; border-radius: 4px; }
+
+  /* 8 · VILLAS — luxury light: big rounded photo card with a frosted glass panel */
+  body.st-t-villas #hero { background: var(--st-soft); padding: 18px; }
+  body.st-t-villas #hero::before { display: none; }
+  body.st-t-villas #hero [class*="-hero-media"] { inset: 18px; border-radius: 32px; overflow: hidden; z-index: 0; }
+  body.st-t-villas #hero [class*="-hero-media"]::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18, 48, 31, 0.05), rgba(18, 48, 31, 0.55)); }
+  body.st-t-villas #hero > .container { min-height: clamp(520px, 74vh, 660px); display: flex; align-items: flex-end; padding-bottom: 34px; position: relative; z-index: 1; }
+  body.st-t-villas #hero [class*="-hero-inner"] { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: end; gap: 28px; padding: 30px; border-radius: 26px; background: rgba(255, 255, 255, 0.14); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.35); }
+  body.st-t-villas #hero .hero-booking-card { max-width: none; border-radius: 16px; }
+  body.st-t-villas #hero .hero-search { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px; }
+  body.st-t-villas #hero .hero-search-divider { display: none; }
+  body.st-t-villas #hero .hero-search-field { border: 1px solid #e3dccd; border-radius: 12px; padding: 8px 12px; flex: none; }
+  body.st-t-villas #hero .hero-search-submit { background: var(--st-p); color: #fff; }
+}
+
+/* ---------- Section-level personality (all widths) ---------- */
+body.st-t-hotels .section-heading { text-align: center; }
+body.st-t-hotels .section-heading h2::after { margin-inline: auto; }
+body.st-t-hotels .section-heading p { margin-inline: auto; }
+body.st-t-resorts .section-heading h2::after { width: 90px; height: 2px; background: linear-gradient(90deg, transparent, var(--st-a), transparent); }
+body.st-t-homestay .section-heading h2::after { width: 14px; height: 14px; border-radius: 50%; background: var(--st-p); box-shadow: 22px 0 0 var(--st-a), -22px 0 0 var(--st-a); }
+body.st-t-dorm .section-heading h2::after { height: 6px; width: 72px; border-radius: 0; transform: skewX(-24deg); background: var(--st-a); }
+body.st-t-tent .section-heading h2::after { width: 0; height: 0; border-radius: 0; background: none; border-left: 12px solid transparent; border-right: 12px solid transparent; border-bottom: 18px solid var(--st-a); }
+body.st-t-group .section-heading h2::after { width: 100px; height: 8px; border-radius: 8px; background: repeating-linear-gradient(90deg, var(--st-a) 0 20px, transparent 20px 28px); }
+body.st-t-lodge .section-heading h2::after { height: 4px; width: 80px; border-top: 1px solid var(--st-a); border-bottom: 1px solid var(--st-a); background: none; border-radius: 0; box-sizing: border-box; height: 8px; }
+body.st-t-villas .section-heading h2 { font-weight: 600; letter-spacing: 0.01em; }
+body.st-t-villas .section-heading h2::after { width: 1px; height: 36px; border-radius: 0; background: var(--st-a); }
+
+body.st-t-tent #trust, .st-t-tent #final-cta { background-image: radial-gradient(ellipse 50% 120% at 50% 130%, rgba(245, 158, 11, 0.3), transparent 70%); background-color: #0c1a22; }
+body.st-t-dorm #final-cta { background: linear-gradient(120deg, var(--st-pd), var(--st-p) 60%, #6d3fd6); }
+body.st-t-homestay #trust, .st-t-homestay #final-cta { background: var(--st-pd); }
+body.st-t-resorts #trust { background: linear-gradient(90deg, var(--st-pd), var(--st-p)); }
+body.st-t-lodge #trust, .st-t-lodge #final-cta { background-color: var(--st-pd); background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 2px, transparent 2px 44px); }
+body.st-t-villas #trust { background: var(--st-pd); }
+body.st-t-group #final-cta { background: linear-gradient(135deg, var(--st-pd), #7a2fa8); }
+
+/* ---------- Tablet / phone: every hero collapses to a clean stacked photo hero ---------- */
+@media (max-width: 900px) {
+  body[class*="st-t-"] #hero { padding: 44px 0 36px; margin: 0; border-radius: 0; clip-path: none; border: 0; background: var(--st-pd); color: #fff; text-align: left; align-items: flex-end; }
+  body[class*="st-t-"] #hero::before { display: block; background: linear-gradient(180deg, color-mix(in srgb, var(--st-pd) 70%, transparent), color-mix(in srgb, var(--st-pd) 94%, transparent)); }
+  body[class*="st-t-"] #hero [class*="-hero-media"] { inset: 0; width: auto; border-radius: 0; box-shadow: none; z-index: -2; }
+  body[class*="st-t-"] #hero [class*="-hero-media"]::after { display: none; }
+  body[class*="st-t-"] #hero > .container { min-height: 0; padding-bottom: 0; display: block; }
+  body[class*="st-t-"] #hero [class*="-hero-inner"] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 0; background: none; backdrop-filter: none; border: 0; }
+  body[class*="st-t-"] #hero [class*="-hero-copy"], body[class*="st-t-"] #hero .hero-search-wrap { grid-column: 1; padding-left: 0; margin-inline: 0; text-align: left; }
+  body[class*="st-t-"] #hero h1 { color: #fff; font-size: clamp(1.75rem, 7vw, 2.4rem); }
+  body[class*="st-t-"] #hero [class*="-hero-subhead"] { color: rgba(255, 255, 255, 0.9); opacity: 1; margin-inline: 0; }
+  body[class*="st-t-"] #hero .eyebrow { color: var(--st-a); justify-content: flex-start; }
+  body[class*="st-t-"] #hero .eyebrow::before { display: inline-block; }
+  body[class*="st-t-"] #hero .hero-booking-card { max-width: 560px; border-radius: 14px; margin: 0; }
+  body[class*="st-t-"] #hero .hero-search { display: grid; grid-template-columns: 1fr; gap: 8px; padding: 14px; }
+  body[class*="st-t-"] #hero .hero-search-divider { display: none; }
+  body.st-t-homestay #hero .hero-search-submit { background: var(--st-a); color: #fff; }
+  .st-t-hotels .section-heading { text-align: center; }
+  .st-t-hotels .section-heading h2::after { margin-inline: auto; }
+}
+@media (min-width: 901px) {
+  body.st-t-homestay #hero h1 { font-size: clamp(1.9rem, 3.4vw, 2.8rem); }
+  body.st-t-homestay #hero [class*="-hero-copy"] { max-width: 580px; }
+  body.st-t-homestay #hero .hero-search { display: grid; grid-template-columns: 1fr 1fr; }
+  body.st-t-homestay #hero .hero-search-divider { display: none; }
+  body.st-t-homestay #hero .hero-search-submit { grid-column: 1 / -1; }
+}
+body[class*="st-t-"] #hero .hero-search { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+body[class*="st-t-"] #hero .hero-search-field, body[class*="st-t-"] #hero .hero-search-value { min-width: 0; }
+body[class*="st-t-"] #hero .hero-search-value input { max-width: 100%; }
+@media (min-width: 901px) {
+  body.st-t-dorm #hero h1, body.st-t-lodge #hero h1, body.st-t-villas #hero h1, body.st-t-group #hero h1 { font-size: clamp(1.8rem, 3.2vw, 2.7rem); }
+  body.st-t-hotels #hero .hero-search, body.st-t-resorts #hero .hero-search, body.st-t-tent #hero .hero-search { display: flex; }
+}
+body[class*="st-t-"] #hero .hero-search-wrap { transform: none; margin: 0; padding-block: 0; padding-right: 0; width: auto; }
+body[class*="st-t-"] #hero .hero-search-wrap:not(:has(*)) { display: none; }
+@media (min-width: 901px) { body.st-t-group #hero .hero-search-wrap { padding-left: 40px; } }
+@media (max-width: 900px) { body[class*="st-t-"] #hero .hero-search-wrap { padding-left: 0; } }
+@media (min-width: 901px) { body.st-t-group #hero [class*="-hero-inner"] { row-gap: 26px; } }
+@media (min-width: 901px) {
+  body.st-t-villas #hero { min-height: clamp(540px, 76vh, 680px); align-items: flex-end; padding-bottom: 52px; }
+  body.st-t-villas #hero > .container { min-height: 0; display: grid; padding-bottom: 30px; width: calc(100% - 96px); max-width: 1180px; margin-inline: auto; }
+  body.st-t-villas #hero .eyebrow { color: #fff; }
+}
+@media (max-width: 900px) {
+  body[class*="st-t-"] #hero > .container { padding-inline: 20px; width: 100%; max-width: none; }
+  body[class*="st-t-"] #hero .eyebrow { color: #fff; opacity: 0.9; }
+  body[class*="st-t-"] #hero .hero-search { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* submit button takes a full row in the two-column forms */
+@media (min-width: 901px) {
+  body.st-t-group #hero .hero-search-submit, body.st-t-villas #hero .hero-search-submit { grid-column: 1 / -1; }
+}
+
+/* ==========================================================================
+   DORMITORY — redesigned: solid indigo panel on the left, photo cut in on a
+   diagonal at the right, headline + benefit chips, and a full-width booking
+   bar under the copy
+   ========================================================================== */
+@media (min-width: 901px) {
+  body.st-t-dorm #hero { clip-path: none; margin-bottom: 0; padding: 64px 0 56px; min-height: clamp(560px, 78vh, 700px); background: var(--st-pd); align-items: center; }
+  body.st-t-dorm #hero::before { display: none; }
+  body.st-t-dorm #hero [class*="-hero-media"] { inset: 0 0 0 auto; width: 62%; z-index: 0; clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%); }
+  body.st-t-dorm #hero [class*="-hero-media"]::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(37, 33, 127, 0.55), rgba(37, 33, 127, 0) 60%); }
+  body.st-t-dorm #hero [class*="-hero-media"] img { filter: saturate(1.05) contrast(1.02); }
+  body.st-t-dorm #hero [class*="-hero-inner"] { grid-template-columns: minmax(0, 1fr); gap: 30px; position: relative; z-index: 1; }
+  body.st-t-dorm #hero [class*="-hero-copy"] { max-width: 560px; }
+  body.st-t-dorm #hero h1 { font-size: clamp(1.9rem, 3.3vw, 2.8rem); }
+  body.st-t-dorm #hero [class*="-hero-subhead"]::after {
+    content: "Locker included  ·  Verified beds  ·  Lowest price";
+    display: block; margin-top: 18px; padding: 10px 16px; width: fit-content;
+    border-left: 4px solid var(--st-a); background: rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.02em; color: #fff;
+  }
+  body.st-t-dorm #hero .hero-search-wrap { max-width: 980px; }
+  body.st-t-dorm #hero .hero-booking-card { max-width: none; border: 0; border-left: 8px solid var(--st-a); border-radius: 10px; }
+  body.st-t-dorm #hero .hero-search { display: flex; flex-wrap: nowrap; padding: 14px 16px; gap: 6px; }
+  body.st-t-dorm #hero .hero-search-divider { display: block; }
+  body.st-t-dorm #hero .hero-search-field { border: 0; border-radius: 0; padding: 0 8px; flex: 1 1 130px; }
+  body.st-t-dorm #hero .hero-search-submit { grid-column: auto; width: auto; border-radius: 8px; flex: 0 0 auto; }
+}
+@media (min-width: 901px) { body.st-t-dorm #hero [class*="-hero-copy"] { max-width: 500px; } body.st-t-dorm #hero h1 { font-size: clamp(1.8rem, 3vw, 2.5rem); } }
+@media (min-width: 901px) {
+  body.st-t-hotels #hero .hero-booking-card { max-width: 1010px; }
+  body.st-t-hotels #hero .hero-search, body.st-t-resorts #hero .hero-search, body.st-t-tent #hero .hero-search { flex-wrap: nowrap; }
+  body.st-t-hotels #hero .hero-search-field, body.st-t-resorts #hero .hero-search-field, body.st-t-tent #hero .hero-search-field { flex: 1 1 120px; }
+  body.st-t-lodge #hero .hero-search { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  body.st-t-lodge #hero .hero-search-divider { display: none; }
+  body.st-t-lodge #hero .hero-search-submit { grid-column: 1 / -1; }
+}
+@media (min-width: 901px) { body[class*="st-t-"] #hero .hero-search-value input { font-size: 0.82rem; } body[class*="st-t-"] #hero .hero-search-field { gap: 6px; } }
+
+/* Property-page hero text: headline on two lines, lead paragraph on two-three lines (desktop) */
+@media (min-width: 901px) {
+  body[class*="st-t-"] #hero [class*="-hero-copy"] { max-width: min(900px, 100%); }
+  body[class*="st-t-"] #hero h1 { font-size: clamp(1.9rem, 3.3vw, 3.1rem); text-wrap: balance; max-width: none; }
+  body[class*="st-t-"] #hero [class*="-hero-subhead"] { max-width: 68ch; font-size: clamp(1rem, 1.25vw, 1.12rem); }
+}
+
+/* Split-layout heroes (text in a narrow column beside the photo): smaller headline so it holds two lines */
+@media (min-width: 901px) {
+  body.st-t-homestay #hero h1, body.st-t-group #hero h1, body.st-t-lodge #hero h1, body.st-t-villas #hero h1 { font-size: clamp(1.55rem, 2.35vw, 2.3rem); }
+  body.st-t-homestay #hero [class*="-hero-subhead"], body.st-t-group #hero [class*="-hero-subhead"], body.st-t-lodge #hero [class*="-hero-subhead"], body.st-t-villas #hero [class*="-hero-subhead"] { font-size: clamp(0.95rem, 1.1vw, 1.05rem); }
+  body.st-t-dorm #hero [class*="-hero-subhead"] { max-width: 68ch; }
+}
+@media (min-width: 901px) { body.st-t-homestay #hero [class*="-hero-subhead"] { max-width: 50ch; } }
+
+/* ==========================================================================
+   "Why choose us" — a different layout on every property page.
+   Shared markup: .wcu > .section-heading + .wcu-grid > 4 x .wcu-item
+   (.wcu-ico svg, h3, p). Numbers come from a CSS counter.
+   ========================================================================== */
+.wcu-grid { counter-reset: wcu; display: grid; gap: 20px; }
+.wcu-item { counter-increment: wcu; position: relative; }
+.wcu-item h3 { margin: 0 0 8px; font-size: 1.08rem; line-height: 1.3; color: var(--st-pd); }
+.wcu-item p { margin: 0; font-size: 0.95rem; line-height: 1.65; color: var(--color-text-muted); }
+.wcu-item p a { color: var(--st-p); font-weight: 600; }
+.wcu-ico { display: inline-flex; align-items: center; justify-content: center; }
+.wcu-ico svg { width: 26px; height: 26px; }
+.wcu-item::before { content: counter(wcu, decimal-leading-zero); font-weight: 700; line-height: 1; }
+
+/* 1 · Hotels — ledger: two columns, hairline rules, big gold numerals */
+.wcu--hotels .wcu-grid { grid-template-columns: repeat(2, 1fr); gap: 0 56px; }
+.wcu--hotels .wcu-item { display: grid; grid-template-columns: 76px 1fr; column-gap: 20px; padding: 28px 0; border-top: 2px solid var(--st-pd); }
+.wcu--hotels .wcu-item::before { grid-row: 1 / span 3; font-size: 3rem; color: var(--st-a); letter-spacing: -0.03em; }
+.wcu--hotels .wcu-ico { display: none; }
+.wcu--hotels .wcu-item h3 { font-size: 1.2rem; }
+
+/* 2 · Resorts — event tiles: icon medallion, gold base bar */
+.wcu--resorts .wcu-grid { grid-template-columns: repeat(4, 1fr); gap: 22px; padding-top: 26px; }
+.wcu--resorts .wcu-item { background: #fff; border-radius: 22px; padding: 56px 24px 28px; text-align: center; box-shadow: 0 14px 34px rgba(9, 58, 45, 0.1); border-bottom: 5px solid var(--st-a); transition: transform 0.25s ease; }
+.wcu--resorts .wcu-item:hover { transform: translateY(-6px); }
+.wcu--resorts .wcu-item::before { display: none; }
+.wcu--resorts .wcu-ico { position: absolute; top: -26px; left: 50%; transform: translateX(-50%); width: 64px; height: 64px; border-radius: 50%; background: var(--st-pd); color: var(--st-a); box-shadow: 0 0 0 6px var(--st-soft); }
+
+/* 3 · Homestay — warm staggered cards with dashed edge */
+.wcu--homestay .wcu-grid { grid-template-columns: repeat(2, 1fr); gap: 26px 32px; align-items: start; }
+.wcu--homestay .wcu-item { background: #fffaf3; border: 2px dashed #e0b79c; border-radius: 30px; padding: 30px 30px 28px 96px; }
+.wcu--homestay .wcu-item:nth-child(even) { margin-top: 38px; }
+.wcu--homestay .wcu-item::before { display: none; }
+.wcu--homestay .wcu-ico { position: absolute; left: 26px; top: 28px; width: 52px; height: 52px; border-radius: 50% 50% 50% 8px; background: var(--st-a); color: #fff; }
+
+/* 4 · Dormitory — bunk bars: full-width bars with a skewed numeral slab */
+.wcu--dorm .wcu-grid { grid-template-columns: 1fr; gap: 14px; max-width: 920px; margin-inline: auto; }
+.wcu--dorm .wcu-item { display: grid; grid-template-columns: 96px 1fr; align-items: center; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 18px rgba(37, 33, 127, 0.1); transition: transform 0.2s ease; }
+.wcu--dorm .wcu-item:hover { transform: translateX(8px); }
+.wcu--dorm .wcu-item::before { grid-row: 1 / span 2; align-self: stretch; display: grid; place-items: center; font-size: 1.9rem; color: var(--st-on-a); background: var(--st-a); clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%); padding-right: 14px; }
+.wcu--dorm .wcu-ico { display: none; }
+.wcu--dorm .wcu-item h3, .wcu--dorm .wcu-item p { grid-column: 2; padding: 0 24px; }
+.wcu--dorm .wcu-item h3 { padding-top: 18px; margin-bottom: 4px; }
+.wcu--dorm .wcu-item p { padding-bottom: 18px; }
+
+/* 5 · Tent — night camp: dark band, ember-glow icons, thin amber frames */
+body.st-t-tent #why-choose-us { background: radial-gradient(ellipse 60% 80% at 50% 120%, rgba(245, 158, 11, 0.22), transparent 70%), var(--st-pd); }
+body.st-t-tent .wcu--tent .section-heading h2 { color: #fff; }
+body.st-t-tent .wcu--tent .section-heading p { color: rgba(255, 255, 255, 0.82); }
+.wcu--tent .wcu-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.wcu--tent .wcu-item { border: 1px solid rgba(245, 158, 11, 0.45); border-radius: 16px; padding: 28px 22px; background: rgba(255, 255, 255, 0.04); }
+.wcu--tent .wcu-item::before { position: absolute; top: 18px; right: 20px; font-size: 0.8rem; letter-spacing: 0.2em; color: rgba(245, 158, 11, 0.7); }
+.wcu--tent .wcu-ico { width: 56px; height: 56px; border-radius: 50%; margin-bottom: 18px; color: var(--st-a); background: rgba(245, 158, 11, 0.12); box-shadow: 0 0 26px rgba(245, 158, 11, 0.45); }
+.wcu--tent .wcu-item h3 { color: #fff; }
+.wcu--tent .wcu-item p { color: rgba(255, 255, 255, 0.78); }
+
+/* 6 · Group — bento: four colour-blocked tiles with oversized numerals */
+.wcu--group .wcu-grid { grid-template-columns: 1.3fr 1fr; grid-auto-rows: minmax(190px, auto); gap: 18px; }
+.wcu--group .wcu-item { border-radius: 26px; padding: 30px 30px 28px; overflow: hidden; }
+.wcu--group .wcu-item::before { position: absolute; right: 22px; bottom: -12px; font-size: 6.5rem; opacity: 0.16; letter-spacing: -0.05em; }
+.wcu--group .wcu-ico { width: 48px; height: 48px; border-radius: 14px; margin-bottom: 16px; }
+.wcu--group .wcu-item:nth-child(1) { background: var(--st-a); }
+.wcu--group .wcu-item:nth-child(2) { background: var(--st-pd); }
+.wcu--group .wcu-item:nth-child(3) { background: #e9dcf6; }
+.wcu--group .wcu-item:nth-child(4) { background: #fff; border: 2px solid var(--st-p); }
+.wcu--group .wcu-item:nth-child(1) h3, .wcu--group .wcu-item:nth-child(2) h3 { color: #fff; }
+.wcu--group .wcu-item:nth-child(1) p, .wcu--group .wcu-item:nth-child(2) p { color: rgba(255, 255, 255, 0.92); }
+.wcu--group .wcu-item:nth-child(1)::before, .wcu--group .wcu-item:nth-child(2)::before { color: #fff; }
+.wcu--group .wcu-item:nth-child(1) .wcu-ico { background: rgba(255, 255, 255, 0.22); color: #fff; }
+.wcu--group .wcu-item:nth-child(2) .wcu-ico { background: var(--st-a); color: #fff; }
+.wcu--group .wcu-item:nth-child(3) .wcu-ico, .wcu--group .wcu-item:nth-child(4) .wcu-ico { background: var(--st-p); color: #fff; }
+.wcu--group .wcu-item:nth-child(3)::before, .wcu--group .wcu-item:nth-child(4)::before { color: var(--st-p); }
+
+/* 7 · Lodge — timber planks: wood grain, stitched inner border, square badge */
+.wcu--lodge .wcu-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.wcu--lodge .wcu-item { padding: 28px; background: repeating-linear-gradient(0deg, rgba(90, 58, 34, 0.05) 0 2px, transparent 2px 14px), #fffdf8; border: 1px solid #dccab2; border-left: 8px solid var(--st-p); border-radius: 4px; box-shadow: 0 8px 20px rgba(54, 33, 15, 0.08); }
+.wcu--lodge .wcu-item::after { content: ""; position: absolute; inset: 8px; border: 1px dashed rgba(197, 139, 58, 0.55); border-radius: 2px; pointer-events: none; }
+.wcu--lodge .wcu-item::before { position: absolute; top: 18px; right: 22px; font-size: 1.6rem; color: var(--st-a); }
+.wcu--lodge .wcu-ico { width: 46px; height: 46px; border-radius: 4px; background: var(--st-p); color: #f6e7cf; margin-bottom: 14px; }
+
+/* 8 · Villas — quiet luxury: four open columns split by hairlines, light numerals */
+.wcu--villas .wcu-grid { grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--st-a); border-bottom: 1px solid var(--st-a); }
+.wcu--villas .wcu-item { padding: 40px 28px 44px; }
+.wcu--villas .wcu-item + .wcu-item { border-left: 1px solid rgba(184, 137, 107, 0.45); }
+.wcu--villas .wcu-item::before { display: block; margin-bottom: 18px; font-size: 3.4rem; font-weight: 300; color: var(--st-a); letter-spacing: -0.04em; }
+.wcu--villas .wcu-ico { display: none; }
+.wcu--villas .wcu-item h3 { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.86rem; font-weight: 600; margin-bottom: 12px; }
+
+@media (max-width: 1000px) {
+  .wcu--resorts .wcu-grid, .wcu--tent .wcu-grid, .wcu--villas .wcu-grid { grid-template-columns: repeat(2, 1fr); }
+  .wcu--villas .wcu-item:nth-child(odd) { border-left: 0; }
+  .wcu--villas .wcu-item:nth-child(n+3) { border-top: 1px solid rgba(184, 137, 107, 0.45); }
+  .wcu--resorts .wcu-grid { row-gap: 46px; }
+}
+@media (max-width: 640px) {
+  .wcu--hotels .wcu-grid, .wcu--resorts .wcu-grid, .wcu--homestay .wcu-grid, .wcu--tent .wcu-grid, .wcu--group .wcu-grid, .wcu--lodge .wcu-grid, .wcu--villas .wcu-grid { grid-template-columns: 1fr; }
+  .wcu--hotels .wcu-item { grid-template-columns: 56px 1fr; }
+  .wcu--hotels .wcu-item::before { font-size: 2.2rem; }
+  .wcu--homestay .wcu-item:nth-child(even) { margin-top: 0; }
+  .wcu--dorm .wcu-item { grid-template-columns: 70px 1fr; }
+  .wcu--dorm .wcu-item h3, .wcu--dorm .wcu-item p { padding-inline: 16px; }
+  .wcu--villas .wcu-item { border-left: 0 !important; }
+  .wcu--villas .wcu-item + .wcu-item { border-top: 1px solid rgba(184, 137, 107, 0.45); }
+}
+.wcu--group .wcu-item > *, .wcu--lodge .wcu-item > * { position: relative; z-index: 1; }
+.wcu--group .wcu-item::before, .wcu--lodge .wcu-item::before { z-index: 0; pointer-events: none; }
