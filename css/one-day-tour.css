@@ -387,3 +387,21 @@
 .od-page main .od-hero .qf-note { font-size: 0.72rem; line-height: 1.4; margin-top: 8px; }
 .od-hero .qf-field textarea { height: 40px; overflow: hidden; }
 .od-hero .qf-field textarea { height: 48px; }
+
+/* Package options table */
+.od-table-wrap { overflow-x: auto; background: var(--od-white); border: 1px solid var(--od-line); border-radius: var(--od-radius); box-shadow: var(--od-shadow); }
+.od-table { width: 100%; border-collapse: collapse; font-size: 0.98rem; color: var(--od-text); }
+.od-table th { background: var(--od-ink); color: #fff; text-align: left; font-weight: 600; padding: 0.9rem 1rem; white-space: nowrap; }
+.od-table td { padding: 0.9rem 1rem; border-top: 1px solid var(--od-line); vertical-align: top; }
+.od-table tbody tr:nth-child(even) { background: var(--od-cream); }
+.od-table td:nth-child(4), .od-table td:nth-child(5) { font-weight: 600; color: var(--od-ink); white-space: nowrap; }
+.od-table-note { margin-top: 1rem; font-size: 0.9rem; color: var(--od-muted); text-align: center; }
+.od-stops { margin: 0.4rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.3rem; font-size: 0.95rem; color: var(--od-text); }
+@media (max-width: 640px) {
+  .od-table thead { position: absolute; left: -9999px; }
+  .od-table, .od-table tbody, .od-table tr, .od-table td { display: block; width: 100%; }
+  .od-table tr { padding: 0.5rem 0; border-top: 1px solid var(--od-line); }
+  .od-table tr:first-child { border-top: 0; }
+  .od-table td { border: 0; padding: 0.35rem 1rem; display: flex; justify-content: space-between; gap: 1rem; text-align: right; }
+  .od-table td::before { content: attr(data-label); font-weight: 600; color: var(--od-muted); text-align: left; }
+}

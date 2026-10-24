@@ -26,10 +26,16 @@ function doPost(e) {
   }
   // Phone as text so a leading zero / long number isn't mangled
   sheet.appendRow([
-    new Date(), data.id, data.category, data.check_in || '', data.check_out || '',
-    data.guests || '', "'" + data.phone, data.source_url || '', data.ip || ''
+    new Date(), data.id, safe(data.category), safe(data.check_in), safe(data.check_out),
+    safe(data.guests), "'" + safe(data.phone), safe(data.source_url), safe(data.ip)
   ]);
   return out({ ok: true });
+}
+
+// Neutralise spreadsheet formula injection: prefix cells starting with = + - @ tab or CR
+function safe(v) {
+  var s = (v === undefined || v === null) ? '' : String(v);
+  return /^[=+\-@\t\r]/.test(s) ? "'" + s : s;
 }
 
 function out(obj) {

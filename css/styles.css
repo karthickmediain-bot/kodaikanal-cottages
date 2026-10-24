@@ -665,9 +665,10 @@ section {
   margin-bottom: var(--space-1);
 }
 
-.mega-type-title {
+.site-header .mega-type-title {
   font-size: 1.05rem;
   margin-bottom: var(--space-1);
+  color: #1c1f24;
 }
 
 .mega-type-desc {
@@ -3214,6 +3215,26 @@ section {
 }
 
 
+/* Header and footer are shared partials: pin their tokens so page/theme
+   stylesheets (stays.css, hotels.css, ...) that re-point the site tokens
+   cannot recolour them. */
+.site-header,
+.site-footer {
+  --color-primary: #145066;
+  --color-primary-dark: #103e4e;
+  --color-primary-light: #1f7592;
+  --color-accent: #145066;
+  --color-accent-dark: #103e4e;
+  --color-highlight: #4dd9ff;
+  --color-highlight-text: #145066;
+  --color-steel: #cdeef2;
+  --color-bg-alt: #eaf7fa;
+  --gradient-cta: #22a6d9;
+  --gradient-cta-hover: #103d4d;
+  --color-text: #1c1f24;
+  --font-heading: "Poppins", "Segoe UI", system-ui, sans-serif;
+}
+
 /* ==========================================================================
    Footer
    ========================================================================== */
@@ -3250,7 +3271,7 @@ section {
   margin-top: var(--space-4);
 }
 
-.footer-col h3 {
+.site-footer .footer-col h3 {
   color: #fff;
   font-size: 0.95rem;
   text-transform: uppercase;
@@ -3616,4 +3637,22 @@ section {
 @media (min-width: 900px) {
   .site-header .container { column-gap: clamp(40px, 5vw, 96px); }
   .primary-nav > ul { gap: clamp(14px, 1.6vw, 26px); }
+}
+
+/* Cab Services mega menu: link rows share the icon + title + description
+   treatment of the Property Types tiles. */
+.mega-panel-links a.mega-link {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  transition: background-color 200ms var(--ease-premium), border-color 200ms var(--ease-premium);
+}
+
+.mega-panel-links a.mega-link:hover {
+  background: var(--color-bg-alt);
+  border-color: var(--color-border);
+  color: var(--color-text);
 }

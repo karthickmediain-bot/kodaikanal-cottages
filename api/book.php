@@ -35,6 +35,11 @@ $checkIn = $date($in['check_in'] ?? '');
 $checkOut = $date($in['check_out'] ?? '');
 $guests = isset($in['guests']) && ctype_digit((string) $in['guests']) ? min((int) $in['guests'], 1000) : null;
 $sourceUrl = mb_substr((string) ($in['source_url'] ?? ''), 0, 255);
+$srcParts = parse_url($sourceUrl);
+if (!$srcParts || !in_array($srcParts['scheme'] ?? '', ['http', 'https'], true)
+    || strcasecmp($srcParts['host'] ?? '', preg_replace('/:\d+$/', '', $_SERVER['HTTP_HOST'] ?? '')) !== 0) {
+    $sourceUrl = '';
+}
 $ip = $_SERVER['REMOTE_ADDR'] ?? null;
 $ua = mb_substr((string) ($_SERVER['HTTP_USER_AGENT'] ?? ''), 0, 255);
 
