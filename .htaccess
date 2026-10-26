@@ -26,6 +26,16 @@ Options -MultiViews
 
 RewriteEngine On
 
+# 301: old capitalised live URLs -> lowercase (Linux hosts are case-sensitive).
+# Must stay above the generic rules below; the optional .html is absorbed here.
+RewriteRule ^Dormitory-in-kodaikanal(\.html)?/?$ /dormitory-in-kodaikanal [R=301,L]
+RewriteRule ^Groupstay-in-kodaikanal(\.html)?/?$ /groupstay-in-kodaikanal [R=301,L]
+RewriteRule ^Kodaikanal-2-days-tour-package(\.html)?/?$ /kodaikanal-2-days-tour-package [R=301,L]
+RewriteRule ^Resorts-in-kodaikanal(\.html)?/?$ /resorts-in-kodaikanal [R=301,L]
+RewriteRule ^Tentstay-in-kodaikanal(\.html)?/?$ /tentstay-in-kodaikanal [R=301,L]
+RewriteRule ^Terms-and-conditions(\.html)?/?$ /terms-and-conditions [R=301,L]
+RewriteRule ^Travels-in-kodaikanal(\.html)?/?$ /travels-in-kodaikanal [R=301,L]
+
 # /some-page.html -> /some-page (one canonical address per page)
 RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]

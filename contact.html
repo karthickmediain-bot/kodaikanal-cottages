@@ -1,0 +1,145 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Cottages Kodaikanal | Call, WhatsApp or Visit</title>
+  <meta name="description" content="Contact Cottages Kodaikanal on +91 75023 45777 or richtimeholidays@gmail.com. Near Zion School Junction, MM Street, Lawsghat Road, Kodaikanal 624101." />
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.cottageskodaikanal.com/contact.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css?v=hdr7" />
+  <link rel="stylesheet" href="css/info-pages.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5SH1V9KRG7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5SH1V9KRG7');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Cottages Kodaikanal",
+    "url": "https://www.cottageskodaikanal.com/contact.html",
+    "mainEntity": {
+      "@type": "LodgingBusiness",
+      "name": "Cottages Kodaikanal",
+      "url": "https://www.cottageskodaikanal.com/",
+      "telephone": "+917502345777",
+      "email": "richtimeholidays@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Near Zion School Junction, MM Street, Lawsghat Road",
+        "addressLocality": "Kodaikanal",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "624101",
+        "addressCountry": "IN"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div id="site-header" data-include="partials/header.html"></div>
+
+  <main id="main-content">
+    <section class="ip-hero">
+      <div class="container">
+        <div class="section-heading">
+          <h1>Contact Us</h1>
+          <p>Escape to the hills. Book your cosy Kodaikanal cottage today and enjoy nature, comfort and serenity in every stay.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ip-section">
+      <div class="container">
+        <div class="ip-contact-grid">
+          <div>
+            <p>Plan your perfect Kodaikanal holiday with our cottages and tour packages. We offer couple tours, family vacations, group stays and tent stays, with peaceful surroundings, scenic beauty and personalised service.</p>
+            <div class="ip-details">
+              <div class="ip-detail">
+                <h3>Let&rsquo;s Talk</h3>
+                <a href="tel:+917502345777">+91 75023 45777</a>
+              </div>
+              <div class="ip-detail">
+                <h3>Email</h3>
+                <a href="mailto:richtimeholidays@gmail.com">richtimeholidays@gmail.com</a>
+              </div>
+              <div class="ip-detail">
+                <h3>Location</h3>
+                <address>
+                  Cottages Kodaikanal<br />
+                  Near Zion School Junction, MM Street,<br />
+                  Lawsghat Road, Kodaikanal - 624101
+                </address>
+              </div>
+            </div>
+          </div>
+
+          <form class="ip-form" id="contact-form" novalidate>
+            <h2>Send Us a Message</h2>
+            <div class="ip-field">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" name="name" autocomplete="name" required />
+            </div>
+            <div class="ip-field">
+              <label for="contact-phone">Phone</label>
+              <input type="tel" id="contact-phone" name="phone" inputmode="tel" autocomplete="tel" required />
+            </div>
+            <div class="ip-field">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" required></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Send on WhatsApp</button>
+            <p class="ip-note">Opens WhatsApp with your message ready to send.</p>
+          </form>
+        </div>
+
+        <iframe
+          class="ip-map"
+          title="Map location of Cottages Kodaikanal"
+          src="https://maps.google.com/maps?q=Kodaikanal%20624101&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer" data-include="partials/footer.html"></div>
+  <div id="site-floating-cta" data-include="partials/floating-cta.html"></div>
+
+  <script>
+    (function () {
+      var form = document.getElementById("contact-form");
+      if (!form) return;
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var name = form.name.value.trim();
+        var phone = form.phone.value.trim();
+        var message = form.message.value.trim();
+        if (!name || !phone || !message) {
+          (form.querySelector(":invalid") || form.name).focus();
+          return;
+        }
+        var text = "Hi, I'm " + name + ".\n" + message + "\nMy phone: " + phone;
+        window.open("https://wa.me/917502345777?text=" + encodeURIComponent(text), "_blank", "noopener");
+      });
+    })();
+  </script>
+  <script src="js/include.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/wa-context.js" defer></script>
+</body>
+</html>

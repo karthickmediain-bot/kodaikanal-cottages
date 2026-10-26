@@ -1,0 +1,167 @@
+/* About + Contact pages (about-cottage-kodaikanal.html, contact.html). */
+.ip-hero {
+  padding-block: var(--space-8) var(--space-6);
+  background: linear-gradient(180deg, var(--color-bg-alt), var(--color-bg));
+}
+
+.ip-hero .section-heading {
+  margin-bottom: 0;
+}
+
+.ip-section {
+  padding-block: var(--space-7);
+}
+
+.ip-prose {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.ip-prose p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin: 0 0 var(--space-3);
+}
+
+.ip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.ip-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.ip-card h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+
+.ip-card p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.ip-cta {
+  text-align: center;
+  margin-top: var(--space-5);
+}
+
+/* Contact layout: details + form on one row, map underneath */
+.ip-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.ip-details {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ip-detail {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+}
+
+.ip-detail h3 {
+  margin: 0 0 var(--space-1);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.ip-detail a,
+.ip-detail address {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.ip-form {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-4);
+}
+
+.ip-form h2 {
+  margin: 0 0 var(--space-3);
+  font-size: 1.3rem;
+}
+
+.ip-field {
+  margin-bottom: var(--space-3);
+}
+
+.ip-field label {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.ip-field input,
+.ip-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+}
+
+.ip-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.ip-form .ip-note {
+  margin: var(--space-2) 0 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.ip-map {
+  margin-top: var(--space-5);
+  width: 100%;
+  height: 360px;
+  border: 0;
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 900px) {
+  .ip-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ip-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .ip-grid {
+    grid-template-columns: 1fr;
+  }
+  .ip-hero {
+    padding-block: var(--space-6) var(--space-5);
+  }
+  .ip-map {
+    height: 280px;
+  }
+}

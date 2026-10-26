@@ -1,4 +1,4 @@
-// Page-specific behavior for jeep-safari-kodaikanal.html.
+// Page-specific behavior for kodaikanal-jeep-safari.html.
 // Runs after partials (header/footer) have loaded.
 (function () {
   "use strict";
