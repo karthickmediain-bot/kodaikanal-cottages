@@ -594,6 +594,10 @@
         });
         if (!res.ok) throw new Error(String(res.status));
         setLabel("Request sent ✓");
+        if (window.ckThankYouUrl) {
+          location.href = window.ckThankYouUrl(heroCategoryInput?.value || "Hotels");
+          return;
+        }
         heroSearch.reset();
         if (heroCategoryInput) heroCategoryInput.value = "Hotels";
         setActiveCategory("Hotels");

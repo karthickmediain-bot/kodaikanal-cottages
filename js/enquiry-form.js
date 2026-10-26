@@ -60,6 +60,7 @@
         "\nStay: " + val("qf-stay") +
         (message ? "\nMessage: " + message : "");
       window.open("https://wa.me/917502345777?text=" + encodeURIComponent(text), "_blank", "noopener");
+      if (window.ckThankYouUrl) location.href = window.ckThankYouUrl();
     });
   }
 

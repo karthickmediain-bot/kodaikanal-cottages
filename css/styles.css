@@ -3233,14 +3233,17 @@ section {
   --gradient-cta-hover: #103d4d;
   --color-text: #1c1f24;
   --font-heading: "Poppins", "Segoe UI", system-ui, sans-serif;
+  /* One neutral footer colour for every page, whatever its theme. */
+  --footer-bg: #1b2327;
+  --footer-text: #d3dade;
 }
 
 /* ==========================================================================
    Footer
    ========================================================================== */
 .site-footer {
-  background: var(--color-primary-dark);
-  color: #cfeef2;
+  background: var(--footer-bg);
+  color: var(--footer-text);
   padding-block: var(--space-9) 0;
   font-size: 0.9rem;
 }
@@ -3261,7 +3264,7 @@ section {
 }
 
 .footer-brand p {
-  color: #cfeef2;
+  color: var(--footer-text);
   margin-block: var(--space-3);
   max-width: 34ch;
 }
@@ -3286,7 +3289,7 @@ section {
 }
 
 .footer-col a {
-  color: #cfeef2;
+  color: var(--footer-text);
   text-decoration: none;
   transition: color 200ms var(--ease-premium);
 }
@@ -3297,7 +3300,7 @@ section {
 
 .footer-col address {
   font-style: normal;
-  color: #cfeef2;
+  color: var(--footer-text);
   line-height: 1.6;
   margin-bottom: var(--space-3);
 }
@@ -3313,6 +3316,17 @@ section {
   width: fit-content;
 }
 
+.site-footer .footer-cta {
+  background: #fff;
+  color: var(--footer-bg);
+  border-color: #fff;
+}
+
+.site-footer .footer-cta:hover {
+  background: var(--footer-text);
+  color: var(--footer-bg);
+}
+
 @media (min-width: 700px) {
   .footer-grid {
     grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
@@ -3320,7 +3334,7 @@ section {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-bottom-inner {
@@ -3391,26 +3405,45 @@ section {
 }
 
 .floating-cta-btn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   color: #fff;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
-  transition: transform 200ms var(--ease-premium), box-shadow 200ms var(--ease-premium);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.26);
+  animation: fcta-bob 2.6s ease-in-out infinite;
+  transition: box-shadow 200ms var(--ease-premium);
 }
 
+.floating-cta-call { animation-delay: 0.4s; }
+
+/* Pulse ring radiating from each button */
+.floating-cta-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  z-index: -1;
+  animation: fcta-ring 2.2s ease-out infinite;
+}
+
+.floating-cta-call::before { animation-delay: 0.4s; }
+
 .floating-cta-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  animation-play-state: paused;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32);
 }
 
 .floating-cta-btn svg {
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
 }
+
+.floating-cta-call svg { animation: fcta-ring-shake 2.6s ease-in-out infinite; transform-origin: 50% 50%; }
 
 .floating-cta-whatsapp {
   background: #25d366;
@@ -3418,6 +3451,32 @@ section {
 
 .floating-cta-call {
   background: var(--gradient-cta);
+}
+
+@keyframes fcta-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes fcta-ring {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(1.65); opacity: 0; }
+}
+
+@keyframes fcta-ring-shake {
+  0%, 60%, 100% { transform: rotate(0); }
+  66% { transform: rotate(-14deg); }
+  72% { transform: rotate(14deg); }
+  78% { transform: rotate(-10deg); }
+  84% { transform: rotate(10deg); }
+  90% { transform: rotate(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-cta-btn,
+  .floating-cta-btn::before,
+  .floating-cta-call svg { animation: none; }
+  .floating-cta-btn::before { display: none; }
 }
 
 /* Lift above the fixed mobile CTA bar so the two never overlap */
@@ -3428,13 +3487,13 @@ section {
   }
 
   .floating-cta-btn {
-    width: 46px;
-    height: 46px;
+    width: 56px;
+    height: 56px;
   }
 
   .floating-cta-btn svg {
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
   }
 }
 

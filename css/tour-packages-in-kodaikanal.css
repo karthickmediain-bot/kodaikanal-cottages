@@ -47,7 +47,8 @@
 /* ---------- Layout ---------- */
 .khp-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 32px; align-items: start; padding-bottom: 48px; }
 .khp-content { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
-.khp-aside { position: sticky; top: calc(var(--header-height, 84px) + 16px); }
+.khp-aside { align-self: stretch; }
+.khp-aside-form { position: sticky; top: calc(var(--header-height, 84px) + 16px); }
 
 /* ---------- Section tabs ---------- */
 .khp-tabs { display: flex; gap: 12px; background: #e9eeef; border-radius: 10px; padding: 12px 14px; overflow-x: auto; scrollbar-width: none; }
@@ -284,7 +285,7 @@ a.khp-city:hover { border-color: var(--khp-primary); background: var(--khp-prima
    ========================================================================== */
 @media (max-width: 1024px) {
   .khp-layout { grid-template-columns: minmax(0, 1fr); }
-  .khp-aside { position: static; }
+  .khp-aside-form { position: static; }
   .khp-lead-price { display: block; }
   .khp-icon-cards { grid-template-columns: repeat(3, 1fr); }
   .khp-days { grid-template-columns: repeat(2, 1fr); }
@@ -402,7 +403,7 @@ a.khp-city:hover { border-color: var(--khp-primary); background: var(--khp-prima
 .khp-top:hover { background: var(--khp-primary-dark); transform: translateY(-2px); }
 .khp-final-cta { transition: opacity 0.6s ease, transform 0.6s ease; }
 .khp-final-cta .khp-btn { transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; }
-@media (max-width: 720px) { .khp-top { bottom: 84px; left: auto; right: 14px; } }
+@media (max-width: 720px) { .khp-top { bottom: 84px; left: 14px; right: auto; } }
 @media (prefers-reduced-motion: reduce) { .khp-progress span, .khp-top { transition: none; } }
 
 .khp-page .khp-trust-band .khp-trust-num { color: #fff; }

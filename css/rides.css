@@ -908,3 +908,31 @@ a.rd-chip:hover { background: var(--rd-ps); border-color: var(--rd-p); transform
 
 /* dynamic price readouts: always show "From" (value is swapped by JS) */
 [data-bind="price"][data-from]::before { content: "From "; font-size: .62em; font-weight: 600; opacity: .8; }
+
+/* Car hire: headline and intro sit on the hero image */
+.rd-banner--hero { height: auto; min-height: 340px; display: flex; flex-direction: column; justify-content: flex-end; }
+.rd-banner--hero img { position: absolute; inset: 0; }
+.rd-banner--hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 20, 18, 0.35) 0%, rgba(8, 20, 18, 0.72) 100%); z-index: 1; }
+.rd-banner--hero .rd-banner-copy { position: relative; z-index: 2; padding: 28px 20px 14px; }
+.rd-banner--hero .rd-h1 { color: #fff; margin-bottom: 10px; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35); }
+.rd-banner--hero .rd-sub { color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 56ch; }
+.rd-banner--hero .rd-banner-strip { position: relative; z-index: 2; left: auto; right: auto; bottom: auto; padding: 0 16px 16px; }
+@media (max-width: 640px) { .rd-banner--hero { min-height: 380px; } .rd-banner--hero .rd-banner-copy { padding: 22px 16px 12px; } }
+
+/* Car hire: Why choose us */
+.rd-why-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 18px 0 22px; }
+.rd-why-stat { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: var(--rd-r); padding: 18px 18px 16px; }
+.rd-why-stat strong { display: block; font-family: var(--rd-display); font-size: clamp(1.4rem, 2.6vw, 1.9rem); line-height: 1.1; color: var(--rd-a); margin-bottom: 6px; }
+.rd-why-stat span { display: block; font-size: 0.84rem; line-height: 1.5; color: rgba(255, 255, 255, 0.78); }
+.rd-why-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.16); }
+.rd-why .rd-ico { background: rgba(255, 255, 255, 0.12); color: var(--rd-a); }
+.rd-why .rd-mini p { color: rgba(255, 255, 255, 0.78); }
+.rd-why .rd-mini:hover .rd-ico { background: var(--rd-a); color: var(--rd-on-a); }
+@media (max-width: 900px) { .rd-why-stats, .rd-why-list { grid-template-columns: minmax(0, 1fr); } }
+
+/* Car hire, rental, cab and taxi pages: one body-text style for every running paragraph in a section */
+.rd-t-hire .rd-sec > p:not([class]),
+.rd-t-rental .rd-sec > p:not([class]),
+.rd-t-cab .rd-sec > p:not([class]),
+.rd-t-taxi .rd-sec > p:not([class]) { color: var(--rd-muted); font-size: 0.93rem; font-weight: 500; line-height: 1.65; margin: 0 0 14px; max-width: 68ch; }
+.rd-t-hire .rd-sec > h3 + p:not([class]), .rd-t-rental .rd-sec > h3 + p:not([class]), .rd-t-cab .rd-sec > h3 + p:not([class]), .rd-t-taxi .rd-sec > h3 + p:not([class]) { margin-top: 0; }
