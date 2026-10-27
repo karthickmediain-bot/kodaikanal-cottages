@@ -741,12 +741,19 @@ section {
   .primary-nav > ul {
     flex-direction: row;
     align-items: center;
-    gap: var(--space-6);
+    gap: clamp(16px, 2.2vw, 36px);
     font-size: 0.95rem;
+  }
+
+  /* Keep every label on one line; spacing shrinks with the viewport instead */
+  .primary-nav > ul > li > a,
+  .nav-mega-toggle {
+    white-space: nowrap;
   }
 
   .nav-mega-toggle {
     width: auto;
+    gap: 6px;
   }
 
   .mega-menu {
@@ -3694,8 +3701,20 @@ section {
 
 /* Round 74: tighter spacing between nav items, more air around the nav (logo <-> nav <-> call) */
 @media (min-width: 900px) {
-  .site-header .container { column-gap: clamp(40px, 5vw, 96px); }
-  .primary-nav > ul { gap: clamp(14px, 1.6vw, 26px); }
+  .site-header .container { column-gap: clamp(12px, 1.6vw, 40px); }
+  .primary-nav { min-width: 0; }
+  .primary-nav > ul { gap: clamp(14px, 1.5vw, 28px); font-size: 0.93rem; }
+  /* One line per label: with seven items the bar shrinks spacing, never wraps text */
+  .primary-nav > ul > li > a, .nav-mega-toggle { white-space: nowrap; }
+}
+
+/* Narrow desktops: seven nav items + logo + call button need a tighter bar */
+@media (min-width: 900px) and (max-width: 1499px) {
+  .primary-nav > ul { gap: 14px; font-size: 0.88rem; }
+  .nav-mega-toggle { gap: 5px; }
+  .logo-mark img { height: 54px; }
+  /* About + Contact live in the footer too; drop them here so the Call Now button keeps its label */
+  .primary-nav .nav-secondary { display: none; }
 }
 
 /* Cab Services mega menu: link rows share the icon + title + description
