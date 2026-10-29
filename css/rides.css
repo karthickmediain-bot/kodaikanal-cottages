@@ -645,11 +645,11 @@ a.rd-chip:hover { background: var(--rd-ps); border-color: var(--rd-p); transform
 .rd-theme { position: relative; isolation: isolate; overflow: hidden; border-radius: 16px; min-height: 220px; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end; color: #fff; grid-column: span 2; }
 .rd-theme:nth-child(4), .rd-theme:nth-child(5) { grid-column: span 3; }
 .rd-theme img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 0.6s ease; }
-.rd-theme::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(60, 10, 20, 0.88), rgba(60, 10, 20, 0) 65%); }
+.rd-theme::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(60, 10, 20, 0.92), rgba(60, 10, 20, 0.55) 55%, rgba(60, 10, 20, 0) 85%); }
 .rd-theme:hover img { transform: scale(1.06); }
 .rd-theme small { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #ffc27a; }
-.rd-theme h3 { color: #fff; font-size: 1.1rem; margin: 2px 0 4px; }
-.rd-theme p { margin: 0; font-size: 0.8rem; opacity: 0.9; line-height: 1.45; }
+.rd-themes .rd-theme h3 { color: #fff; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); font-size: 1.1rem; margin: 2px 0 4px; }
+.rd-themes .rd-theme p { margin: 0; font-size: 0.8rem; color: #fff; opacity: 0.95; line-height: 1.45; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
 .rd-t-palani .rd-sec h2 { font-weight: 400; }
 .rd-kolam { height: 14px; background: radial-gradient(circle, var(--rd-a) 2px, transparent 2.5px) 0 0 / 14px 14px; opacity: 0.5; margin: 0 0 16px; }
 
@@ -756,7 +756,7 @@ a.rd-chip:hover { background: var(--rd-ps); border-color: var(--rd-p); transform
 .rd-pkgs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .rd-pkg { display: flex; flex-direction: column; border: 1px solid var(--rd-line); border-radius: 14px; overflow: hidden; background: var(--rd-card); text-decoration: none; color: var(--rd-ink); transition: box-shadow 0.25s ease, transform 0.25s ease; }
 .rd-pkg:hover { box-shadow: var(--rd-shadow); transform: translateY(-3px); }
-.rd-pkg img { width: 100%; height: 120px; object-fit: cover; display: block; }
+.rd-pkg img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
 .rd-pkg div { padding: 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
 .rd-pkg h3 { margin: 4px 0 0; font-size: 1rem; }
 .rd-pkg p { margin: 0; font-size: 0.8rem; color: var(--rd-muted); line-height: 1.5; }

@@ -405,3 +405,7 @@
   .od-table td { border: 0; padding: 0.35rem 1rem; display: flex; justify-content: space-between; gap: 1rem; text-align: right; }
   .od-table td::before { content: attr(data-label); font-weight: 600; color: var(--od-muted); text-align: left; }
 }
+
+/* Terms & Conditions: centred card and list */
+#terms .od-inc-card { max-width: 640px; margin-inline: auto; }
+#terms .od-inc-card li { justify-content: center; align-items: center; text-align: center; }

@@ -1624,3 +1624,174 @@ html {
     min-height: 200px;
   }
 }
+
+/* kodaikanal-trip: hero H1 + copy sit on the image */
+.tg-top--overlay .tg-hero-card > img {
+  height: clamp(460px, 46vw, 580px);
+}
+
+.tg-top--overlay .tg-hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--tg-radius-xl);
+  background: linear-gradient(90deg, rgba(8, 28, 38, 0.78) 0%, rgba(8, 28, 38, 0.5) 55%, rgba(8, 28, 38, 0.15) 100%);
+  pointer-events: none;
+}
+
+.tg-top--overlay .tg-top-head {
+  position: absolute;
+  inset: 0 0 56px 0;
+  z-index: 1;
+  margin: 0;
+  padding: var(--space-5) clamp(20px, 4vw, 56px);
+  align-items: center;
+}
+
+.tg-top--overlay .tg-top-head h1,
+.tg-top--overlay .tg-top-side p {
+  color: #fff;
+}
+
+.tg-top--overlay .tg-top-head h1 {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.tg-top--overlay .tg-top-side p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 960px) {
+  .tg-top--overlay .tg-hero-card > img {
+    height: 620px;
+  }
+  .tg-top--overlay .tg-hero-card::before {
+    background: linear-gradient(180deg, rgba(8, 28, 38, 0.7) 0%, rgba(8, 28, 38, 0.55) 100%);
+  }
+  .tg-top--overlay .tg-top-head {
+    inset: 0 0 100px 0;
+    align-content: center;
+    gap: var(--space-3);
+  }
+  .tg-top--overlay .tg-top-head h1 {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+  .tg-top--overlay .tg-top-side p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+}
+
+/* Long keyword H1 on the image */
+.tg-top--overlay .tg-top-head h1.wf-h1 {
+  font-size: clamp(1.8rem, 3.4vw, 2.7rem);
+}
+
+/* Centered section headings */
+.tg-page .tg-head {
+  align-items: center;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.tg-page main h2,
+.tg-page .tg-cost h2,
+.tg-page .wf-main h2 {
+  text-align: center;
+}
+
+.tg-page .tg-cta-card h2 {
+  text-align: inherit;
+}
+
+/* Hero enquiry form (replaces the fact bar) */
+.tg-form {
+  position: absolute;
+  left: 50%;
+  bottom: -46px;
+  transform: translateX(-50%);
+  width: min(920px, calc(100% - 32px));
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+  align-items: stretch;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 18px 44px rgba(15, 46, 58, 0.18);
+  z-index: 2;
+}
+
+.tg-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding-left: var(--space-3);
+  border-left: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tg-form label:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.tg-form input,
+.tg-form select {
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 2px 0;
+  color: var(--tg-ink);
+  font: inherit;
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  outline: none;
+}
+
+.tg-form input::placeholder {
+  color: #8a9aa2;
+  font-weight: 500;
+}
+
+.tg-form-btn {
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: 0 26px;
+  min-height: 48px;
+  background: var(--color-primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tg-form-btn:hover {
+  background: var(--color-primary-dark);
+}
+
+@media (max-width: 960px) {
+  .tg-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    bottom: -150px;
+  }
+  .tg-form label:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .tg-form-btn {
+    grid-column: 1 / -1;
+  }
+  .tg-hero-card {
+    margin-bottom: 170px;
+  }
+  .tg-top--overlay .tg-top-head {
+    inset: 0 0 160px 0;
+  }
+}

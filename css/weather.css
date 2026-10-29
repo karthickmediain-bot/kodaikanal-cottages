@@ -1,0 +1,287 @@
+/* Weather page: live widget, verdict, tables, month blocks. Loads after travel-guide.css */
+.tg-w-live {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: var(--space-4);
+  align-items: stretch;
+}
+
+.tg-w-now {
+  padding: var(--space-4);
+  border-radius: var(--tg-radius-xl);
+  background: var(--tg-ink);
+  color: #fff;
+}
+
+.tg-w-now small {
+  display: block;
+  color: var(--color-steel);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.tg-w-temp {
+  margin: var(--space-2) 0;
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tg-w-now p {
+  margin: 0;
+  color: var(--color-steel);
+  line-height: 1.6;
+}
+
+.tg-w-pair {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.tg-w-pair strong {
+  display: block;
+  font-size: 1.25rem;
+}
+
+.tg-w-strip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.tg-w-day {
+  padding: var(--space-3) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  text-align: center;
+}
+
+.tg-w-day small {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.tg-w-day strong {
+  display: block;
+  margin: 4px 0;
+  color: var(--tg-ink);
+  font-size: 1.05rem;
+}
+
+.tg-w-day span {
+  color: var(--color-primary-light);
+  font-size: 0.8rem;
+}
+
+.tg-w-note {
+  margin: var(--space-3) 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.tg-w-verdict {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.tg-w-v {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.tg-w-v h3 {
+  margin: 0 0 var(--space-1);
+  color: var(--tg-ink);
+  font-size: 1.1rem;
+}
+
+.tg-w-v p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.tg-w-v b {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tg-w-v--best { background: var(--color-primary); border-color: var(--color-primary); }
+.tg-w-v--best h3, .tg-w-v--best b { color: #fff; }
+.tg-w-v--best p { color: var(--color-steel); }
+.tg-w-v--avoid b { color: var(--color-danger); }
+.tg-w-v--cold b { color: var(--color-primary-light); }
+
+.tg-w-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.tg-w-fact {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-alt);
+}
+
+.tg-w-fact small {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+}
+
+.tg-w-fact strong {
+  color: var(--tg-ink);
+  font-size: 1.2rem;
+}
+
+/* tables */
+.tg-w-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.tg-w-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.tg-w-table th,
+.tg-w-table td {
+  padding: 12px var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.tg-w-table th {
+  background: var(--color-bg-alt);
+  color: var(--tg-ink);
+  font-weight: 600;
+}
+
+.tg-w-table tbody tr:last-child td { border-bottom: 0; }
+.tg-w-table td { color: var(--color-text-muted); }
+.tg-w-table td:first-child,
+.tg-w-table td:first-child a { color: var(--tg-ink); font-weight: 600; }
+
+.tg-w-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.tg-w-tag--best { background: var(--color-primary); color: #fff; }
+.tg-w-tag--wet { background: #fdecea; color: var(--color-danger); }
+
+/* month blocks */
+.tg-w-months {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.tg-w-month {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--tg-radius-xl);
+  background: var(--color-surface);
+  scroll-margin-top: 100px;
+}
+
+.tg-w-month--best { border-color: var(--color-primary); }
+
+.tg-w-month-head h3 {
+  margin: var(--space-2) 0;
+  color: var(--tg-ink);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.15;
+}
+
+.tg-w-month-head p {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.tg-w-month dl {
+  margin: 0;
+}
+
+.tg-w-month dl > div {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: var(--space-3);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tg-w-month dl > div:last-child { border-bottom: 0; }
+.tg-w-month dt { color: var(--tg-ink); font-weight: 600; }
+.tg-w-month dd { margin: 0; color: var(--color-text-muted); line-height: 1.55; }
+
+.tg-w-month-foot {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+/* conversion and packing */
+.tg-w-stay,
+.tg-w-pack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.tg-w-stay-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.tg-w-stay-card h3 { margin: 0; color: var(--tg-ink); }
+.tg-w-stay-card p { margin: 0; flex: 1; color: var(--color-text-muted); line-height: 1.6; }
+.tg-w-stay-card ul { margin: 0; padding-left: 1.1em; flex: 1; color: var(--color-text-muted); line-height: 1.7; }
+
+@media (max-width: 960px) {
+  .tg-w-live, .tg-w-month { grid-template-columns: 1fr; }
+  .tg-w-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .tg-w-verdict, .tg-w-stay, .tg-w-pack { grid-template-columns: 1fr; }
+  .tg-w-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tg-w-month dl > div { grid-template-columns: 90px minmax(0, 1fr); }
+}

@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/styles.css?v=hdr9" />
-  <link rel="stylesheet" href="css/travel-guide.css?v=8" />
+  <link rel="stylesheet" href="css/travel-guide.css?v=9bf" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5SH1V9KRG7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -86,18 +86,24 @@
   <div id="site-header" data-include="partials/header.html"></div>
 
   <main id="main-content">
-    <section class="tg-top">
+    <section class="tg-top tg-top--overlay">
       <div class="container">
-        <div class="tg-top-head">
-          <h1>Kodaikanal Trip Packages</h1>
-          <div class="tg-top-side">
-            <p>Cottages Kodaikanal turns a kodai trip into a plan you can book in one call. Pick a one, two or three day route, choose a stay that suits your group, and leave the driving, sightseeing stops and timing to us. See what each package covers, when to go and what it costs before you commit.</p>
-            <a class="tg-pill" href="#packages">See trip packages</a>
-          </div>
-        </div>
         <div class="tg-hero-card">
           <img src="images/scenery/hero-kodaikanal-hiker.webp" alt="A traveller on a Kodaikanal hill trip" fetchpriority="high" />
-          <div class="tg-facts"><div class="tg-fact"><small>Package types</small><strong>6 to choose from</strong></div><div class="tg-fact"><small>Best season</small><strong>April to June</strong></div><div class="tg-fact"><small>Breakfast</small><strong>Daily, no cost</strong></div><div class="tg-fact"><small>Pick-up &amp; drop</small><strong>Included</strong></div><a class="tg-go" href="#packages" aria-label="See trip packages"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          <div class="tg-top-head">
+            <h1>Kodaikanal Trip Packages</h1>
+            <div class="tg-top-side">
+              <p>Cottages Kodaikanal turns a kodai trip into a plan you can book in one call. Pick a one, two or three day route, choose a stay that suits your group, and leave the driving, sightseeing stops and timing to us. See what each package covers, when to go and what it costs before you commit.</p>
+              <a class="tg-pill" href="#packages">See trip packages</a>
+            </div>
+          </div>
+          <form class="tg-form" data-tg-form data-intro="Hi, I'd like a quote for a Kodaikanal trip package." aria-label="Plan your Kodaikanal trip on WhatsApp">
+            <label>Name<input type="text" data-label="Name" autocomplete="name" placeholder="Your name" /></label>
+            <label>Phone<input type="tel" data-label="Phone" autocomplete="tel" placeholder="Mobile number" /></label>
+            <label>Travel date<input type="date" data-label="Travel date" /></label>
+            <label>Travellers<select data-label="Travellers"><option>2 (Couple)</option><option>3-4 (Family)</option><option>5-10</option><option>11-20</option><option>20+ (Group)</option></select></label>
+            <button type="submit" class="tg-form-btn">Get quote</button>
+          </form>
         </div>
       </div>
     </section>
@@ -161,7 +167,7 @@
             <div class="tg-article-body"><h3>Kodaikanal Weekend Tour Package</h3><div class="tg-article-chips"><span>2 to 3 days</span></div><p>Two or three days is enough to reset after a hectic week in the city. Leave on Friday night, see the main sights on Saturday and be home by Sunday.</p><p>If money is tight, ask us for a Kodaikanal budget trip: a shorter stay, a shared room and the same sights.</p></div>
           </article>
           <article class="tg-article">
-            <div class="tg-article-media"><img src="images/jeep-safari/jeep-safari-forest-trail-sunset.webp" alt="A jeep on a forest trail at sunset" loading="lazy" /></div>
+            <div class="tg-article-media"><img src="images/enhanced/jeep-safari-forest-trail-sunset.webp" alt="A jeep on a forest trail at sunset" loading="lazy" /></div>
             <div class="tg-article-body"><h3>Kodaikanal Adventure Tour Package</h3><p>Nature lovers get the best of the hills: cycling, camping, boating and forest trails. Pine Forest, Silent Valley and the path to Dolphin's Nose are among the best trekking places in Kodaikanal.</p><p>Wear grip shoes, carry water and start early. Our guide handles the route and the timing.</p></div>
           </article>
           <article class="tg-article">
@@ -186,10 +192,10 @@
         <p class="tg-prose">One cab can cover several stops in a day, because most tourist places in Kodaikanal sit close to the town centre. Treat this as your sightseeing list and work down from the top. If you only have a day, the first four are the must visit places in Kodaikanal. Our <a href="/places-to-visit-in-kodaikanal">full guide</a> adds distances and timings.</p>
         <div class="tg-place-grid" style="margin-top:24px">
           <article class="tg-place"><img src="images/destinations/destination-kodai-lake.webp" alt="Kodai Lake" loading="lazy" /><span class="tg-place-no">01</span><div class="tg-place-body"><h3>Kodai Lake</h3><p>The star-shaped lake at the heart of town. Go boating, rent a cycle or walk the loop.</p></div></article>
-          <article class="tg-place"><img src="images/destinations/destination-coakers-walk.webp" alt="Coaker's Walk" loading="lazy" /><span class="tg-place-no">02</span><div class="tg-place-body"><h3>Coaker's Walk</h3><p>A cliff-edge path with wide valley views. Go early, before the mist rolls in.</p></div></article>
+          <article class="tg-place"><img src="images/enhanced/destination-coakers-walk.webp" alt="Coaker's Walk" loading="lazy" /><span class="tg-place-no">02</span><div class="tg-place-body"><h3>Coaker's Walk</h3><p>A cliff-edge path with wide valley views. Go early, before the mist rolls in.</p></div></article>
           <article class="tg-place"><img src="images/destinations/destination-pillar-rocks.webp" alt="Pillar Rocks" loading="lazy" /><span class="tg-place-no">03</span><div class="tg-place-body"><h3>Pillar Rocks</h3><p>Three granite pillars over 100 m high above a deep valley.</p></div></article>
-          <article class="tg-place"><img src="images/destinations/destination-bryant-park.webp" alt="Bryant Park" loading="lazy" /><span class="tg-place-no">04</span><div class="tg-place-body"><h3>Bryant Park</h3><p>A botanical garden with flower beds and seasonal blooms. Check Bryant Park timings on the day.</p></div></article>
-          <article class="tg-place"><img src="images/destinations/silver-cascade-falls.webp" alt="Silver Cascade falls" loading="lazy" /><span class="tg-place-no">05</span><div class="tg-place-body"><h3>Silver Cascade and Bear Shola Falls</h3><p>Two easy waterfall stops. See <a href="/water-falls-in-kodaikanal" style="color:#fff;text-decoration:underline">waterfalls in Kodaikanal</a>.</p></div></article>
+          <article class="tg-place"><img src="images/enhanced/destination-bryant-park.webp" alt="Bryant Park" loading="lazy" /><span class="tg-place-no">04</span><div class="tg-place-body"><h3>Bryant Park</h3><p>A botanical garden with flower beds and seasonal blooms. Check Bryant Park timings on the day.</p></div></article>
+          <article class="tg-place"><img src="images/enhanced/silver-cascade-falls.webp" alt="Silver Cascade falls" loading="lazy" /><span class="tg-place-no">05</span><div class="tg-place-body"><h3>Silver Cascade and Bear Shola Falls</h3><p>Two easy waterfall stops. See <a href="/water-falls-in-kodaikanal" style="color:#fff;text-decoration:underline">waterfalls in Kodaikanal</a>.</p></div></article>
           <article class="tg-place"><img src="images/destinations/destination-guna-caves.webp" alt="Guna Caves" loading="lazy" /><span class="tg-place-no">06</span><div class="tg-place-body"><h3>Guna Caves</h3><p>Deep rock chambers in pine forest, made famous by a Tamil film.</p></div></article>
         </div>
       </div>
@@ -203,7 +209,7 @@
         <p class="tg-prose">Past the busy lake, the edges of town hold the hidden places in Kodaikanal that photographs never quite capture. Mist, cliff edges and deep valleys decide the view, so plan viewpoints for the morning.</p>
         <div class="tg-cards" style="margin-top:24px">
           <article class="tg-card">
-            <div class="tg-card-media"><img src="images/scenery/jeep-view-green-valley.webp" alt="Green valley view near Kodaikanal" loading="lazy" /><span class="tg-chip">Short trek</span></div>
+            <div class="tg-card-media"><img src="images/enhanced/jeep-view-green-valley.webp" alt="Green valley view near Kodaikanal" loading="lazy" /><span class="tg-chip">Short trek</span></div>
             <div class="tg-card-body"><h3>Dolphin's Nose</h3><p>A rock overhang above a deep valley, about 8 km from town and reached on a short, moderate trek. Go in clear weather, wear grip shoes and check conditions on the day.</p></div>
           </article>
           <article class="tg-card">
@@ -211,7 +217,7 @@
             <div class="tg-card-body"><h3>Coaker's Walk</h3><p>A paved cliff-edge path of about 1 km with telescope views. Early morning gives the clearest sight of the plains.</p></div>
           </article>
           <article class="tg-card">
-            <div class="tg-card-media"><img src="images/scenery/kodaikanal-hills-sunrise.webp" alt="Sunrise over the Kodaikanal hills" loading="lazy" /><span class="tg-chip">Sunrise</span></div>
+            <div class="tg-card-media"><img src="images/enhanced/jeep-view-vattakanal-village.webp" alt="Sunrise over a hill village near Kodaikanal" loading="lazy" /><span class="tg-chip">Sunrise</span></div>
             <div class="tg-card-body"><h3>Green Valley View and Sunrise Points</h3><p>Pillar Rocks and the green valley view point are classic stops. For the best sunrise point in Kodaikanal, be at the rail before first light.</p></div>
           </article>
         </div>
@@ -438,6 +444,7 @@
 
   <script src="js/include.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/tg-form.js" defer></script>
   <script src="js/wa-context.js" defer></script>
 </body>
 </html>

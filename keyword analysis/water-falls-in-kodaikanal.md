@@ -98,7 +98,7 @@ Waterfall searches peak April to June, with a smaller bump in December. "Kodaika
 ## Cannibalization
 
 - Sightseeing head terms (49,500 pools) belong to `places-to-visit-in-kodaikanal`. This page only links to it.
-- "Pepper falls" has its own tour page (`kodaikanal-pepper-falls-tour`). This page gives a short entry and links out.
+- "Pepper falls" has its own tour page (`kodaikanal-adventure-tour`). This page gives a short entry and links out.
 - Itinerary and package terms belong to the trip and tour package pages.
 
 ## Old live page
