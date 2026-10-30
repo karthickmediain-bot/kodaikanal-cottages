@@ -81,6 +81,15 @@ function blog_db(): PDO {
             created_at    TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
             UNIQUE KEY uq_blog_users_email (email)
         ) CHARACTER SET utf8mb4");
+        $pdo->exec("CREATE TABLE IF NOT EXISTS blog_password_resets (
+            id         INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            user_id    INT UNSIGNED NOT NULL,
+            token_hash CHAR(64)     NOT NULL,
+            expires_at BIGINT       NOT NULL,
+            created_at BIGINT       NOT NULL,
+            KEY idx_reset_hash (token_hash),
+            KEY idx_reset_user (user_id)
+        ) CHARACTER SET utf8mb4");
     } else {
         $pdo = new PDO('sqlite:' . __DIR__ . '/data/dev.sqlite', null, null, $opts);
         $pdo->exec("CREATE TABLE IF NOT EXISTS blog_users (
@@ -92,6 +101,13 @@ function blog_db(): PDO {
             active        INTEGER NOT NULL DEFAULT 1,
             last_login    TEXT NULL,
             created_at    TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )");
+        $pdo->exec("CREATE TABLE IF NOT EXISTS blog_password_resets (
+            id         INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id    INTEGER NOT NULL,
+            token_hash TEXT NOT NULL,
+            expires_at INTEGER NOT NULL,
+            created_at INTEGER NOT NULL
         )");
     }
     return $pdo;

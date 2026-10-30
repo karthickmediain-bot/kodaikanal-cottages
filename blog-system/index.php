@@ -55,6 +55,45 @@ blog_head(
 <?php endforeach; ?>
         </div>
 <?php endif; endif; ?>
+        <h2 class="blog-list-title">Guides and cottage pages</h2>
+        <div class="blog-grid">
+          <a class="blog-post" href="/kodaikanal-trip">
+            <span class="blog-post-img"><img src="/images/scenery/hero-kodaikanal-hiker.webp" alt="Kodaikanal Trip Packages & Itinerary" width="640" height="400" loading="lazy" /></span>
+            <span class="blog-tag">Travel guide</span>
+            <h3>Kodaikanal Trip Packages &amp; Itinerary</h3>
+            <span class="blog-excerpt">One, two and three day plans, what each package covers, when to go and what it costs.</span>
+          </a>
+          <a class="blog-post" href="/water-falls-in-kodaikanal">
+            <span class="blog-post-img"><img src="/images/destinations/falls-cliff-aerial.webp" alt="Water Falls in Kodaikanal" width="640" height="400" loading="lazy" /></span>
+            <span class="blog-tag">Travel guide</span>
+            <h3>Water Falls in Kodaikanal</h3>
+            <span class="blog-excerpt">Silver Cascade, Bear Shola, Pambar and more: when they flow best and how to reach them.</span>
+          </a>
+          <a class="blog-post" href="/2-bedroom-cottage-in-kodaikanal">
+            <span class="blog-post-img"><img src="/images/properties/cottage-showcase-2bhk.webp" alt="2 Bedroom Cottages in Kodaikanal" width="640" height="400" loading="lazy" /></span>
+            <span class="blog-tag">Cottage guide</span>
+            <h3>2 Bedroom Cottages in Kodaikanal</h3>
+            <span class="blog-excerpt">Whole 2 BHK cottages for couples and small families, with a kitchen and valley view.</span>
+          </a>
+          <a class="blog-post" href="/3-bedroom-cottage-in-kodaikanal">
+            <span class="blog-post-img"><img src="/images/properties/cottage-showcase-3bhk.webp" alt="3 Bedroom Cottages in Kodaikanal" width="640" height="400" loading="lazy" /></span>
+            <span class="blog-tag">Cottage guide</span>
+            <h3>3 Bedroom Cottages in Kodaikanal</h3>
+            <span class="blog-excerpt">Private 3 bedroom cottages for families and groups of up to 12.</span>
+          </a>
+          <a class="blog-post" href="/4-bedroom-cottage-in-kodaikanal">
+            <span class="blog-post-img"><img src="/images/properties/cottage-showcase-4bhk.webp" alt="4 Bedroom Cottages in Kodaikanal" width="640" height="400" loading="lazy" /></span>
+            <span class="blog-tag">Cottage guide</span>
+            <h3>4 Bedroom Cottages in Kodaikanal</h3>
+            <span class="blog-excerpt">4 BHK cottages for big family and group stays, with kitchen and parking.</span>
+          </a>
+          <a class="blog-post" href="/5-bedroom-cottage-in-kodaikanal">
+            <span class="blog-post-img"><img src="/images/properties/cottage-showcase-5bhk.webp" alt="5 Bedroom Cottages in Kodaikanal" width="640" height="400" loading="lazy" /></span>
+            <span class="blog-tag">Cottage guide</span>
+            <h3>5 Bedroom Cottages in Kodaikanal</h3>
+            <span class="blog-excerpt">Whole-house stays for one large group, with six cottages to choose from.</span>
+          </a>
+        </div>
         <div class="blog-help">
           <p>Need help planning your trip? Our team replies fast.</p>
           <a class="btn btn-primary" href="tel:+917502345777">Call +91 75023 45777</a>

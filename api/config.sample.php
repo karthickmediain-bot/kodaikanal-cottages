@@ -24,6 +24,8 @@ return [
         'url'    => 'https://script.google.com/macros/s/XXXXXXXX/exec',
         'secret' => 'same_value_as_SECRET_in_google-sheet.gs',
     ],
+    // First blog admin, created once on the first visit to /blog-admin/. Delete the password afterwards.
+    // 'blog_admin' => ['name' => 'Your Name', 'email' => 'you@example.com', 'password' => 'at least 10 characters'],
     // Extra origins allowed to POST (empty = same-origin only)
     'allowed_origins' => [],
 ];

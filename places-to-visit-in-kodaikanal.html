@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=hdr9" />
+  <link rel="stylesheet" href="css/styles.css?v=hdr13" />
   <link rel="stylesheet" href="css/travel-guide.css?v=31bfsx" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5SH1V9KRG7"></script>
   <script>
@@ -114,8 +114,8 @@
             </div>
           </div>
           <form class="tg-form" data-tg-form data-intro="Hi, I'd like help planning the places to visit in Kodaikanal." aria-label="Plan your Kodaikanal trip on WhatsApp">
-            <label>Name<input type="text" data-label="Name" autocomplete="name" placeholder="Your name" /></label>
-            <label>Phone<input type="tel" data-label="Phone" autocomplete="tel" placeholder="Mobile number" /></label>
+            <label>Name<input type="text" data-label="Name" autocomplete="name" required placeholder="Your name" /></label>
+            <label>Phone<input type="tel" data-label="Phone" autocomplete="tel" required pattern="(\+?91[\s\-]?|0)?[6-9][0-9]{9}" title="Enter a 10-digit mobile number" inputmode="tel" placeholder="Mobile number" /></label>
             <label>Travel date<input type="date" data-label="Travel date" /></label>
             <label>Travellers<select data-label="Travellers"><option>2 (Couple)</option><option>3-4 (Family)</option><option>5-10</option><option>11-20</option><option>20+ (Group)</option></select></label>
             <button type="submit" class="tg-form-btn">Get quote</button>
@@ -415,7 +415,7 @@
   <div id="site-floating-cta" data-include="partials/floating-cta.html"></div>
 
   <script src="js/include.js" defer></script>
-  <script src="js/main.js?v=lead1" defer></script>
+  <script src="js/main.js?v=lead4" defer></script>
   <script src="js/tg-form.js?v=lead1" defer></script>
   <script src="js/wa-context.js" defer></script>
 </body>

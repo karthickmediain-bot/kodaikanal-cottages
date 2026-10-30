@@ -650,6 +650,14 @@
     heroSearch.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (heroSearch.dataset.step !== "2") { goHeroStep(2); return; }
+      const heroPhone = document.getElementById("hero-phone");
+      if (heroPhone && !/^[0-9]{10}$/.test(heroPhone.value.trim())) {
+        heroPhone.setCustomValidity("Enter a 10-digit mobile number");
+        heroPhone.reportValidity();
+        heroPhone.addEventListener("input", () => heroPhone.setCustomValidity(""), { once: true });
+        heroPhone.focus();
+        return;
+      }
       const val = (id) => document.getElementById(id)?.value.trim();
       const submitBtn = heroSearch.querySelector(".hero-search-submit");
       const label = submitBtn?.querySelector("span");

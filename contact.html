@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=hdr9" />
+  <link rel="stylesheet" href="css/styles.css?v=hdr13" />
   <link rel="stylesheet" href="css/info-pages.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5SH1V9KRG7"></script>
   <script>
@@ -96,7 +96,7 @@
             </div>
             <div class="ip-field">
               <label for="contact-phone">Phone</label>
-              <input type="tel" id="contact-phone" name="phone" inputmode="tel" autocomplete="tel" required />
+              <input type="tel" id="contact-phone" name="phone" autocomplete="tel" required pattern="(\+?91[\s\-]?|0)?[6-9][0-9]{9}" title="Enter a 10-digit mobile number" inputmode="tel" />
             </div>
             <div class="ip-field">
               <label for="contact-message">Message</label>
@@ -129,6 +129,7 @@
         var name = form.name.value.trim();
         var phone = form.phone.value.trim();
         var message = form.message.value.trim();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
         if (!name || !phone || !message) {
           (form.querySelector(":invalid") || form.name).focus();
           return;
@@ -141,7 +142,7 @@
     })();
   </script>
   <script src="js/include.js" defer></script>
-  <script src="js/main.js?v=lead1" defer></script>
+  <script src="js/main.js?v=lead4" defer></script>
   <script src="js/wa-context.js" defer></script>
 </body>
 </html>

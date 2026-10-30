@@ -17,6 +17,39 @@ function go(string $to): never { header("Location: $to"); exit; }
 function user_find(PDO $db, int $id): ?array { $q = $db->prepare('SELECT * FROM blog_users WHERE id = ? AND active = 1'); $q->execute([$id]); return $q->fetch(PDO::FETCH_ASSOC) ?: null; }
 function admins_other_than(PDO $db, int $id): int { $q = $db->prepare("SELECT COUNT(*) FROM blog_users WHERE role = 'admin' AND active = 1 AND id <> ?"); $q->execute([$id]); return (int)$q->fetchColumn(); }
 
+/** Creates a one-hour reset token for this email (if it has an active account) and emails the link.
+ *  Always returns quietly so the page never reveals whether the email exists.
+ *  In local test mode (no api/config.php) it returns the link instead of sending mail. */
+function reset_send(PDO $db, string $email): ?string {
+    $q = $db->prepare('SELECT id, name FROM blog_users WHERE email = ? AND active = 1');
+    $q->execute([$email]);
+    $u = $q->fetch(PDO::FETCH_ASSOC);
+    if (!$u) return null;
+    $db->prepare('DELETE FROM blog_password_resets WHERE expires_at < ?')->execute([time()]);
+    $recent = $db->prepare('SELECT COUNT(*) FROM blog_password_resets WHERE user_id = ? AND created_at > ?');
+    $recent->execute([$u['id'], time() - 60]);
+    if ((int)$recent->fetchColumn() > 0) return null;
+    $token = bin2hex(random_bytes(32));
+    $db->prepare('INSERT INTO blog_password_resets (user_id, token_hash, expires_at, created_at) VALUES (?, ?, ?, ?)')
+       ->execute([$u['id'], hash('sha256', $token), time() + 3600, time()]);
+
+    $cfgFile = dirname(__DIR__, 2) . '/api/config.php';
+    if (!is_file($cfgFile)) return '/blog-admin/?reset=' . $token; // local test mode
+    $link = BLOG_SITE . '/blog-admin/?reset=' . $token;
+    try {
+        require_once dirname(__DIR__, 2) . '/api/smtp.php';
+        $smtp = (require $cfgFile)['smtp'];
+        $smtp['to'] = $email;
+        smtp_send($smtp, 'Reset your blog password',
+            "Hi " . $u['name'] . ",\n\nSomeone asked to reset the password for your Cottages Kodaikanal blog account.\n\n"
+            . "Choose a new password here (the link works for one hour):\n$link\n\n"
+            . "If this was not you, ignore this email. Your password stays the same.\n");
+    } catch (Throwable $e) {
+        error_log('blog-admin reset email: ' . $e->getMessage());
+    }
+    return null;
+}
+
 // ---------- Database (user accounts live in the site's MySQL database) ----------
 try {
     $db = blog_db();
@@ -27,36 +60,88 @@ try {
     auth_bottom(); exit;
 }
 
-// ---------- First run: create the first admin ----------
+// ---------- No public sign-up ----------
+// Accounts are created by an admin (Team page). The very first admin is seeded by the site owner:
+//   - add 'blog_admin' => ['name' => '...', 'email' => '...', 'password' => '...'] to api/config.php, or
+//   - run: php blog-system/create-admin.php "Name" email@example.com "password"
+// Remove the password from config.php once the account exists.
 if ($userCount === 0) {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $name = trim((string)($_POST['name'] ?? ''));
-        $email = strtolower(trim((string)($_POST['email'] ?? '')));
-        $pw = (string)($_POST['password'] ?? '');
-        if ($name === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) $err = 'Enter your name and a valid email address.';
-        elseif (strlen($pw) < 10) $err = 'Use at least 10 characters.';
-        elseif ($pw !== ($_POST['password2'] ?? '')) $err = 'The two passwords do not match.';
-        else {
-            $db->prepare("INSERT INTO blog_users (name, email, password_hash, role) VALUES (?, ?, ?, 'admin')")
-               ->execute([blog_cut($name, 0, 80), $email, password_hash($pw, PASSWORD_DEFAULT)]);
-            session_regenerate_id(true);
-            $_SESSION = ['uid' => (int)$db->lastInsertId()];
-            go($self);
-        }
+    $cfgFile = dirname(__DIR__, 2) . '/api/config.php';
+    $seed = is_file($cfgFile) ? ((require $cfgFile)['blog_admin'] ?? null) : null;
+    $seedEmail = is_array($seed) ? strtolower(trim((string)($seed['email'] ?? ''))) : '';
+    $seedWhy = !is_file($cfgFile) ? 'api/config.php was not found on the server.'
+        : (!is_array($seed) ? "api/config.php has no 'blog_admin' entry (check the spelling, and that the line is not commented out with //)."
+        : (!filter_var($seedEmail, FILTER_VALIDATE_EMAIL) ? "The 'email' inside 'blog_admin' is missing or not a valid email address."
+        : (strlen((string)($seed['password'] ?? '')) < 10 ? "The 'password' inside 'blog_admin' is missing or shorter than 10 characters." : '')));
+    if ($seedWhy === '') {
+        $db->prepare("INSERT INTO blog_users (name, email, password_hash, role) VALUES (?, ?, ?, 'admin')")
+           ->execute([blog_cut(trim((string)($seed['name'] ?? 'Admin')), 0, 80), $seedEmail, password_hash((string)$seed['password'], PASSWORD_DEFAULT)]);
+        $userCount = 1;
     }
-    auth_top('Set up', 'Create the first admin', 'You will only do this once. This account can add the rest of your team later.', $err);
-    echo '<label>Your name<span class="pw"><input name="name" required maxlength="80" value="' . h($_POST['name'] ?? '') . '" autofocus></span></label>
-          <label>Email<span class="pw"><input type="email" name="email" required value="' . h($_POST['email'] ?? '') . '" autocomplete="username"></span></label>
-          <label>Password<span class="pw"><input type="password" name="password" required minlength="10" autocomplete="new-password"><button type="button" class="eye" aria-label="Show password">Show</button></span><small>At least 10 characters</small></label>
-          <label>Repeat password<span class="pw"><input type="password" name="password2" required autocomplete="new-password"></span></label>
-          <button class="btn full">Create admin &amp; continue</button>';
-    auth_bottom(); exit;
 }
 
 // ---------- Login / logout ----------
 if (isset($_GET['logout'])) { session_destroy(); go($self); }
 
 $me = !empty($_SESSION['uid']) ? user_find($db, (int)$_SESSION['uid']) : null;
+
+if (!$me && isset($_GET['forgot'])) {
+    $sent = false; $devLink = null;
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $email = strtolower(trim((string)($_POST['email'] ?? '')));
+        if (!csrf_ok()) $err = 'Session expired. Reload the page and try again.';
+        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) $err = 'Enter the email address you log in with.';
+        elseif (!empty($_SESSION['reset_at']) && $_SESSION['reset_at'] > time() - 60) $err = 'Please wait a minute before asking again.';
+        else {
+            $_SESSION['reset_at'] = time();
+            $devLink = reset_send($db, $email);
+            $sent = true;
+        }
+    }
+    if ($sent) {
+        auth_top('Reset password', 'Check your email', 'If that email belongs to a team account, a reset link is on its way. It works for one hour.', '');
+        if ($devLink) echo '<p class="intro"><small>Local test mode, no email is sent: <a href="' . h($devLink) . '">open the reset link</a></small></p>';
+        echo '<a class="btn full" style="display:block;text-align:center;text-decoration:none" href="' . h($self) . '">Back to log in</a>';
+    } else {
+        auth_top('Reset password', 'Forgot your password?', 'Enter your email and we will send you a link to choose a new one.', $err);
+        echo '<input type="hidden" name="csrf" value="' . csrf() . '">
+              <label>Email<span class="pw"><input type="email" name="email" required autofocus autocomplete="username" value="' . h($_POST['email'] ?? '') . '"></span></label>
+              <button class="btn full">Send reset link</button>
+              <a class="back" href="' . h($self) . '">Back to log in</a>';
+    }
+    auth_bottom(); exit;
+}
+
+if (!$me && isset($_GET['reset'])) {
+    $token = (string)$_GET['reset'];
+    $q = $db->prepare('SELECT id, user_id FROM blog_password_resets WHERE token_hash = ? AND expires_at > ?');
+    $q->execute([hash('sha256', $token), time()]);
+    $row = preg_match('/^[a-f0-9]{64}$/', $token) ? $q->fetch(PDO::FETCH_ASSOC) : false;
+    if (!$row) {
+        auth_top('Reset password', 'Link expired', 'This reset link is not valid any more. Ask for a new one.', '');
+        echo '<a class="btn full" style="display:block;text-align:center;text-decoration:none" href="' . h($self) . '?forgot">Send a new link</a>';
+        auth_bottom(); exit;
+    }
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $new = (string)($_POST['new'] ?? '');
+        if (!csrf_ok()) $err = 'Session expired. Reload the page and try again.';
+        elseif (strlen($new) < 10) $err = 'The new password needs at least 10 characters.';
+        elseif ($new !== ($_POST['new2'] ?? '')) $err = 'The two passwords do not match.';
+        else {
+            $db->prepare('UPDATE blog_users SET password_hash = ? WHERE id = ? AND active = 1')->execute([password_hash($new, PASSWORD_DEFAULT), $row['user_id']]);
+            $db->prepare('DELETE FROM blog_password_resets WHERE user_id = ?')->execute([$row['user_id']]);
+            session_regenerate_id(true);
+            $_SESSION = [];
+            go($self . '?msg=pw_reset');
+        }
+    }
+    auth_top('Reset password', 'Choose a new password', 'Use at least 10 characters.', $err);
+    echo '<input type="hidden" name="csrf" value="' . csrf() . '">
+          <label>New password<span class="pw"><input type="password" name="new" required minlength="10" autofocus autocomplete="new-password"><button type="button" class="eye" aria-label="Show password">Show</button></span></label>
+          <label>Repeat new password<span class="pw"><input type="password" name="new2" required autocomplete="new-password"></span></label>
+          <button class="btn full">Save new password</button>';
+    auth_bottom(); exit;
+}
 
 if (!$me) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -80,10 +165,13 @@ if (!$me) {
             $err = 'Wrong email or password.';
         }
     }
-    auth_top('Log in', 'Welcome back', 'Log in to write and manage your Kodaikanal travel blog.', $err);
+    $intro = ($_GET['msg'] ?? '') === 'pw_reset' ? 'Your password was changed. Log in with the new one.' : 'Log in to write and manage your Kodaikanal travel blog.';
+    if ($userCount === 0) $err = 'No team accounts exist yet. Ask the site owner to set up the first admin.' . (!empty($seedWhy) ? ' Setup check: ' . $seedWhy : '');
+    auth_top('Log in', 'Welcome back', $intro, $err);
     echo '<label>Email<span class="pw"><input type="email" name="email" required autofocus autocomplete="username" value="' . h($_POST['email'] ?? '') . '"></span></label>
           <label>Password<span class="pw"><input type="password" name="password" required autocomplete="current-password"><button type="button" class="eye" aria-label="Show password">Show</button></span></label>
-          <button class="btn full">Log in</button>';
+          <button class="btn full">Log in</button>
+          <a class="back" href="' . h($self) . '?forgot">Forgot password?</a>';
     auth_bottom(); exit;
 }
 $isAdmin = $me['role'] === 'admin';
