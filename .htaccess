@@ -26,6 +26,18 @@ Options -MultiViews
 
 RewriteEngine On
 
+# One address for the whole site: https://www.cottageskodaikanal.com
+# NOT ACTIVE YET: the live SSL certificate does not cover www, so redirecting to www would show a
+# certificate error. Remove the leading "# " from the lines below once https://www... shows a padlock.
+# (http://, https://, www and non-www then all end up on the www address with a single 301. Only the
+# real domain is matched, so localhost and staging hosts are left alone.)
+# RewriteCond %{HTTP_HOST} ^cottageskodaikanal\.com$ [NC]
+# RewriteRule ^ https://www.cottageskodaikanal.com%{REQUEST_URI} [R=301,L]
+# RewriteCond %{HTTP_HOST} ^www\.cottageskodaikanal\.com$ [NC]
+# RewriteCond %{HTTPS} off
+# RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+# RewriteRule ^ https://www.cottageskodaikanal.com%{REQUEST_URI} [R=301,L]
+
 # 301: old capitalised live URLs -> lowercase (Linux hosts are case-sensitive).
 # Must stay above the generic rules below; the optional .html is absorbed here.
 RewriteRule ^Dormitory-in-kodaikanal(\.html)?/?$ /dormitory-in-kodaikanal [R=301,L]

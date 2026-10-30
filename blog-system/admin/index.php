@@ -455,7 +455,7 @@ page_bottom();
 
 // ---------- Layout ----------
 function page_top(string $title, bool $quill = false): void {
-    echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>' . h($title) . ' · Blog admin</title>';
+    echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="robots" content="noindex,nofollow"><title>' . h($title) . ' · Blog admin</title>';
     if ($quill) echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css">';
     echo '<style>
 *{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,Segoe UI,sans-serif;background:#f4f7f8;color:#1c1f24}
@@ -480,7 +480,7 @@ summary{cursor:pointer;font-weight:600;margin-bottom:12px}.submit{display:flex;g
 }
 
 function auth_top(string $title, string $heading, string $intro, string $err): void {
-    echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>' . h($title) . ' · Blog admin</title>
+    echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="robots" content="noindex,nofollow"><title>' . h($title) . ' · Blog admin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
 *{box-sizing:border-box}html{height:100%}body{margin:0;min-height:100vh;min-height:100dvh;display:grid;grid-template-columns:1.1fr 1fr;grid-template-rows:minmax(0,1fr);font:16px/1.5 Poppins,system-ui,sans-serif;color:#1c1f24;background:#fff}
 .side{background:#103e4e;color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between;background-image:url(/images/enhanced/kodai-lake-misty-shore.webp);background-size:cover;background-position:center;position:relative}

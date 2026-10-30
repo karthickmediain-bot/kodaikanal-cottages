@@ -3713,8 +3713,6 @@ section {
   .primary-nav > ul { gap: 14px; font-size: 0.88rem; }
   .nav-mega-toggle { gap: 5px; }
   .logo-mark img { height: 54px; }
-  /* About + Contact live in the footer too; drop them here so the Call Now button keeps its label */
-  .primary-nav .nav-secondary { display: none; }
 }
 
 /* Cab Services mega menu: link rows share the icon + title + description
