@@ -54,7 +54,7 @@
 }
 .d2-eyebrow::before { content: ""; width: 1.6rem; height: 2px; background: currentColor; }
 .d2-head { max-width: 640px; margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem); }
-.d2-head p { margin-top: 0.8rem; }
+.d2-page main .d2-head p { margin-top: 0.8rem; }
 .d2-head-center { margin-inline: auto; text-align: center; }
 .d2-head-center .d2-eyebrow::after { content: ""; width: 1.6rem; height: 2px; background: currentColor; }
 
@@ -168,7 +168,8 @@
 .d2-places-sec { padding-bottom: clamp(2.5rem, 5vw, 4rem); overflow: hidden; }
 .d2-strip {
   display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
-  padding: 0.25rem max(16px, calc((100% - 1180px) / 2)) 1.2rem;
+  --d2-edge: calc((100% - min(1120px, 100% - clamp(40px, 10vw, 200px))) / 2);
+  padding: 0.25rem var(--d2-edge) 1.2rem; scroll-padding-inline: var(--d2-edge);
   scrollbar-width: thin; scrollbar-color: var(--d2-gold) transparent;
 }
 .d2-strip:focus-visible { outline: 3px solid var(--d2-gold); outline-offset: -3px; }

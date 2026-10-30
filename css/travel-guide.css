@@ -1795,3 +1795,68 @@ html {
     inset: 0 0 160px 0;
   }
 }
+
+/* ---------- summary box: dark feature card ---------- */
+.tg-page .tg-summary {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  max-width: none;
+  margin-inline: auto;
+  padding: clamp(28px, 4vw, 52px) clamp(24px, 5vw, 64px);
+  border: 0;
+  border-radius: var(--tg-radius-xl);
+  background: var(--tg-ink);
+  box-shadow: 0 24px 54px rgba(15, 46, 58, 0.22);
+  text-align: center;
+}
+
+.tg-page .tg-summary strong {
+  display: inline-block;
+  margin: 0 0 var(--space-3);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffc98a;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tg-page .tg-summary p {
+  max-width: 860px;
+  margin: 0 auto var(--space-3);
+  color: #fff;
+  font-size: clamp(1.08rem, 1.7vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.tg-page .tg-summary small {
+  display: block;
+  max-width: 760px;
+  margin: 0 auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.tg-page .tg-summary small a {
+  color: #ffc98a;
+}
+
+/* opening quote mark when there is no label badge */
+.tg-page .tg-summary:not(:has(strong))::before {
+  content: "C";
+  position: absolute;
+  top: 6px;
+  left: 28px;
+  z-index: -1;
+  color: rgba(255, 255, 255, 0.14);
+  font: 700 7rem/1 Georgia, serif;
+  pointer-events: none;
+}

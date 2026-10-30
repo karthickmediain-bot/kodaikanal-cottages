@@ -66,7 +66,7 @@
   margin-bottom: 0.7rem;
 }
 .od-head { max-width: 640px; margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem); }
-.od-head p { margin-top: 0.8rem; }
+.od-page main .od-head p { margin-top: 1.25rem; }
 .od-head-center { margin-inline: auto; text-align: center; }
 
 /* ------------------------------- Buttons --------------------------------- */
