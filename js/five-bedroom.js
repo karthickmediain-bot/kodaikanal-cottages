@@ -107,7 +107,9 @@
       if (cottage) msg += " Cottage: " + cottage + ".";
       if (date) msg += " Check-in: " + date + ".";
       if (guests) msg += " Group size: " + guests + ".";
+      if (window.ckLeadForm) window.ckLeadForm(form);
       window.open(waLink(msg), "_blank", "noopener");
+      if (window.ckThankYouUrl) location.href = window.ckThankYouUrl();
     });
   }
 

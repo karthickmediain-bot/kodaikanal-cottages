@@ -11,7 +11,9 @@
  */
 var SECRET = 'CHANGE_ME_TO_A_LONG_RANDOM_STRING';
 var SHEET_NAME = 'Leads';
-var HEADERS = ['Received', 'ID', 'Category', 'Check-in', 'Check-out', 'Guests', 'Phone', 'Page', 'IP'];
+// New columns are appended on the right, so existing sheets keep working (add the new headings by hand).
+var HEADERS = ['Received', 'ID', 'Category', 'Check-in', 'Check-out', 'Guests', 'Phone', 'Page', 'IP',
+  'Lead type', 'Name', 'Email', 'Message', 'Page path', 'Page group', 'Channel', 'Source', 'Medium', 'Campaign', 'First channel', 'First source'];
 
 function doPost(e) {
   var data;
@@ -27,7 +29,9 @@ function doPost(e) {
   // Phone as text so a leading zero / long number isn't mangled
   sheet.appendRow([
     new Date(), data.id, safe(data.category), safe(data.check_in), safe(data.check_out),
-    safe(data.guests), "'" + safe(data.phone), safe(data.source_url), safe(data.ip)
+    safe(data.guests), "'" + safe(data.phone), safe(data.source_url), safe(data.ip),
+    safe(data.lead_type), safe(data.name), safe(data.email), safe(data.message), safe(data.source_path), safe(data.page_group),
+    safe(data.channel), safe(data.source), safe(data.medium), safe(data.campaign), safe(data.first_channel), safe(data.first_source)
   ]);
   return out({ ok: true });
 }

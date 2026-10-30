@@ -162,7 +162,12 @@
         all("[data-label]", form).forEach(function (f) {
           if (f.value.trim()) lines.push(f.getAttribute("data-label") + ": " + f.value.trim());
         });
+        if (window.ckLead) window.ckLead({
+          lead_type: "cab_request", form_id: form.getAttribute("aria-label") || "cab-form",
+          service_interest: form.getAttribute("data-intro"), message: lines.slice(1).join("; "),
+        });
         window.open(WA + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
+        if (window.ckThankYouUrl) location.href = window.ckThankYouUrl();
       });
     });
   }

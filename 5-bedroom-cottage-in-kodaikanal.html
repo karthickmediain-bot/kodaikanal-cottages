@@ -315,10 +315,10 @@
             <li><svg class="fb-i"><use href="#i-users"/></svg>One group at a time</li>
             <li><svg class="fb-i"><use href="#i-key"/></svg>Parking, Wi-Fi, heaters</li>
           </ul>
-          <form class="fb-form" id="fb-quote">
+          <form class="fb-form" id="fb-quote" data-lead="page_quote_form" data-lead-id="fb-quote" data-lead-service="5 bedroom cottage">
             <div>
               <label for="fb-q-cottage">Cottage</label>
-              <select id="fb-q-cottage" name="cottage">
+              <select id="fb-q-cottage" name="cottage" data-field="cottage" data-label="Cottage">
                 <option value="">Any of the six</option>
                 <option>Green Hill Resort</option>
                 <option>Shankar Cottage</option>
@@ -329,8 +329,8 @@
               </select>
             </div>
             <div class="fb-form-row">
-              <div><label for="fb-q-date">Check-in</label><input type="date" id="fb-q-date" name="date" /></div>
-              <div><label for="fb-q-guests">Guests</label><input type="number" id="fb-q-guests" name="guests" min="1" inputmode="numeric" placeholder="15" /></div>
+              <div><label for="fb-q-date">Check-in</label><input type="date" id="fb-q-date" name="date" data-field="check_in" data-label="Check-in" /></div>
+              <div><label for="fb-q-guests">Guests</label><input type="number" id="fb-q-guests" name="guests" data-field="guests" data-label="Group size" min="1" inputmode="numeric" placeholder="15" /></div>
             </div>
             <button class="fb-btn fb-btn-p fb-btn-block" type="submit"><svg class="fb-i"><use href="#i-wa"/></svg>Get quote on WhatsApp</button>
           </form>
@@ -358,9 +358,10 @@
   <div id="site-floating-cta" data-include="partials/floating-cta.html"></div>
 
   <script src="js/include.js" defer></script>
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=lead1" defer></script>
+  <script src="js/lead-form.js?v=2" defer></script>
   <script src="js/wa-context.js" defer></script>
-  <script src="js/five-bedroom.js" defer></script>
+  <script src="js/five-bedroom.js?v=lead3" defer></script>
 
   <script type="application/ld+json">
   {

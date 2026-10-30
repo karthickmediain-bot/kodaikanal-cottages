@@ -108,6 +108,7 @@
         "\nGuests: " + guests() +
         "\nCottage: " + (c ? c.value : "") +
         (msg ? "\nMessage: " + msg : "");
+      if (window.ckLeadForm) window.ckLeadForm(form);
       window.open(wa(text), "_blank", "noopener");
       if (window.ckThankYouUrl) location.href = window.ckThankYouUrl();
     });

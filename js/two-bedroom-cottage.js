@@ -91,7 +91,9 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var name = form.querySelector("[data-bc-cottage]").value;
+      if (window.ckLeadForm) window.ckLeadForm(form);
       window.open(WA + encodeURIComponent(message(name)), "_blank", "noopener");
+      if (window.ckThankYouUrl) location.href = window.ckThankYouUrl();
     });
     document.addEventListener("pointerdown", function (e) {
       if (e.target.closest && e.target.closest("[data-ask], [data-bind='wa']")) refreshLinks();

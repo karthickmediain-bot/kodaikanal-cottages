@@ -141,7 +141,9 @@
       if (f.checkout.value) m += "\nCheck-out: " + f.checkout.value;
       m += "\nGuests: " + f.guests.value + "\nCottage: " + f.cottage.value;
       if ((f.message.value || "").trim()) m += "\nNote: " + f.message.value.trim();
+      if (window.ckLeadForm) window.ckLeadForm(form);
       window.open(wa(m), "_blank", "noopener");
+      if (window.ckThankYouUrl) location.href = window.ckThankYouUrl();
     });
   }
 

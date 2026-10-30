@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /blog-admin/
+Disallow: /blog-system/
+Disallow: /api/
+Disallow: /partials/
+Disallow: /thank-you
+
+Sitemap: https://www.cottageskodaikanal.com/sitemap.xml
+Sitemap: https://www.cottageskodaikanal.com/sitemap-blog.xml

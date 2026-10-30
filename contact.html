@@ -134,12 +134,14 @@
           return;
         }
         var text = "Hi, I'm " + name + ".\n" + message + "\nMy phone: " + phone;
+        if (window.ckLead) window.ckLead({ lead_type: "contact_form", form_id: "contact-form", name: name, phone: phone, message: message });
         window.open("https://wa.me/917502345777?text=" + encodeURIComponent(text), "_blank", "noopener");
+        if (window.ckThankYouUrl) location.href = window.ckThankYouUrl();
       });
     })();
   </script>
   <script src="js/include.js" defer></script>
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=lead1" defer></script>
   <script src="js/wa-context.js" defer></script>
 </body>
 </html>

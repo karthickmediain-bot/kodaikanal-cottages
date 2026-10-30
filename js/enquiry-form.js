@@ -59,6 +59,12 @@
         "\nVehicle: " + val("qf-vehicle") +
         "\nStay: " + val("qf-stay") +
         (message ? "\nMessage: " + message : "");
+      if (window.ckLead) window.ckLead({
+        lead_type: "trip_enquiry", form_id: "enquiry-form", service_interest: label,
+        name: val("qf-name"), phone: val("qf-phone"), check_in: date, message: message,
+        trip_type: val("qf-trip"), traveller_type: val("qf-travellers"), pickup: val("qf-pickup"),
+        vehicle: val("qf-vehicle"), stay_type: val("qf-stay"),
+      });
       window.open("https://wa.me/917502345777?text=" + encodeURIComponent(text), "_blank", "noopener");
       if (window.ckThankYouUrl) location.href = window.ckThankYouUrl();
     });

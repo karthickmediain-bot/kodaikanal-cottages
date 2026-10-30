@@ -28,6 +28,12 @@ if ($uri === '/' || $uri === '') {
     return true;
 }
 
+// Blog (PHP-rendered from blog-system/data/, edited at /blog-admin/).
+if ($uri === '/blog-admin' || $uri === '/blog-admin/') { chdir(__DIR__ . '/blog-system/admin'); require __DIR__ . '/blog-system/admin/index.php'; return true; }
+if ($uri === '/sitemap-blog.xml') { require __DIR__ . '/blog-system/sitemap.php'; return true; }
+if (preg_match('#^/blog/?$#', $uri)) { require __DIR__ . '/blog-system/index.php'; return true; }
+if (preg_match('#^/blog/([a-z0-9-]+)/?$#', $uri, $m)) { $_GET['slug'] = $m[1]; require __DIR__ . '/blog-system/post.php'; return true; }
+
 // "/some-page" or "/some-page/" -> some-page.html, if it exists.
 $path = rtrim($uri, '/');
 $candidate = __DIR__ . $path . '.html';

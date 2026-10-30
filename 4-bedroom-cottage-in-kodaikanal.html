@@ -363,21 +363,21 @@
         <div class="fb-card" id="enquiry">
           <div class="fb-card-head"><strong>Free quote</strong><span>reply within the hour</span></div>
           <h3>Plan Your Stay</h3>
-          <form id="fb-form" novalidate>
+          <form id="fb-form" novalidate data-lead="page_quote_form" data-lead-id="fb-form" data-lead-service="4 bedroom cottage">
             <div class="fb-row2">
-              <div class="fb-field"><label for="fb-name">Full Name</label><input type="text" id="fb-name" name="name" required autocomplete="name" /></div>
-              <div class="fb-field"><label for="fb-phone">Phone Number</label><input type="tel" id="fb-phone" name="phone" required autocomplete="tel" /></div>
+              <div class="fb-field"><label for="fb-name">Full Name</label><input type="text" id="fb-name" name="name" required autocomplete="name" data-field="name" data-label="Name" /></div>
+              <div class="fb-field"><label for="fb-phone">Phone Number</label><input type="tel" id="fb-phone" name="phone" required autocomplete="tel" data-field="phone" data-label="Phone" /></div>
             </div>
             <div class="fb-row2">
-              <div class="fb-field"><label for="fb-date">Check-in Date</label><input type="date" id="fb-date" name="date" /></div>
+              <div class="fb-field"><label for="fb-date">Check-in Date</label><input type="date" id="fb-date" name="date" data-field="check_in" data-label="Check-in" /></div>
               <div class="fb-field"><label for="fb-guests">Guests</label>
-                <select id="fb-guests" name="guests"><option>6 to 8</option><option selected>9 to 12</option><option>13 to 16</option></select>
+                <select id="fb-guests" name="guests" data-field="guests" data-label="Guests"><option>6 to 8</option><option selected>9 to 12</option><option>13 to 16</option></select>
               </div>
             </div>
             <div class="fb-field"><label for="fb-cottage">Cottage</label>
-              <select id="fb-cottage" name="cottage"><option>Not sure yet</option><option>Stone Crest Cottage</option><option>Happy Point</option><option selected>Vacation Villa</option><option>Hillside Retreat</option><option>Pleasant Homes</option><option>Olive Garden</option></select>
+              <select id="fb-cottage" name="cottage" data-field="cottage" data-label="Cottage"><option>Not sure yet</option><option>Stone Crest Cottage</option><option>Happy Point</option><option selected>Vacation Villa</option><option>Hillside Retreat</option><option>Pleasant Homes</option><option>Olive Garden</option></select>
             </div>
-            <div class="fb-field"><label for="fb-msg">Message</label><textarea id="fb-msg" name="message" rows="2" placeholder="Budget, bonfire, pool or anything else we should know"></textarea></div>
+            <div class="fb-field"><label for="fb-msg">Message</label><textarea id="fb-msg" name="message" rows="2" data-field="message" data-label="Message" placeholder="Budget, bonfire, pool or anything else we should know"></textarea></div>
             <div class="fb-card-actions">
               <button type="submit" class="fb-btn fb-btn-p">Get My Quote</button>
               <a class="fb-btn fb-btn-o" href="#" data-fb-wa="" target="_blank" rel="noopener">WhatsApp Us</a>
@@ -415,9 +415,10 @@
   <div id="site-floating-cta" data-include="partials/floating-cta.html"></div>
 
   <script src="js/include.js" defer></script>
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=lead1" defer></script>
+  <script src="js/lead-form.js?v=2" defer></script>
   <script src="js/wa-context.js" defer></script>
-  <script src="js/four-bedroom.js" defer></script>
+  <script src="js/four-bedroom.js?v=lead3" defer></script>
 
   <script type="application/ld+json">
   {

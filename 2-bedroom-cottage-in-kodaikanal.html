@@ -362,12 +362,12 @@
             <li><svg class="bc-i" aria-hidden="true"><use href="#c-park"/></svg>Parking on site</li>
             <li><svg class="bc-i" aria-hidden="true"><use href="#i-clock"/></svg>Reply within the hour</li>
           </ul>
-          <form class="bc-form" data-bc-form aria-label="Check cottage availability">
+          <form class="bc-form" data-bc-form data-lead="page_quote_form" data-lead-id="bc-form" data-lead-service="2 bedroom cottage" aria-label="Check cottage availability">
             <div class="bc-field-row">
-              <div class="bc-field"><label for="bc-date">Check-in date</label><input type="date" id="bc-date" name="date" /></div>
-              <div class="bc-field"><label for="bc-guests">Guests</label><select id="bc-guests" name="guests"><option>2 guests</option><option>3 guests</option><option selected>4 guests</option><option>5 guests</option><option>6 guests</option></select></div>
+              <div class="bc-field"><label for="bc-date">Check-in date</label><input type="date" id="bc-date" name="date" data-field="check_in" data-label="Check-in" /></div>
+              <div class="bc-field"><label for="bc-guests">Guests</label><select id="bc-guests" name="guests" data-field="guests" data-label="Guests"><option>2 guests</option><option>3 guests</option><option selected>4 guests</option><option>5 guests</option><option>6 guests</option></select></div>
             </div>
-            <div class="bc-field"><label for="bc-cottage">Cottage</label><select id="bc-cottage" name="cottage" data-bc-cottage>
+            <div class="bc-field"><label for="bc-cottage">Cottage</label><select id="bc-cottage" name="cottage" data-bc-cottage data-field="cottage" data-label="Cottage">
                   <option value="">Any 2 bedroom cottage</option>
                   <option>Happy Point</option>
                   <option>Zill Breeze</option>
@@ -405,9 +405,10 @@
   <div id="site-floating-cta" data-include="partials/floating-cta.html"></div>
 
   <script src="js/include.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=lead1"></script>
+  <script src="js/lead-form.js?v=2" defer></script>
   <script src="js/wa-context.js" defer></script>
-  <script src="js/two-bedroom-cottage.js?v=6"></script>
+  <script src="js/two-bedroom-cottage.js?v=lead3"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

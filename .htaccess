@@ -36,6 +36,86 @@ RewriteRule ^Tentstay-in-kodaikanal(\.html)?/?$ /tentstay-in-kodaikanal [R=301,L
 RewriteRule ^Terms-and-conditions(\.html)?/?$ /terms-and-conditions [R=301,L]
 RewriteRule ^Travels-in-kodaikanal(\.html)?/?$ /travels-in-kodaikanal [R=301,L]
 
+# 301: live pages that have no local page yet -> closest existing page.
+# Remove a rule once its real page is built. Must stay above the generic rules below.
+# Resorts
+RewriteRule ^green-hills-resort-in-kodaikanal(\.html)?/?$ /resorts-in-kodaikanal [R=301,L]
+RewriteRule ^ksk-resort-kodaikanal(\.html)?/?$ /resorts-in-kodaikanal [R=301,L]
+RewriteRule ^olive-garden-resort-in-kodaikanal(\.html)?/?$ /resorts-in-kodaikanal [R=301,L]
+RewriteRule ^lazo-eucy-resort-kodaikanal(\.html)?/?$ /resorts-in-kodaikanal [R=301,L]
+RewriteRule ^moon-light-resort-kodaikanal(\.html)?/?$ /resorts-in-kodaikanal [R=301,L]
+RewriteRule ^hillside-retreat-in-kodaikanal(\.html)?/?$ /resorts-in-kodaikanal [R=301,L]
+RewriteRule ^poombarai-resorts(\.html)?/?$ /resorts-in-kodaikanal [R=301,L]
+# Villas
+RewriteRule ^vacation-villa-in-kodaikanal(\.html)?/?$ /villas-in-kodaikanal [R=301,L]
+RewriteRule ^kalpana-cottage-kodaikanal(\.html)?/?$ /villas-in-kodaikanal [R=301,L]
+RewriteRule ^blooming-villa-in-kodaikanal(\.html)?/?$ /villas-in-kodaikanal [R=301,L]
+RewriteRule ^inbaa-holidays-villa-in-kodaikanal(\.html)?/?$ /villas-in-kodaikanal [R=301,L]
+RewriteRule ^ragavendra-cottage-kodaikanal(\.html)?/?$ /villas-in-kodaikanal [R=301,L]
+RewriteRule ^sankar-cottage-kodaikanal(\.html)?/?$ /villas-in-kodaikanal [R=301,L]
+# Hotels
+RewriteRule ^hotel-mount-view-kodaikanal(\.html)?/?$ /hotels-in-kodaikanal [R=301,L]
+RewriteRule ^lakshmi-residency-in-kodaikanal(\.html)?/?$ /hotels-in-kodaikanal [R=301,L]
+# Lodges
+RewriteRule ^royal-adventure-in-kodaikanal(\.html)?/?$ /lodges-in-kodaikanal [R=301,L]
+RewriteRule ^dream-ville-cottage-in-kodaikanal(\.html)?/?$ /lodges-in-kodaikanal [R=301,L]
+# Tent stay
+RewriteRule ^kodai-outdoor-valley-kodaikanal(\.html)?/?$ /tentstay-in-kodaikanal [R=301,L]
+# Group stay
+RewriteRule ^happy-points-cottage-in-kodaikanal(\.html)?/?$ /groupstay-in-kodaikanal [R=301,L]
+RewriteRule ^stone-crest-cottage-kodaikanal(\.html)?/?$ /groupstay-in-kodaikanal [R=301,L]
+RewriteRule ^cottages-in-kodaikanal-for-group-stay(\.html)?/?$ /groupstay-in-kodaikanal [R=301,L]
+RewriteRule ^villas-in-kodaikanal-for-group-stay(\.html)?/?$ /groupstay-in-kodaikanal [R=301,L]
+RewriteRule ^kodaikanal-group-stay-cottage(\.html)?/?$ /groupstay-in-kodaikanal [R=301,L]
+# Homestays and cottages
+RewriteRule ^hill-crest-cottage-in-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^the-peahen-frame-stay-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^gladstone-cottage-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^zill-breeze-cottage-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^yellow-ksk-cottage-in-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^smilena-cottage-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^sri-sai-cottage-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^olive-tree-cottage-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^pleasant-homestay-in-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^ryan-cottage-in-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^safwan-cottage-in-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^sai-cottage-in-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^into-the-wild-wooden-house-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^kodai-mist-in-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^welcome-holidays-cottage-in-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^apollo-cottage-in-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^habib-cottage-in-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^poombarai-rooms(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^rooms-in-poondi(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^kookal-cottages(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^cottages-in-vattakanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+RewriteRule ^places-to-stay-in-kodaikanal(\.html)?/?$ /home-stay-in-kodaikanal [R=301,L]
+# Couple tour packages
+RewriteRule ^1-night-1-day-couple-tour-package(\.html)?/?$ /tour-packages-in-kodaikanal [R=301,L]
+RewriteRule ^1-night-2-days-couple-tour-package(\.html)?/?$ /tour-packages-in-kodaikanal [R=301,L]
+RewriteRule ^2-nights-1-day-couple-tour-package(\.html)?/?$ /tour-packages-in-kodaikanal [R=301,L]
+RewriteRule ^2-nights-2-days-couple-tour-package(\.html)?/?$ /tour-packages-in-kodaikanal [R=301,L]
+RewriteRule ^2-nights-3-days-couple-tour-package(\.html)?/?$ /tour-packages-in-kodaikanal [R=301,L]
+RewriteRule ^3-nights-1-day-couple-tour-package(\.html)?/?$ /tour-packages-in-kodaikanal [R=301,L]
+RewriteRule ^3-nights-2-days-couple-tour-package(\.html)?/?$ /tour-packages-in-kodaikanal [R=301,L]
+RewriteRule ^3-nights-3-days-couple-tour-package(\.html)?/?$ /tour-packages-in-kodaikanal [R=301,L]
+RewriteRule ^3-nights-4-days-couple-tour-package(\.html)?/?$ /tour-packages-in-kodaikanal [R=301,L]
+# Guides and areas
+RewriteRule ^poondi-kodaikanal(\.html)?/?$ /places-to-visit-in-kodaikanal [R=301,L]
+# Guides and areas
+RewriteRule ^poombarai(\.html)?/?$ /kodaikanal-village-tour [R=301,L]
+# Guides and areas
+RewriteRule ^kookal-falls-in-kodaikanal(\.html)?/?$ /water-falls-in-kodaikanal [R=301,L]
+RewriteRule ^faq(\.html)?/?$ /contact [R=301,L]
+
+# Blog: all code lives in blog-system/ (posts in blog-system/data/, rendered by PHP).
+# Public URLs stay /blog, /blog/<post>, /blog-admin/ and /sitemap-blog.xml.
+RewriteRule ^blog-system/(lib\.php|data/) - [F,L]
+RewriteRule ^sitemap-blog\.xml$ blog-system/sitemap.php [L]
+RewriteRule ^blog-admin/?$ blog-system/admin/index.php [L]
+RewriteRule ^blog/?$ blog-system/index.php [L]
+RewriteRule ^blog/([a-z0-9-]+)/?$ blog-system/post.php?slug=$1 [L,QSA]
+
 # /some-page.html -> /some-page (one canonical address per page)
 RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]

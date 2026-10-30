@@ -2,6 +2,87 @@
 // JS only where CSS/native HTML can't do the job (mobile nav toggle, tab
 // switching, sticky CTA bar visibility). FAQ uses native <details>, no JS.
 
+/* Traffic-source capture. Remembers how the visitor arrived (UTM tags, ad click ids,
+   external referrer) and exposes window.ckAttribution() for forms to send with a lead.
+   first = the visitor's first ever visit; last = the latest visit that carried a campaign
+   or an outside referrer (plain direct visits don't overwrite it). The server works out
+   the channel (Paid Search, Paid Social, Organic, Direct...) in api/attribution.php. */
+(function () {
+  "use strict";
+  var KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "utm_id",
+              "gclid", "gbraid", "wbraid", "fbclid", "msclkid", "ttclid"];
+  function get(store, k) { try { return store.getItem(k); } catch (e) { return null; } }
+  function set(store, k, v) { try { store.setItem(k, v); } catch (e) { /* storage blocked */ } }
+  function uid() {
+    return (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+      : Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+  }
+  function parse(json) { try { return JSON.parse(json || ""); } catch (e) { return null; } }
+
+  var visitorId = get(localStorage, "ck_vid") || uid();
+  set(localStorage, "ck_vid", visitorId);
+  var sessionId = get(sessionStorage, "ck_sid") || uid();
+  set(sessionStorage, "ck_sid", sessionId);
+
+  var params = new URLSearchParams(location.search);
+  var touch = { landing_url: location.href, ts: new Date().toISOString(), referrer: "" };
+  var hasSignal = false;
+  KEYS.forEach(function (k) {
+    var v = params.get(k);
+    if (v) { touch[k] = v.slice(0, 255); hasSignal = true; }
+  });
+  try {
+    var ref = document.referrer ? new URL(document.referrer) : null;
+    var strip = function (h) { return h.replace(/^www\./, ""); };
+    if (ref && strip(ref.hostname) !== strip(location.hostname)) { touch.referrer = ref.href; hasSignal = true; }
+  } catch (e) { /* bad referrer */ }
+
+  var first = parse(get(localStorage, "ck_first"));
+  var last = parse(get(localStorage, "ck_last"));
+  if (!first) { first = touch; set(localStorage, "ck_first", JSON.stringify(first)); }
+  if (hasSignal || !last) { last = touch; set(localStorage, "ck_last", JSON.stringify(last)); }
+
+  window.ckAttribution = function () {
+    return {
+      visitor_id: visitorId, session_id: sessionId,
+      page_url: location.href, page_title: document.title,
+      first: first, last: last,
+    };
+  };
+
+  /* window.ckLead({ lead_type, form_id, name, phone, ... }) saves a lead to /api/book.php with the
+     page and traffic source attached. Fire-and-forget (survives the page redirecting straight after). */
+  window.ckLead = function (data) {
+    try {
+      var body = JSON.stringify(Object.assign(
+        { source_url: location.href, attribution: window.ckAttribution(), website: "" }, data));
+      if (navigator.sendBeacon && navigator.sendBeacon("/api/book.php", new Blob([body], { type: "application/json" }))) return;
+      fetch("/api/book.php", { method: "POST", headers: { "Content-Type": "application/json" }, body: body, keepalive: true });
+    } catch (e) { /* never block the visitor */ }
+  };
+
+  /* Taps on WhatsApp and call links are recorded too, so every page's buttons show up in reports. */
+  var lastClick = { key: "", at: 0 };
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[href]");
+    if (!a) return;
+    var href = a.getAttribute("href") || "";
+    var type = /^https?:\/\/(wa\.me|api\.whatsapp\.com)\//i.test(href) ? "whatsapp_click" : /^tel:/i.test(href) ? "call_click" : "";
+    if (!type) return;
+    var now = Date.now();
+    if (lastClick.key === href && now - lastClick.at < 3000) return;
+    lastClick = { key: href, at: now };
+    var text = "";
+    try { text = decodeURIComponent((href.split("text=")[1] || "").split("&")[0]).slice(0, 300); } catch (err) { /* bad escape */ }
+    window.ckLead({
+      lead_type: type,
+      form_id: (a.id || (a.className || "").toString().split(" ")[0] || "link").slice(0, 60),
+      service_interest: (a.textContent || "").trim().replace(/\s+/g, " ").slice(0, 120),
+      message: text,
+    });
+  }, true);
+})();
+
 (function () {
   "use strict";
 
@@ -582,6 +663,9 @@
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+            lead_type: "hero_booking",
+            form_id: "hero-search",
+            attribution: window.ckAttribution ? window.ckAttribution() : null,
             category: heroCategoryInput?.value || "Hotels",
             traveller_type: activePersona,
             check_in: val("hero-checkin"),

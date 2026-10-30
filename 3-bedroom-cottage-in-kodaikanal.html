@@ -374,22 +374,22 @@
       </div>
 
       <aside class="c3-aside">
-        <form class="c3-card" id="c3-form" novalidate aria-labelledby="c3-form-h">
+        <form class="c3-card" id="c3-form" novalidate data-lead="page_quote_form" data-lead-id="c3-form" data-lead-service="3 bedroom cottage" aria-labelledby="c3-form-h">
           <div class="c3-card-head"><strong>Ask for today's rate</strong><span>Reply on WhatsApp, usually within the hour</span></div>
           <h3 id="c3-form-h">Plan Your Stay</h3>
           <div class="c3-f2">
-            <label class="c3-field"><span>Full Name</span><input type="text" name="name" required autocomplete="name" /></label>
-            <label class="c3-field"><span>Phone Number</span><input type="tel" name="phone" required autocomplete="tel" /></label>
+            <label class="c3-field"><span>Full Name</span><input type="text" name="name" required autocomplete="name" data-field="name" data-label="Name" /></label>
+            <label class="c3-field"><span>Phone Number</span><input type="tel" name="phone" required autocomplete="tel" data-field="phone" data-label="Phone" /></label>
           </div>
           <div class="c3-f2">
-            <label class="c3-field"><span>Check-in</span><input type="date" name="checkin" /></label>
-            <label class="c3-field"><span>Check-out</span><input type="date" name="checkout" /></label>
+            <label class="c3-field"><span>Check-in</span><input type="date" name="checkin" data-field="check_in" data-label="Check-in" /></label>
+            <label class="c3-field"><span>Check-out</span><input type="date" name="checkout" data-field="check_out" data-label="Check-out" /></label>
           </div>
           <div class="c3-f2">
-            <label class="c3-field"><span>Guests</span><select name="guests"><option>2 to 4</option><option>5 to 6</option><option selected>7 to 8</option><option>9 to 10</option><option>11 to 12</option><option>13 or more</option></select></label>
-            <label class="c3-field"><span>Cottage</span><select name="cottage"><option>Any 3 bedroom</option><option>Gladstone</option><option>Ryan</option><option>KSK</option><option>Lakshmi Villa</option><option>Smilena</option></select></label>
+            <label class="c3-field"><span>Guests</span><select name="guests" data-field="guests" data-label="Guests"><option>2 to 4</option><option>5 to 6</option><option selected>7 to 8</option><option>9 to 10</option><option>11 to 12</option><option>13 or more</option></select></label>
+            <label class="c3-field"><span>Cottage</span><select name="cottage" data-field="cottage" data-label="Cottage"><option>Any 3 bedroom</option><option>Gladstone</option><option>Ryan</option><option>KSK</option><option>Lakshmi Villa</option><option>Smilena</option></select></label>
           </div>
-          <label class="c3-field"><span>Message</span><textarea name="message" placeholder="Dates are flexible, need a kitchen, travelling with elders..."></textarea></label>
+          <label class="c3-field"><span>Message</span><textarea name="message" data-field="message" data-label="Note" placeholder="Dates are flexible, need a kitchen, travelling with elders..."></textarea></label>
           <button class="c3-btn c3-btn-wa c3-btn-block" type="submit">Get Rates on WhatsApp</button>
           <p class="c3-card-note">No account and no advance to get rates.</p>
         </form>
@@ -420,9 +420,10 @@
   <div id="site-floating-cta" data-include="partials/floating-cta.html"></div>
 
   <script src="js/include.js" defer></script>
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=lead1" defer></script>
+  <script src="js/lead-form.js?v=2" defer></script>
   <script src="js/wa-context.js" defer></script>
-  <script src="js/cottage-3bhk.js" defer></script>
+  <script src="js/cottage-3bhk.js?v=lead3" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
